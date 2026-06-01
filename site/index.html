@@ -4,157 +4,63 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>株式会社タスカル | 整理・買取・再販のリユース事業</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
+/* ── Variables ─────────────────────────────────────────────── */
 :root {
-  --tascal-cyan:        #8FB73E;
-  --tascal-cyan-deep:   #5E8526;
-  --tascal-cyan-soft:   #DCE8BC;
-  --tascal-cyan-tint:   #F1F6E3;
-
-  --leaf:               #8FB73E;
-  --leaf-bright:        #A8CC4A;
-  --leaf-deep:          #5E8526;
-  --leaf-soft:          #DCE8BC;
-  --leaf-tint:          #F1F6E3;
-
-  --cream:              #FAF6EE;
-  --cream-deep:         #F2EADC;
-  --sand:               #E8DCC4;
-  --taupe:              #B8A691;
-  --bark:               #6B5D4A;
-
-  --surface:            #FFFFFF;
-
-  --ink-1:              #1E2A2F;
-  --ink-2:              #4A5862;
-  --ink-3:              #8A95A0;
-  --ink-4:              #B8C2CB;
-
-  --border-hair:        #E2D9C7;
-  --border-input:       #B8A691;
-
-  --success:            #5B9E6F;
-  --success-bg:         #E9F2EC;
-  --warning:            #C99A38;
-  --warning-bg:         #FBF1D6;
-  --error:              #B85049;
-  --error-bg:           #F7E5E3;
-
+  --tascal-cyan:      #8FB73E;
+  --tascal-cyan-deep: #5E8526;
+  --tascal-cyan-soft: #DCE8BC;
+  --tascal-cyan-tint: #F1F6E3;
+  --leaf:             #8FB73E;
+  --leaf-bright:      #A8CC4A;
+  --leaf-deep:        #5E8526;
+  --leaf-soft:        #DCE8BC;
+  --leaf-tint:        #F1F6E3;
+  --cream:            #FAF6EE;
+  --cream-deep:       #F2EADC;
+  --sand:             #E8DCC4;
+  --taupe:            #B8A691;
+  --bark:             #6B5D4A;
+  --surface:          #FFFFFF;
+  --ink-1:            #1E2A2F;
+  --ink-2:            #4A5862;
+  --ink-3:            #8A95A0;
+  --ink-4:            #B8C2CB;
+  --border-hair:      #E2D9C7;
   --shadow-1: 0 1px 3px rgba(107,93,74,.06), 0 1px 2px rgba(107,93,74,.04);
   --shadow-2: 0 8px 24px rgba(107,93,74,.08), 0 2px 6px rgba(107,93,74,.05);
   --shadow-3: 0 20px 48px rgba(107,93,74,.12), 0 6px 14px rgba(107,93,74,.06);
-
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
-  --radius-xl:   20px;
-  --radius-pill: 999px;
-
-  --space-1:   4px;
-  --space-2:   8px;
-  --space-3:  12px;
-  --space-4:  16px;
-  --space-5:  24px;
-  --space-6:  32px;
-  --space-7:  48px;
-  --space-8:  64px;
-  --space-9:  96px;
-  --space-10:128px;
-  --space-11:160px;
-
-  --font-jp:        'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', system-ui, sans-serif;
-  --font-jp-serif:  'Noto Serif JP', 'Hiragino Mincho Pro', 'Yu Mincho', 'MS Mincho', serif;
-  --font-latin:     'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono:      ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  --font-base:      var(--font-jp);
-
-  --t-display:    clamp(40px, 5.4vw, 72px);
-  --t-h1:         clamp(32px, 3.6vw, 44px);
-  --t-h2:         32px;
-  --t-h3:         22px;
-  --t-h4:         18px;
-  --t-h5:         16px;
-  --t-eyebrow:    12px;
-  --t-body-lg:    17px;
-  --t-body:       15px;
-  --t-body-sm:    14px;
-  --t-caption:    12px;
-
-  --lh-tight:   1.25;
-  --lh-snug:    1.5;
-  --lh-body:    1.95;
+  --font-jp:        'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  --font-jp-serif:  'Noto Serif JP', 'Hiragino Mincho Pro', 'Yu Mincho', serif;
+  --font-latin:     'Inter', system-ui, -apple-system, sans-serif;
 }
 
-html, body {
+/* ── Reset & Base ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
   background: var(--cream);
   color: var(--ink-1);
-  font-family: var(--font-base);
-  font-size: var(--t-body);
-  line-height: var(--lh-body);
+  font-family: var(--font-jp);
+  font-size: 15px;
+  line-height: 1.95;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
-
-body { margin: 0; }
-html { scroll-behavior: smooth; }
 ::selection { background: var(--leaf-tint); color: var(--ink-1); }
+a { color: var(--ink-1); text-decoration-color: var(--leaf); transition: color 200ms; }
+a:hover { color: var(--leaf-deep); }
+p { margin: 0 0 16px; color: var(--ink-2); line-height: 1.95; }
+h1, h2, h3 { margin: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+img { display: block; max-width: 100%; }
+dl, dt, dd { margin: 0; }
 
-h1, .h1 {
-  font-family: var(--font-jp-serif);
-  font-size: var(--t-h1);
-  line-height: var(--lh-tight);
-  font-weight: 600;
-  color: var(--ink-1);
-  margin: 0 0 var(--space-5);
-  letter-spacing: 0.02em;
-}
-h2, .h2 {
-  font-family: var(--font-jp-serif);
-  font-size: var(--t-h2);
-  line-height: var(--lh-snug);
-  font-weight: 500;
-  color: var(--ink-1);
-  margin: 0 0 var(--space-5);
-  letter-spacing: 0.04em;
-}
-h3, .h3 {
-  font-family: var(--font-jp);
-  font-size: var(--t-h3);
-  line-height: var(--lh-snug);
-  font-weight: 700;
-  color: var(--ink-1);
-  margin: 0 0 var(--space-3);
-}
-h4, .h4 {
-  font-size: var(--t-h4);
-  font-weight: 700;
-  color: var(--ink-1);
-  margin: 0 0 var(--space-3);
-}
-p {
-  margin: 0 0 var(--space-4);
-  color: var(--ink-2);
-  line-height: var(--lh-body);
-}
-.display {
-  font-family: var(--font-jp-serif);
-  font-size: var(--t-display);
-  line-height: 1.3;
-  font-weight: 500;
-  color: var(--ink-1);
-  letter-spacing: 0.04em;
-}
-.eyebrow {
-  font-family: var(--font-latin);
-  font-size: var(--t-eyebrow);
-  font-weight: 600;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--leaf-deep);
-}
+/* ── Utilities ─────────────────────────────────────────────── */
 .eyebrow-jp {
   font-family: var(--font-jp);
   font-size: 13px;
@@ -170,116 +76,8 @@ p {
   width: 32px;
   height: 1px;
   background: var(--leaf);
+  flex-shrink: 0;
 }
-.caption {
-  font-size: var(--t-caption);
-  color: var(--ink-3);
-}
-a {
-  color: var(--ink-1);
-  text-decoration: underline;
-  text-decoration-color: var(--leaf);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4px;
-  transition: color 200ms ease, text-decoration-color 200ms ease;
-}
-a:hover { color: var(--leaf-deep); }
-a:focus-visible {
-  outline: 2px solid rgba(143,183,62,.55);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: 14px 28px;
-  border-radius: var(--radius-pill);
-  border: 1.5px solid transparent;
-  font-family: var(--font-base);
-  font-size: var(--t-body);
-  font-weight: 600;
-  line-height: 1;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
-  white-space: nowrap;
-}
-.btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--ink-1); color: #fff; }
-.btn-primary:hover { background: var(--leaf-deep); color: #fff; }
-.btn-cyan { background: var(--tascal-cyan); color: #fff; }
-.btn-cyan:hover { background: var(--tascal-cyan-deep); color: #fff; }
-.btn-leaf { background: var(--leaf); color: #fff; }
-.btn-leaf:hover { background: var(--leaf-deep); color: #fff; }
-.btn-ghost {
-  background: transparent;
-  color: var(--ink-1);
-  border-color: var(--ink-1);
-}
-.btn-ghost:hover { background: var(--ink-1); color: #fff; }
-.btn-arrow {
-  background: transparent;
-  border: none;
-  color: var(--ink-1);
-  font-weight: 600;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  border-radius: 0;
-  border-bottom: 1.5px solid var(--ink-1);
-  padding-bottom: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  font-family: var(--font-base);
-  font-size: var(--t-body);
-}
-.btn-arrow:hover { color: var(--leaf-deep); border-bottom-color: var(--leaf); }
-
-.card {
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-1);
-  transition: box-shadow 280ms ease, transform 280ms ease;
-}
-.card:hover { box-shadow: var(--shadow-2); transform: translateY(-3px); }
-
-.input {
-  display: block;
-  width: 100%;
-  padding: 14px 16px;
-  background: var(--surface);
-  border: none;
-  border-bottom: 1.5px solid var(--border-input);
-  border-radius: 0;
-  font-family: var(--font-base);
-  font-size: var(--t-body);
-  color: var(--ink-1);
-  transition: border-color 200ms ease;
-  box-sizing: border-box;
-}
-.input:focus { outline: none; border-bottom-color: var(--leaf); }
-.input::placeholder { color: var(--ink-4); }
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  font-size: var(--t-caption);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-}
-.badge-info    { background: var(--leaf-tint);    color: var(--leaf-deep); }
-.badge-outline { background: transparent; color: var(--ink-1); border: 1px solid var(--ink-1); }
-.badge-warm    { background: var(--sand); color: var(--bark); }
-
 .rule-diagonal {
   width: 80px;
   height: 1px;
@@ -288,839 +86,1114 @@ a:focus-visible {
   transform-origin: left center;
   margin: 24px 0;
 }
-
 .concept-ticks {
   display: inline-flex;
+  align-items: flex-end;
   gap: 5px;
 }
 .concept-ticks span {
   display: block;
   width: 2px;
-  height: 26px;
   background: var(--leaf);
   transform: skewX(-22deg);
 }
-.concept-ticks span:nth-child(2) { background: var(--leaf-bright); height: 20px; align-self: flex-end; }
-.concept-ticks span:nth-child(3) { background: var(--leaf-soft);   height: 14px; align-self: flex-end; }
-
+.concept-ticks span:nth-child(1) { height: 26px; }
+.concept-ticks span:nth-child(2) { height: 20px; background: var(--leaf-bright); }
+.concept-ticks span:nth-child(3) { height: 14px; background: var(--leaf-soft); }
 .jp-spaced { letter-spacing: 0.28em; }
-</style>
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-</head>
-<body>
-<div id="root"></div>
-<script type="text/babel">
-
-/* ── Services Data ─────────────────────────────────────────── */
-const SERVICES_DATA = {
-  'ihin-seiri': {
-    num: '01', en: 'ESTATE CLEANUP', title: '遺品整理',
-    short: 'ご遺族に代わり、故人の遺品を丁寧に仕分け・整理いたします。',
-  },
-  'seizen-seiri': {
-    num: '02', en: 'PRE-ESTATE ORGANIZE', title: '生前整理',
-    short: 'お元気なうちに、ご自身の手でモノと気持ちを整理する終活サポート。',
-  },
-  'fukushi-seiri': {
-    num: '03', en: 'WELFARE CLEANUP', title: '福祉整理',
-    short: '高齢者・障害者・生活困窮者の住環境を安全に整える整理サービス。',
-  },
-  'cleanup': {
-    num: '04', en: 'DECLUTTERING', title: 'お片付け',
-    short: '引っ越し前後・空き家・実家じまいの整理をワンストップで。',
-  },
-  'kaitori': {
-    num: '05', en: 'PURCHASE', title: '買取事業',
-    short: '貴金属・時計・カメラ・骨董・着物・酒類など幅広い品目をお買取。',
-  },
-  'ec': {
-    num: '06', en: 'ONLINE SALES', title: 'インターネット販売事業',
-    short: 'ヤフオク等のプラットフォームを通じた再販売事業。',
-  },
-};
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-jp);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-1);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--ink-1);
+  padding-bottom: 6px;
+  transition: color 200ms, border-color 200ms;
+}
+.btn-arrow:hover { color: var(--leaf-deep); border-bottom-color: var(--leaf); }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--ink-1);
+  color: #fff;
+  font-family: var(--font-jp);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 200ms;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--leaf-deep); color: #fff; }
+.btn-cyan {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--tascal-cyan);
+  color: #fff;
+  font-family: var(--font-jp);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 200ms;
+  white-space: nowrap;
+}
+.btn-cyan:hover { background: var(--tascal-cyan-deep); color: #fff; }
 
 /* ── Header ────────────────────────────────────────────────── */
-const Header = ({ current = 'home' }) => {
-  const [scrolled, setScrolled] = React.useState(false);
-  React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const NAV = [
-    { id: 'about',    en: 'ABOUT',    jp: '会社概要',       href: 'about.html' },
-    { id: 'services', en: 'SERVICES', jp: '事業内容',       href: 'services.html' },
-    { id: 'business', en: 'BUSINESS', jp: '法人のお客様へ', href: 'business.html' },
-    { id: 'recruit',  en: 'RECRUIT',  jp: '採用情報',       href: 'recruit.html' },
-  ];
-
-  return (
-    <header style={{
-      position: 'sticky', top: 0, zIndex: 50,
-      background: scrolled ? 'rgba(250,246,238,0.94)' : 'var(--cream)',
-      backdropFilter: scrolled ? 'blur(18px) saturate(140%)' : 'none',
-      borderBottom: scrolled ? '1px solid var(--border-hair)' : '1px solid transparent',
-      transition: 'all 280ms ease',
-    }}>
-      <div style={{
-        maxWidth: 1320, margin: '0 auto', padding: '16px 36px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        gap: 24,
-      }}>
-        <a href="index.html" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
-          <img src="assets/logo-tasukaru-green.png" alt="タスカル tasukaru" style={{ height: 44 }}/>
-        </a>
-
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-          {NAV.map(p => (
-            <a key={p.id} href={p.href} style={{
-              textDecoration: 'none',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
-              position: 'relative', paddingBottom: 6,
-            }}>
-              <span style={{
-                fontFamily: 'var(--font-latin)',
-                fontSize: 10, fontWeight: 600,
-                letterSpacing: '0.28em',
-                color: 'var(--tascal-cyan-deep)',
-                opacity: current === p.id ? 1 : 0.65,
-              }}>{p.en}</span>
-              <span style={{
-                fontSize: 13, fontWeight: 700,
-                color: 'var(--ink-1)',
-              }}>{p.jp}</span>
-              {current === p.id && (
-                <span style={{
-                  position: 'absolute', bottom: -2, left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: 24, height: 1.5,
-                  background: 'var(--tascal-cyan)',
-                }}/>
-              )}
-            </a>
-          ))}
-        </nav>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexShrink: 0 }}>
-          <a href="tel:0120433233" style={{
-            textDecoration: 'none',
-            display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
-            lineHeight: 1.2,
-          }}>
-            <span style={{
-              fontFamily: 'var(--font-latin)',
-              fontSize: 9, fontWeight: 600,
-              letterSpacing: '0.24em',
-              color: 'var(--ink-3)',
-            }}>TEL · 受付 9:00-18:00</span>
-            <span style={{
-              fontFamily: 'var(--font-latin)',
-              fontSize: 22, fontWeight: 600,
-              letterSpacing: '0.02em',
-              color: 'var(--ink-1)',
-            }}>0120-433-233</span>
-          </a>
-          <a href="contact.html" style={{
-            textDecoration: 'none',
-            fontSize: 13, fontWeight: 600,
-            color: '#fff',
-            background: current === 'contact' ? 'var(--tascal-cyan-deep)' : 'var(--ink-1)',
-            padding: '12px 22px', borderRadius: 999,
-            transition: 'background 200ms ease',
-          }}>お問い合わせ</a>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-/* ── Footer ────────────────────────────────────────────────── */
-const SITEMAP = [
-  {
-    head: '会社情報', en: 'ABOUT',
-    items: [
-      { t: '会社概要',  h: 'about.html' },
-      { t: '代表挨拶',  h: 'about-greeting.html' },
-      { t: '会社沿革',  h: 'about-history.html' },
-    ],
-  },
-  {
-    head: '事業内容', en: 'SERVICES',
-    items: [
-      { t: '遺品整理',          h: 'services-ihin-seiri.html' },
-      { t: '生前整理',          h: 'services-seizen-seiri.html' },
-      { t: '福祉整理',          h: 'services-fukushi-seiri.html' },
-      { t: 'お片付け',          h: 'services-cleanup.html' },
-      { t: '買取事業',          h: 'services-kaitori.html' },
-      { t: 'インターネット販売', h: 'services-ec.html' },
-    ],
-  },
-  {
-    head: 'その他', en: 'OTHERS',
-    items: [
-      { t: '法人のお客様へ',       h: 'business.html' },
-      { t: '採用情報',             h: 'recruit.html' },
-      { t: 'お問い合わせ',         h: 'contact.html' },
-      { t: 'プライバシーポリシー', h: 'privacy.html' },
-    ],
-  },
-];
-
-const Footer = () => (
-  <footer style={{
-    background: 'var(--ink-1)',
-    color: '#fff',
-    padding: '80px 40px 32px',
-  }}>
-    <div style={{ maxWidth: 1320, margin: '0 auto' }}>
-
-      <div style={{
-        background: 'rgba(255,255,255,0.04)',
-        border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: 12,
-        padding: '20px 24px',
-        marginBottom: 64,
-      }}>
-        <div style={{
-          fontFamily: 'var(--font-latin)',
-          fontSize: 10, fontWeight: 600, letterSpacing: '0.28em',
-          color: 'var(--tascal-cyan)',
-          marginBottom: 12,
-        }}>LICENSES &amp; QUALIFICATIONS</div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          {[
-            { kind: '許認可', name: '古物商許可' },
-            { kind: '許認可', name: '産業廃棄物収集運搬業 (埼玉)' },
-            { kind: '許認可', name: '酒類販売業免許' },
-            { kind: '許認可', name: '特別国際種事業者登録' },
-            { kind: '資格',   name: '遺品整理士' },
-            { kind: '資格',   name: '3Rディレクター' },
-          ].map(l => (
-            <span key={l.name} style={{
-              fontSize: 12, fontWeight: 500,
-              color: '#fff',
-              padding: '5px 12px',
-              borderRadius: 999,
-              border: `1px solid ${l.kind === '許認可' ? 'var(--tascal-cyan)' : 'var(--taupe)'}`,
-              display: 'inline-flex', alignItems: 'center', gap: 6,
-            }}>
-              <span style={{
-                width: 6, height: 6, borderRadius: '50%',
-                background: l.kind === '許認可' ? 'var(--tascal-cyan)' : 'var(--taupe)',
-              }}/>
-              {l.name}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div style={{
-        display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr',
-        gap: 56, marginBottom: 56,
-      }}>
-        <div>
-          <img src="assets/logo-tasukaru.png" alt="タスカル tasukaru" style={{ height: 56, filter: 'brightness(0) invert(1)' }}/>
-          <div style={{ marginTop: 28, fontSize: 13, color: '#B8C2CB', lineHeight: 2 }}>
-            株式会社タスカル<br/>
-            〒362-0035<br/>
-            埼玉県上尾市仲町1-7-25
-          </div>
-          <div style={{ marginTop: 20, lineHeight: 1.4 }}>
-            <a href="tel:0120433233" style={{
-              fontFamily: 'var(--font-latin)',
-              fontSize: 22, fontWeight: 600,
-              color: '#fff', textDecoration: 'none',
-            }}>0120-433-233</a>
-            <div style={{ fontSize: 11, color: '#7B8D98' }}>受付 10:00 - 19:00 / 年中無休</div>
-          </div>
-        </div>
-
-        {SITEMAP.map(col => (
-          <div key={col.head}>
-            <div style={{
-              fontFamily: 'var(--font-latin)',
-              fontSize: 10, fontWeight: 600, letterSpacing: '0.28em',
-              color: 'var(--tascal-cyan)', marginBottom: 16,
-            }}>{col.en}</div>
-            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {col.items.map(it => (
-                <li key={it.t}>
-                  <a href={it.h} style={{ fontSize: 13.5, color: '#fff', textDecoration: 'none' }}>— {it.t}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      <div style={{
-        borderTop: '1px solid rgba(255,255,255,0.1)',
-        paddingTop: 24,
-        display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
-        fontSize: 12, color: '#7B8D98',
-      }}>
-        <div>© 株式会社タスカル All Rights Reserved.</div>
-        <div style={{ display: 'flex', gap: 24 }}>
-          <a href="privacy.html" style={{ color: '#7B8D98', textDecoration: 'none' }}>プライバシーポリシー</a>
-          <a href="contact.html" style={{ color: '#7B8D98', textDecoration: 'none' }}>お問い合わせ</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid transparent;
+  transition: background 280ms ease, border-color 280ms ease, backdrop-filter 280ms ease;
+}
+#site-header.scrolled {
+  background: rgba(250,246,238,0.94);
+  backdrop-filter: blur(18px) saturate(140%);
+  border-bottom-color: var(--border-hair);
+}
+.header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+.header-logo img { height: 44px; }
+.header-nav { display: flex; align-items: center; gap: 32px; }
+.nav-item {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  position: relative;
+  padding-bottom: 6px;
+}
+.nav-item-en {
+  font-family: var(--font-latin);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--tascal-cyan-deep);
+  opacity: 0.65;
+}
+.nav-item-jp { font-size: 13px; font-weight: 700; color: var(--ink-1); }
+.header-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.header-tel {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+.header-tel-label {
+  font-family: var(--font-latin);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--ink-3);
+}
+.header-tel-num {
+  font-family: var(--font-latin);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-1);
+}
+.header-contact-btn {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--ink-1);
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 200ms;
+  white-space: nowrap;
+}
+.header-contact-btn:hover { background: var(--leaf-deep); color: #fff; }
 
 /* ── Hero ──────────────────────────────────────────────────── */
-const Hero = () => (
-  <section id="top" style={{
-    position: 'relative',
-    padding: '80px 40px 140px',
-    overflow: 'hidden',
-  }}>
-    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
-      <div style={{
-        position: 'absolute', top: '-12%', right: '-12%', width: '64%', height: '116%',
-        background: 'var(--leaf-tint)',
-        transform: 'rotate(-7deg)',
-        borderRadius: '42% 32% 36% 40%',
-        opacity: 0.9,
-      }}/>
-      <div style={{
-        position: 'absolute', top: '8%', right: '2%', width: '44%', height: '76%',
-        background: 'var(--leaf-soft)',
-        transform: 'rotate(-13deg)',
-        borderRadius: '46% 34% 40% 30%',
-        opacity: 0.55,
-      }}/>
-    </div>
+#hero {
+  position: relative;
+  padding: 80px 40px 140px;
+  overflow: hidden;
+}
+.hero-bg-blob-1 {
+  position: absolute;
+  top: -12%;
+  right: -12%;
+  width: 64%;
+  height: 116%;
+  background: var(--leaf-tint);
+  transform: rotate(-7deg);
+  border-radius: 42% 32% 36% 40%;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.hero-bg-blob-2 {
+  position: absolute;
+  top: 8%;
+  right: 2%;
+  width: 44%;
+  height: 76%;
+  background: var(--leaf-soft);
+  transform: rotate(-13deg);
+  border-radius: 46% 34% 40% 30%;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 80px;
+  align-items: center;
+  padding-top: 80px;
+}
+.hero-copy {}
+.hero-h1 {
+  font-family: var(--font-jp-serif);
+  font-size: clamp(40px, 4.8vw, 64px);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  color: var(--ink-1);
+  margin: 0 0 32px;
+}
+.hero-h1 .accent { color: var(--leaf-deep); }
+.hero-h1 .underline-wrap {
+  position: relative;
+  display: inline-block;
+}
+.hero-h1 .underline-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 8px;
+  background: var(--leaf);
+  opacity: 0.3;
+  border-radius: 4px;
+}
+.hero-lead {
+  font-size: 17px;
+  color: var(--ink-2);
+  line-height: 1.95;
+  max-width: 540px;
+  margin: 0 0 48px;
+}
+.hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+.hero-cards { position: relative; height: 560px; }
 
-    <div style={{
-      position: 'relative', zIndex: 1,
-      maxWidth: 1320, margin: '0 auto',
-      display: 'grid', gridTemplateColumns: '1fr 0.85fr',
-      gap: 80, alignItems: 'center',
-      paddingTop: 80,
-    }}>
-      <div>
-        <div className="eyebrow-jp" style={{ marginBottom: 32 }}>
-          REUSE × ORGANIZE × CARE
-        </div>
-        <h1 style={{
-          fontFamily: 'var(--font-jp-serif)',
-          fontSize: 'clamp(40px, 4.8vw, 64px)',
-          fontWeight: 500,
-          lineHeight: 1.45,
-          letterSpacing: '0.08em',
-          color: 'var(--ink-1)',
-          margin: '0 0 32px',
-        }}>
-          かたづかない<span style={{ color: 'var(--leaf-deep)' }}>モノ</span>と<br/>
-          <span style={{ position: 'relative', display: 'inline-block' }}>
-            思い出を、丁寧に。
-            <span style={{
-              position: 'absolute', left: 0, bottom: -8,
-              width: '100%', height: 8,
-              background: 'var(--leaf)',
-              opacity: 0.3,
-              borderRadius: 4,
-            }}/>
-          </span>
-        </h1>
-        <p style={{
-          fontSize: 17,
-          color: 'var(--ink-2)',
-          lineHeight: 1.95,
-          maxWidth: 540,
-          margin: '0 0 48px',
-        }}>
-          お片付け・遺品整理・生前整理・福祉整理から、買取・インターネット販売まで。<br/>
-          埼玉・上尾を拠点に、ご家庭の「困った」をまるごとお引き受けします。
-        </p>
-
-        <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', alignItems: 'center' }}>
-          <a href="contact.html" className="btn btn-primary">
-            お問い合わせ
-            <span style={{ fontSize: 18 }}>→</span>
-          </a>
-          <a href="business.html" className="btn-arrow" style={{
-            fontFamily: 'var(--font-base)', fontSize: 14, fontWeight: 600,
-          }}>
-            法人のお客様へ
-            <span style={{ color: 'var(--tascal-cyan)' }}>→</span>
-          </a>
-        </div>
-      </div>
-
-      <div style={{ position: 'relative', height: 560 }}>
-        <a href="services-kaitori.html" style={{
-          textDecoration: 'none',
-          position: 'absolute', top: 0, right: 60,
-          width: 260, height: 340,
-          background: '#fff',
-          borderRadius: 8,
-          boxShadow: 'var(--shadow-2)',
-          padding: 32,
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-          transform: 'rotate(2.5deg)',
-          transition: 'transform 280ms ease, box-shadow 280ms ease',
-        }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px) rotate(2.5deg)'; e.currentTarget.style.boxShadow = 'var(--shadow-3)'; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = 'rotate(2.5deg)'; e.currentTarget.style.boxShadow = 'var(--shadow-2)'; }}
-        >
-          <div style={{ fontFamily: 'var(--font-latin)', fontSize: 10, letterSpacing: '0.3em', color: 'var(--leaf-deep)', fontWeight: 600 }}>SERVICE 05</div>
-          <div>
-            <div style={{ fontFamily: 'var(--font-jp-serif)', fontSize: 32, fontWeight: 500, letterSpacing: '0.04em', lineHeight: 1.3, color: 'var(--ink-1)' }}>買取<br/>事業</div>
-            <div style={{ fontSize: 12, color: 'var(--ink-3)', marginTop: 12, lineHeight: 1.8 }}>
-              貴金属・時計・カメラ<br/>骨董・着物・酒類まで
-            </div>
-          </div>
-        </a>
-
-        <a href="services-ihin-seiri.html" style={{
-          textDecoration: 'none',
-          position: 'absolute', top: 120, left: 0,
-          width: 240, height: 320,
-          background: 'var(--cream-deep)',
-          borderRadius: 8,
-          boxShadow: 'var(--shadow-2)',
-          padding: 28,
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-          transform: 'rotate(-3deg)',
-          transition: 'transform 280ms ease, box-shadow 280ms ease',
-        }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px) rotate(-3deg)'; e.currentTarget.style.boxShadow = 'var(--shadow-3)'; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = 'rotate(-3deg)'; e.currentTarget.style.boxShadow = 'var(--shadow-2)'; }}
-        >
-          <div style={{ fontFamily: 'var(--font-latin)', fontSize: 10, letterSpacing: '0.3em', color: 'var(--bark)', fontWeight: 600 }}>SERVICE 01</div>
-          <div>
-            <div style={{ fontFamily: 'var(--font-jp-serif)', fontSize: 30, fontWeight: 500, letterSpacing: '0.04em', lineHeight: 1.3, color: 'var(--ink-1)' }}>遺品<br/>整理</div>
-            <div style={{ fontSize: 12, color: 'var(--ink-2)', marginTop: 12, lineHeight: 1.8 }}>
-              故人を偲びながら、<br/>ひとつずつ丁寧に。
-            </div>
-          </div>
-        </a>
-
-        <div style={{
-          position: 'absolute', bottom: 0, right: 0,
-          width: 220, height: 220,
-          background: 'var(--ink-1)',
-          color: '#fff',
-          borderRadius: 8,
-          boxShadow: 'var(--shadow-3)',
-          transform: 'rotate(1.5deg)',
-          padding: 28,
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-        }}>
-          <div style={{
-            fontFamily: 'var(--font-latin)',
-            fontSize: 10, fontWeight: 600,
-            letterSpacing: '0.3em',
-            color: 'var(--leaf-bright)',
-          }}>FROM SAITAMA</div>
-          <div>
-            <div style={{ fontFamily: 'var(--font-jp-serif)', fontSize: 22, fontWeight: 500, lineHeight: 1.4, letterSpacing: '0.06em' }}>上尾から、<br/>関東一円へ。</div>
-            <div style={{ fontSize: 11, marginTop: 12, color: '#B8C2CB', letterSpacing: '0.08em' }}>Ageo, Saitama</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style={{
-      position: 'absolute', bottom: 32, left: '50%',
-      transform: 'translateX(-50%)',
-      fontFamily: 'var(--font-latin)',
-      fontSize: 10, letterSpacing: '0.3em',
-      color: 'var(--ink-3)',
-      writingMode: 'vertical-rl',
-      display: 'flex', alignItems: 'center', gap: 12,
-    }}>
-      <span>SCROLL</span>
-      <span style={{ width: 1, height: 40, background: 'var(--ink-3)' }}/>
-    </div>
-  </section>
-);
+/* Hero cards */
+.hero-card {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: var(--shadow-2);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+.hero-card-kaitori {
+  top: 0;
+  right: 60px;
+  width: 260px;
+  height: 340px;
+  background: #fff;
+  padding: 32px;
+  transform: rotate(2.5deg);
+}
+.hero-card-kaitori:hover {
+  transform: translateY(-6px) rotate(2.5deg);
+  box-shadow: var(--shadow-3);
+}
+.hero-card-ihin {
+  top: 120px;
+  left: 0;
+  width: 240px;
+  height: 320px;
+  background: var(--cream-deep);
+  transform: rotate(-3deg);
+}
+.hero-card-ihin:hover {
+  transform: translateY(-6px) rotate(-3deg);
+  box-shadow: var(--shadow-3);
+}
+.hero-card-saitama {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 220px;
+  height: 220px;
+  background: var(--ink-1);
+  border-radius: 8px;
+  box-shadow: var(--shadow-3);
+  transform: rotate(1.5deg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+.card-service-label {
+  font-family: var(--font-latin);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+}
+.card-title-kaitori {
+  font-family: var(--font-jp-serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  color: var(--ink-1);
+}
+.card-sub-kaitori {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-top: 12px;
+  line-height: 1.8;
+}
+.card-title-ihin {
+  font-family: var(--font-jp-serif);
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  color: var(--ink-1);
+}
+.card-sub-ihin {
+  font-size: 12px;
+  color: var(--ink-2);
+  margin-top: 12px;
+  line-height: 1.8;
+}
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-latin);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--ink-3);
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-scroll-indicator::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: var(--ink-3);
+}
 
 /* ── ConceptRow ────────────────────────────────────────────── */
-const ConceptRow = () => {
-  const ITEMS = [
-    { jp: 'ていねいに、整える', en: 'WITH CARE', sub: '暮らしのペースに寄り添い、ひとつずつ。' },
-    { jp: '想いごと、引き継ぐ', en: 'RESPECT',   sub: '故人とご家族の気持ちを、何より大切に。' },
-    { jp: '資源を、めぐらせる', en: 'REUSE',     sub: '「捨てる」前に、活かす選択肢を。' },
-  ];
-  return (
-    <section style={{ padding: '88px 40px 96px', background: 'var(--cream)' }}>
-      <div style={{
-        maxWidth: 1180, margin: '0 auto',
-        display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: 56,
-      }}>
-        {ITEMS.map(it => (
-          <div key={it.en} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div className="concept-ticks" style={{ marginBottom: 22 }}>
-              <span/><span/><span/>
-            </div>
-            <h3 className="jp-spaced" style={{
-              fontFamily: 'var(--font-jp-serif)',
-              fontSize: 23, fontWeight: 500,
-              color: 'var(--leaf-deep)',
-              margin: '0 0 10px',
-            }}>{it.jp}</h3>
-            <div style={{
-              fontFamily: 'var(--font-latin)',
-              fontSize: 10, fontWeight: 600, letterSpacing: '0.34em',
-              color: 'var(--ink-3)', marginBottom: 16,
-            }}>{it.en}</div>
-            <p style={{
-              fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.9,
-              margin: 0, maxWidth: 260,
-            }}>{it.sub}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+#concept {
+  padding: 88px 40px 96px;
+  background: var(--cream);
+}
+.concept-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+}
+.concept-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.concept-item .concept-ticks { margin-bottom: 22px; }
+.concept-item-jp {
+  font-family: var(--font-jp-serif);
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--leaf-deep);
+  margin: 0 0 10px;
+  letter-spacing: 0.28em;
+}
+.concept-item-en {
+  font-family: var(--font-latin);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  color: var(--ink-3);
+  margin-bottom: 16px;
+}
+.concept-item-sub {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.9;
+  margin: 0;
+  max-width: 260px;
+}
 
 /* ── ServiceIntro ──────────────────────────────────────────── */
-const SERVICE_KEYS = ['ihin-seiri', 'seizen-seiri', 'fukushi-seiri', 'cleanup', 'kaitori', 'ec'];
-const SERVICE_HREFS = {
-  'ihin-seiri':   'services-ihin-seiri.html',
-  'seizen-seiri': 'services-seizen-seiri.html',
-  'fukushi-seiri':'services-fukushi-seiri.html',
-  'cleanup':      'services-cleanup.html',
-  'kaitori':      'services-kaitori.html',
-  'ec':           'services-ec.html',
-};
-
-const ServiceIntro = () => (
-  <section style={{ padding: '120px 40px', background: 'var(--cream)' }}>
-    <div style={{ maxWidth: 1320, margin: '0 auto' }}>
-      <div style={{
-        display: 'grid', gridTemplateColumns: '1fr 1fr',
-        gap: 80, alignItems: 'end', marginBottom: 64,
-      }}>
-        <div>
-          <div className="eyebrow-jp">SERVICES</div>
-          <div className="rule-diagonal"/>
-          <h2 style={{
-            fontFamily: 'var(--font-jp-serif)',
-            fontSize: 'clamp(28px, 3vw, 40px)',
-            fontWeight: 500, lineHeight: 1.4,
-            letterSpacing: '0.06em',
-            margin: '20px 0 0',
-          }}>
-            ６つの事業で、<br/>暮らしと法人のご依頼に対応。
-          </h2>
-        </div>
-        <div style={{ textAlign: 'right' }}>
-          <a href="services.html" className="btn-arrow" style={{ fontSize: 14 }}>
-            事業内容一覧を見る
-            <span style={{ color: 'var(--tascal-cyan)', fontSize: 18 }}>→</span>
-          </a>
-        </div>
-      </div>
-
-      <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: 24, alignItems: 'stretch',
-      }}>
-        {SERVICE_KEYS.map(k => {
-          const s = SERVICES_DATA[k];
-          return (
-            <a key={k} href={SERVICE_HREFS[k]} style={{
-              textDecoration: 'none', display: 'block',
-              background: '#fff', borderRadius: 10,
-              border: '1px solid var(--border-hair)',
-              padding: '28px 28px 24px', boxShadow: 'none',
-              transition: 'all 280ms ease',
-            }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'var(--shadow-2)';
-                e.currentTarget.style.borderColor = 'var(--leaf-soft)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = '';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'var(--border-hair)';
-              }}
-            >
-              <div className="concept-ticks" style={{ marginBottom: 18 }}>
-                <span/><span/><span/>
-              </div>
-              <div style={{
-                fontFamily: 'var(--font-latin)',
-                fontWeight: 300, fontSize: 40,
-                color: 'var(--leaf)', opacity: 0.4,
-                lineHeight: 1, letterSpacing: '-0.04em',
-                marginBottom: 10,
-              }}>{s.num}</div>
-              <div style={{
-                fontFamily: 'var(--font-latin)',
-                fontSize: 10, fontWeight: 600,
-                letterSpacing: '0.24em',
-                color: 'var(--tascal-cyan-deep)',
-                marginBottom: 6,
-              }}>{s.en}</div>
-              <h3 className="jp-spaced" style={{
-                fontFamily: 'var(--font-jp-serif)',
-                fontSize: 21, fontWeight: 500,
-                margin: '0 0 12px', color: 'var(--ink-1)',
-              }}>{s.title}</h3>
-              <p style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.85, margin: 0 }}>
-                {s.short}
-              </p>
-              <div style={{
-                marginTop: 20, paddingTop: 16,
-                borderTop: '1px solid var(--border-hair)',
-                fontSize: 12, color: 'var(--ink-3)',
-                display: 'flex', alignItems: 'center', gap: 8,
-              }}>
-                詳しく見る
-                <span style={{ color: 'var(--tascal-cyan)' }}>→</span>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-);
+#services {
+  padding: 120px 40px;
+  background: var(--cream);
+}
+.services-inner { max-width: 1320px; margin: 0 auto; }
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.services-h2 {
+  font-family: var(--font-jp-serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  margin: 20px 0 0;
+}
+.services-header-right { text-align: right; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.service-card {
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border-hair);
+  padding: 28px 28px 24px;
+  box-shadow: none;
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+  border-color: var(--leaf-soft);
+}
+.service-card .concept-ticks { margin-bottom: 18px; }
+.service-num {
+  font-family: var(--font-latin);
+  font-weight: 300;
+  font-size: 40px;
+  color: var(--leaf);
+  opacity: 0.4;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 10px;
+}
+.service-en {
+  font-family: var(--font-latin);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--tascal-cyan-deep);
+  margin-bottom: 6px;
+}
+.service-title {
+  font-family: var(--font-jp-serif);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  margin: 0 0 12px;
+  color: var(--ink-1);
+}
+.service-short {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.85;
+  margin: 0;
+}
+.service-more {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-hair);
+  font-size: 12px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.service-more .arrow { color: var(--tascal-cyan); }
 
 /* ── BusinessIntro ─────────────────────────────────────────── */
-const BusinessIntro = () => (
-  <section style={{ padding: '120px 40px', background: 'var(--ink-1)', color: '#fff' }}>
-    <div style={{
-      maxWidth: 1320, margin: '0 auto',
-      display: 'grid', gridTemplateColumns: '1.2fr 1fr',
-      gap: 80, alignItems: 'center',
-    }}>
-      <div>
-        <div style={{
-          fontFamily: 'var(--font-latin)',
-          fontSize: 12, fontWeight: 600, letterSpacing: '0.32em',
-          color: 'var(--tascal-cyan)',
-          display: 'inline-flex', alignItems: 'center', gap: 12,
-          marginBottom: 24,
-        }}>
-          <span style={{ width: 32, height: 1, background: 'var(--tascal-cyan)' }}/>
-          FOR BUSINESS
-        </div>
-        <h2 style={{
-          fontFamily: 'var(--font-jp-serif)',
-          fontSize: 'clamp(28px, 3vw, 40px)',
-          fontWeight: 500, lineHeight: 1.45,
-          letterSpacing: '0.06em',
-          color: '#fff',
-          margin: '0 0 24px',
-        }}>
-          法人のお客様へ。<br/>
-          整理・買取の<span style={{ color: 'var(--tascal-cyan)' }}>協業パートナー</span>として。
-        </h2>
-        <p style={{
-          fontSize: 15.5, color: '#B8C2CB',
-          lineHeight: 2.1, margin: '0 0 32px', maxWidth: 540,
-        }}>
-          不動産会社様、士業の先生方、ケアマネジャー・福祉施設様、葬儀社様。それぞれの業種に合わせた連携パッケージをご用意しています。産廃許可・特別国際種登録・酒類販売業免許など、法人取引で必要となる許認可を整備しています。
-        </p>
-        <a href="business.html" className="btn btn-cyan">
-          法人のお客様へ
-          <span style={{ fontSize: 18 }}>→</span>
+#business {
+  padding: 120px 40px;
+  background: var(--ink-1);
+  color: #fff;
+}
+.business-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.business-eyebrow {
+  font-family: var(--font-latin);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  color: var(--tascal-cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.business-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--tascal-cyan);
+  flex-shrink: 0;
+}
+.business-h2 {
+  font-family: var(--font-jp-serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin: 0 0 24px;
+}
+.business-h2 .accent { color: var(--tascal-cyan); }
+.business-lead {
+  font-size: 15.5px;
+  color: #B8C2CB;
+  line-height: 2.1;
+  margin: 0 0 32px;
+  max-width: 540px;
+}
+.business-panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 32px;
+}
+.business-panel-label {
+  font-family: var(--font-latin);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--tascal-cyan);
+  margin-bottom: 16px;
+}
+.partnership-list { display: flex; flex-direction: column; gap: 16px; }
+.partnership-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  gap: 16px;
+}
+.partnership-item:last-child { border-bottom: none; }
+.partnership-label {
+  font-family: var(--font-jp-serif);
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.partnership-sub { font-size: 12px; color: #7B8D98; }
+.partnership-arrow { color: var(--tascal-cyan); font-size: 18px; flex-shrink: 0; }
+
+/* ── AboutIntro ────────────────────────────────────────────── */
+#about {
+  padding: 120px 40px;
+  background: var(--cream);
+}
+.about-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-h2 {
+  font-family: var(--font-jp-serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  margin: 24px 0 32px;
+}
+.about-table .row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-hair);
+  align-items: start;
+}
+.about-table dt {
+  font-family: var(--font-jp-serif);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--ink-1);
+}
+.about-table dd {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.9;
+}
+
+/* ── ContactBand ───────────────────────────────────────────── */
+#contact-band {
+  padding: 120px 40px;
+  background: var(--cream);
+}
+.contact-band-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.cta-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  background: #fff;
+  border: 1px solid var(--border-hair);
+  border-radius: 12px;
+  padding: 40px;
+  text-decoration: none;
+  transition: box-shadow 280ms ease, transform 280ms ease;
+}
+.cta-card:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-3px);
+}
+.cta-h2 {
+  font-family: var(--font-jp-serif);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin: 0 0 12px;
+  color: var(--ink-1);
+}
+.cta-lead { font-size: 14px; color: var(--ink-2); margin: 0; line-height: 1.95; }
+.cta-more {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--tascal-cyan-deep);
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+#footer {
+  background: var(--ink-1);
+  color: #fff;
+  padding: 80px 40px 32px;
+}
+.footer-inner { max-width: 1320px; margin: 0 auto; }
+.footer-licenses {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 64px;
+}
+.footer-licenses-label {
+  font-family: var(--font-latin);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--tascal-cyan);
+  margin-bottom: 12px;
+}
+.footer-licenses-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.license-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.license-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 56px;
+}
+.footer-brand {}
+.footer-logo { height: 56px; filter: brightness(0) invert(1); }
+.footer-address {
+  margin-top: 28px;
+  font-size: 13px;
+  color: #B8C2CB;
+  line-height: 2;
+}
+.footer-tel-wrap { margin-top: 20px; line-height: 1.4; }
+.footer-tel-num {
+  font-family: var(--font-latin);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+.footer-tel-note { font-size: 11px; color: #7B8D98; margin-top: 2px; }
+.footer-col-label {
+  font-family: var(--font-latin);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--tascal-cyan);
+  margin-bottom: 16px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 13.5px; color: #fff; text-decoration: none; }
+.footer-col a:hover { color: var(--leaf-soft); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: #7B8D98;
+}
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom a { color: #7B8D98; text-decoration: none; }
+.footer-bottom a:hover { color: var(--leaf-soft); }
+</style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────── -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="assets/logo-tasukaru-green.png" alt="タスカル tasukaru">
+    </a>
+    <nav class="header-nav">
+      <a href="about.html" class="nav-item">
+        <span class="nav-item-en">ABOUT</span>
+        <span class="nav-item-jp">会社概要</span>
+      </a>
+      <a href="services.html" class="nav-item">
+        <span class="nav-item-en">SERVICES</span>
+        <span class="nav-item-jp">事業内容</span>
+      </a>
+      <a href="business.html" class="nav-item">
+        <span class="nav-item-en">BUSINESS</span>
+        <span class="nav-item-jp">法人のお客様へ</span>
+      </a>
+      <a href="recruit.html" class="nav-item">
+        <span class="nav-item-en">RECRUIT</span>
+        <span class="nav-item-jp">採用情報</span>
+      </a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:0120433233" class="header-tel">
+        <span class="header-tel-label">TEL · 受付 9:00-18:00</span>
+        <span class="header-tel-num">0120-433-233</span>
+      </a>
+      <a href="contact.html" class="header-contact-btn">お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg-blob-1"></div>
+  <div class="hero-bg-blob-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow-jp" style="margin-bottom:32px">REUSE × ORGANIZE × CARE</div>
+      <h1 class="hero-h1">
+        かたづかない<span class="accent">モノ</span>と<br>
+        <span class="underline-wrap">思い出を、丁寧に。</span>
+      </h1>
+      <p class="hero-lead">
+        お片付け・遺品整理・生前整理・福祉整理から、買取・インターネット販売まで。<br>
+        埼玉・上尾を拠点に、ご家庭の「困った」をまるごとお引き受けします。
+      </p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn-primary">
+          お問い合わせ <span style="font-size:18px">→</span>
+        </a>
+        <a href="business.html" class="btn-arrow">
+          法人のお客様へ <span style="color:var(--tascal-cyan)">→</span>
         </a>
       </div>
+    </div>
 
-      <div style={{
-        background: 'rgba(255,255,255,0.04)',
-        border: '1px solid rgba(255,255,255,0.1)',
-        borderRadius: 12,
-        padding: 32,
-      }}>
-        <div style={{
-          fontFamily: 'var(--font-latin)',
-          fontSize: 10, fontWeight: 600, letterSpacing: '0.28em',
-          color: 'var(--tascal-cyan)', marginBottom: 16,
-        }}>PARTNERSHIP PACKAGES</div>
-        <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {[
-            { label: '不動産会社様向け',        sub: 'お片付け + 遺品整理 + 買取' },
-            { label: '士業の先生方向け',         sub: '相続関連・遺品整理 + 買取' },
-            { label: 'ケアマネ・福祉施設様向け', sub: '福祉整理 + 生前整理 + お片付け' },
-            { label: '葬儀社様向け',             sub: 'ご遺族紹介での遺品整理 + 買取' },
-          ].map(p => (
-            <li key={p.label} style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '14px 0',
-              borderBottom: '1px solid rgba(255,255,255,0.08)',
-              gap: 16,
-            }}>
-              <div>
-                <div style={{ fontFamily: 'var(--font-jp-serif)', fontSize: 16, color: '#fff', marginBottom: 2 }}>
-                  {p.label}
-                </div>
-                <div style={{ fontSize: 12, color: '#7B8D98' }}>{p.sub}</div>
-              </div>
-              <span style={{ color: 'var(--tascal-cyan)', fontSize: 18 }}>→</span>
-            </li>
-          ))}
+    <div class="hero-cards">
+      <a href="services-kaitori.html" class="hero-card hero-card-kaitori">
+        <div class="card-service-label" style="color:var(--leaf-deep)">SERVICE 05</div>
+        <div>
+          <div class="card-title-kaitori">買取<br>事業</div>
+          <div class="card-sub-kaitori">貴金属・時計・カメラ<br>骨董・着物・酒類まで</div>
+        </div>
+      </a>
+
+      <a href="services-ihin-seiri.html" class="hero-card hero-card-ihin">
+        <div class="card-service-label" style="color:var(--bark)">SERVICE 01</div>
+        <div>
+          <div class="card-title-ihin">遺品<br>整理</div>
+          <div class="card-sub-ihin">故人を偲びながら、<br>ひとつずつ丁寧に。</div>
+        </div>
+      </a>
+
+      <div class="hero-card-saitama">
+        <div style="font-family:var(--font-latin);font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--leaf-bright)">FROM SAITAMA</div>
+        <div>
+          <div style="font-family:var(--font-jp-serif);font-size:22px;font-weight:500;line-height:1.4;letter-spacing:.06em">上尾から、<br>関東一円へ。</div>
+          <div style="font-size:11px;margin-top:12px;color:#B8C2CB;letter-spacing:.08em">Ageo, Saitama</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">SCROLL</div>
+</section>
+
+<!-- ── ConceptRow ───────────────────────────────────────────── -->
+<section id="concept">
+  <div class="concept-grid">
+    <div class="concept-item">
+      <div class="concept-ticks"><span></span><span></span><span></span></div>
+      <h3 class="concept-item-jp">ていねいに、整える</h3>
+      <div class="concept-item-en">WITH CARE</div>
+      <p class="concept-item-sub">暮らしのペースに寄り添い、ひとつずつ。</p>
+    </div>
+    <div class="concept-item">
+      <div class="concept-ticks"><span></span><span></span><span></span></div>
+      <h3 class="concept-item-jp">想いごと、引き継ぐ</h3>
+      <div class="concept-item-en">RESPECT</div>
+      <p class="concept-item-sub">故人とご家族の気持ちを、何より大切に。</p>
+    </div>
+    <div class="concept-item">
+      <div class="concept-ticks"><span></span><span></span><span></span></div>
+      <h3 class="concept-item-jp">資源を、めぐらせる</h3>
+      <div class="concept-item-en">REUSE</div>
+      <p class="concept-item-sub">「捨てる」前に、活かす選択肢を。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ServiceIntro ─────────────────────────────────────────── -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div>
+        <div class="eyebrow-jp">SERVICES</div>
+        <div class="rule-diagonal"></div>
+        <h2 class="services-h2">６つの事業で、<br>暮らしと法人のご依頼に対応。</h2>
+      </div>
+      <div class="services-header-right">
+        <a href="services.html" class="btn-arrow">
+          事業内容一覧を見る <span style="color:var(--tascal-cyan);font-size:18px">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <a href="services-ihin-seiri.html" class="service-card">
+        <div class="concept-ticks"><span></span><span></span><span></span></div>
+        <div class="service-num">01</div>
+        <div class="service-en">ESTATE CLEANUP</div>
+        <h3 class="service-title">遺品整理</h3>
+        <p class="service-short">ご遺族に代わり、故人の遺品を丁寧に仕分け・整理いたします。</p>
+        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
+      </a>
+      <a href="services-seizen-seiri.html" class="service-card">
+        <div class="concept-ticks"><span></span><span></span><span></span></div>
+        <div class="service-num">02</div>
+        <div class="service-en">PRE-ESTATE ORGANIZE</div>
+        <h3 class="service-title">生前整理</h3>
+        <p class="service-short">お元気なうちに、ご自身の手でモノと気持ちを整理する終活サポート。</p>
+        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
+      </a>
+      <a href="services-fukushi-seiri.html" class="service-card">
+        <div class="concept-ticks"><span></span><span></span><span></span></div>
+        <div class="service-num">03</div>
+        <div class="service-en">WELFARE CLEANUP</div>
+        <h3 class="service-title">福祉整理</h3>
+        <p class="service-short">高齢者・障害者・生活困窮者の住環境を安全に整える整理サービス。</p>
+        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
+      </a>
+      <a href="services-cleanup.html" class="service-card">
+        <div class="concept-ticks"><span></span><span></span><span></span></div>
+        <div class="service-num">04</div>
+        <div class="service-en">DECLUTTERING</div>
+        <h3 class="service-title">お片付け</h3>
+        <p class="service-short">引っ越し前後・空き家・実家じまいの整理をワンストップで。</p>
+        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
+      </a>
+      <a href="services-kaitori.html" class="service-card">
+        <div class="concept-ticks"><span></span><span></span><span></span></div>
+        <div class="service-num">05</div>
+        <div class="service-en">PURCHASE</div>
+        <h3 class="service-title">買取事業</h3>
+        <p class="service-short">貴金属・時計・カメラ・骨董・着物・酒類など幅広い品目をお買取。</p>
+        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
+      </a>
+      <a href="services-ec.html" class="service-card">
+        <div class="concept-ticks"><span></span><span></span><span></span></div>
+        <div class="service-num">06</div>
+        <div class="service-en">ONLINE SALES</div>
+        <h3 class="service-title">インターネット販売事業</h3>
+        <p class="service-short">ヤフオク等のプラットフォームを通じた再販売事業。</p>
+        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── BusinessIntro ────────────────────────────────────────── -->
+<section id="business">
+  <div class="business-inner">
+    <div>
+      <div class="business-eyebrow">FOR BUSINESS</div>
+      <h2 class="business-h2">
+        法人のお客様へ。<br>
+        整理・買取の<span class="accent">協業パートナー</span>として。
+      </h2>
+      <p class="business-lead">
+        不動産会社様、士業の先生方、ケアマネジャー・福祉施設様、葬儀社様。それぞれの業種に合わせた連携パッケージをご用意しています。産廃許可・特別国際種登録・酒類販売業免許など、法人取引で必要となる許認可を整備しています。
+      </p>
+      <a href="business.html" class="btn-cyan">
+        法人のお客様へ <span style="font-size:18px">→</span>
+      </a>
+    </div>
+
+    <div class="business-panel">
+      <div class="business-panel-label">PARTNERSHIP PACKAGES</div>
+      <ul class="partnership-list">
+        <li class="partnership-item">
+          <div>
+            <div class="partnership-label">不動産会社様向け</div>
+            <div class="partnership-sub">お片付け + 遺品整理 + 買取</div>
+          </div>
+          <span class="partnership-arrow">→</span>
+        </li>
+        <li class="partnership-item">
+          <div>
+            <div class="partnership-label">士業の先生方向け</div>
+            <div class="partnership-sub">相続関連・遺品整理 + 買取</div>
+          </div>
+          <span class="partnership-arrow">→</span>
+        </li>
+        <li class="partnership-item">
+          <div>
+            <div class="partnership-label">ケアマネ・福祉施設様向け</div>
+            <div class="partnership-sub">福祉整理 + 生前整理 + お片付け</div>
+          </div>
+          <span class="partnership-arrow">→</span>
+        </li>
+        <li class="partnership-item" style="border-bottom:none">
+          <div>
+            <div class="partnership-label">葬儀社様向け</div>
+            <div class="partnership-sub">ご遺族紹介での遺品整理 + 買取</div>
+          </div>
+          <span class="partnership-arrow">→</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── AboutIntro ───────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-inner">
+    <div>
+      <div class="eyebrow-jp">ABOUT US</div>
+      <h2 class="about-h2">会社概要</h2>
+      <a href="about.html" class="btn-arrow">
+        会社情報を詳しく見る <span style="color:var(--tascal-cyan);font-size:18px">→</span>
+      </a>
+    </div>
+    <dl class="about-table">
+      <div class="row">
+        <dt>社名</dt>
+        <dd>株式会社タスカル</dd>
+      </div>
+      <div class="row">
+        <dt>所在地</dt>
+        <dd>埼玉県上尾市仲町1-7-25</dd>
+      </div>
+      <div class="row">
+        <dt>事業内容</dt>
+        <dd>遺品整理・生前整理・福祉整理・お片付け・買取・インターネット販売</dd>
+      </div>
+      <div class="row">
+        <dt>対応エリア</dt>
+        <dd>埼玉県・東京都・千葉県・神奈川県（関東一円）</dd>
+      </div>
+      <div class="row">
+        <dt>許認可</dt>
+        <dd>古物商許可、産業廃棄物収集運搬業許可（埼玉県）、酒類販売業免許、特別国際種事業者登録</dd>
+      </div>
+      <div class="row">
+        <dt>保有資格</dt>
+        <dd>遺品整理士、3Rディレクター</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ── ContactBand ──────────────────────────────────────────── -->
+<section id="contact-band">
+  <div class="contact-band-inner">
+    <a href="contact.html" class="cta-card">
+      <div>
+        <div class="eyebrow-jp" style="margin-bottom:16px">CONTACT</div>
+        <h2 class="cta-h2">お問い合わせ</h2>
+        <p class="cta-lead">ご相談・ご依頼は、お電話またはフォームよりお気軽にご連絡ください。</p>
+      </div>
+      <div class="cta-more">
+        お問い合わせフォームへ <span style="font-size:18px">→</span>
+      </div>
+    </a>
+    <a href="recruit.html" class="cta-card">
+      <div>
+        <div class="eyebrow-jp" style="margin-bottom:16px">RECRUIT</div>
+        <h2 class="cta-h2">採用情報</h2>
+        <p class="cta-lead">一緒に働く仲間を募集しています。未経験の方も歓迎いたします。</p>
+      </div>
+      <div class="cta-more">
+        募集要項を見る <span style="font-size:18px">→</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-licenses">
+      <div class="footer-licenses-label">LICENSES &amp; QUALIFICATIONS</div>
+      <div class="footer-licenses-badges">
+        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
+          <span class="dot" style="background:var(--tascal-cyan)"></span>古物商許可
+        </span>
+        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
+          <span class="dot" style="background:var(--tascal-cyan)"></span>産業廃棄物収集運搬業 (埼玉)
+        </span>
+        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
+          <span class="dot" style="background:var(--tascal-cyan)"></span>酒類販売業免許
+        </span>
+        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
+          <span class="dot" style="background:var(--tascal-cyan)"></span>特別国際種事業者登録
+        </span>
+        <span class="license-badge" style="border:1px solid var(--taupe)">
+          <span class="dot" style="background:var(--taupe)"></span>遺品整理士
+        </span>
+        <span class="license-badge" style="border:1px solid var(--taupe)">
+          <span class="dot" style="background:var(--taupe)"></span>3Rディレクター
+        </span>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-tasukaru.png" alt="タスカル tasukaru" class="footer-logo">
+        <div class="footer-address">
+          株式会社タスカル<br>
+          〒362-0035<br>
+          埼玉県上尾市仲町1-7-25
+        </div>
+        <div class="footer-tel-wrap">
+          <a href="tel:0120433233" class="footer-tel-num">0120-433-233</a>
+          <div class="footer-tel-note">受付 10:00 - 19:00 / 年中無休</div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-label">ABOUT</div>
+        <ul>
+          <li><a href="about.html">— 会社概要</a></li>
+          <li><a href="about-greeting.html">— 代表挨拶</a></li>
+          <li><a href="about-history.html">— 会社沿革</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-label">SERVICES</div>
+        <ul>
+          <li><a href="services-ihin-seiri.html">— 遺品整理</a></li>
+          <li><a href="services-seizen-seiri.html">— 生前整理</a></li>
+          <li><a href="services-fukushi-seiri.html">— 福祉整理</a></li>
+          <li><a href="services-cleanup.html">— お片付け</a></li>
+          <li><a href="services-kaitori.html">— 買取事業</a></li>
+          <li><a href="services-ec.html">— インターネット販売</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-label">OTHERS</div>
+        <ul>
+          <li><a href="business.html">— 法人のお客様へ</a></li>
+          <li><a href="recruit.html">— 採用情報</a></li>
+          <li><a href="contact.html">— お問い合わせ</a></li>
+          <li><a href="privacy.html">— プライバシーポリシー</a></li>
         </ul>
       </div>
     </div>
-  </section>
-);
 
-/* ── AboutIntro ────────────────────────────────────────────── */
-const AboutIntro = () => (
-  <section style={{ padding: '120px 40px', background: 'var(--cream)' }}>
-    <div style={{ maxWidth: 1080, margin: '0 auto' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 80, alignItems: 'start' }}>
-        <div>
-          <div className="eyebrow-jp">ABOUT US</div>
-          <h2 style={{
-            fontFamily: 'var(--font-jp-serif)',
-            fontSize: 'clamp(28px, 3vw, 40px)',
-            fontWeight: 500, lineHeight: 1.4,
-            letterSpacing: '0.06em',
-            margin: '24px 0 32px',
-          }}>会社概要</h2>
-          <a href="about.html" className="btn-arrow" style={{ fontSize: 14 }}>
-            会社情報を詳しく見る
-            <span style={{ color: 'var(--tascal-cyan)', fontSize: 18 }}>→</span>
-          </a>
-        </div>
-
-        <dl style={{ margin: 0, padding: 0 }}>
-          {[
-            { label: '社名',       value: '株式会社タスカル' },
-            { label: '所在地',     value: '埼玉県上尾市仲町1-7-25' },
-            { label: '事業内容',   value: '遺品整理・生前整理・福祉整理・お片付け・買取・インターネット販売' },
-            { label: '対応エリア', value: '埼玉県・東京都・千葉県・神奈川県(関東一円)' },
-            { label: '許認可',     value: '古物商許可、産業廃棄物収集運搬業許可(埼玉県)、酒類販売業免許、特別国際種事業者登録' },
-            { label: '保有資格',   value: '遺品整理士、3Rディレクター' },
-          ].map(row => (
-            <div key={row.label} style={{
-              display: 'grid',
-              gridTemplateColumns: '140px 1fr',
-              gap: 24,
-              padding: '18px 0',
-              borderBottom: '1px solid var(--border-hair)',
-              alignItems: 'start',
-            }}>
-              <dt style={{
-                fontFamily: 'var(--font-jp-serif)',
-                fontWeight: 500, fontSize: 14,
-                letterSpacing: '0.06em',
-                color: 'var(--ink-1)',
-              }}>{row.label}</dt>
-              <dd style={{
-                margin: 0, fontSize: 14,
-                color: 'var(--ink-2)', lineHeight: 1.9,
-              }}>{row.value}</dd>
-            </div>
-          ))}
-        </dl>
+    <div class="footer-bottom">
+      <div>© 株式会社タスカル All Rights Reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="contact.html">お問い合わせ</a>
       </div>
     </div>
-  </section>
-);
+  </div>
+</footer>
 
-/* ── ContactBand ───────────────────────────────────────────── */
-const ContactBand = () => (
-  <section style={{ padding: '120px 40px', background: 'var(--cream)' }}>
-    <div style={{ maxWidth: 1320, margin: '0 auto' }}>
-      <div style={{
-        display: 'grid', gridTemplateColumns: '1fr 1fr',
-        gap: 24,
-      }}>
-        <a href="contact.html" style={{
-          textDecoration: 'none',
-          background: '#fff',
-          border: '1px solid var(--border-hair)',
-          borderRadius: 12,
-          padding: 40,
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-          minHeight: 220,
-          transition: 'all 280ms ease',
-        }}
-          onMouseEnter={e => { e.currentTarget.style.boxShadow = 'var(--shadow-2)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
-          onMouseLeave={e => { e.currentTarget.style.boxShadow = ''; e.currentTarget.style.transform = ''; }}
-        >
-          <div>
-            <div className="eyebrow-jp" style={{ marginBottom: 16 }}>CONTACT</div>
-            <h2 style={{
-              fontFamily: 'var(--font-jp-serif)',
-              fontSize: 28, fontWeight: 500,
-              letterSpacing: '0.06em',
-              margin: '0 0 12px', color: 'var(--ink-1)',
-            }}>お問い合わせ</h2>
-            <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0, lineHeight: 1.95 }}>
-              ご相談・ご依頼は、お電話またはフォームよりお気軽にご連絡ください。
-            </p>
-          </div>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 12,
-            fontSize: 13, color: 'var(--tascal-cyan-deep)', fontWeight: 600,
-          }}>
-            お問い合わせフォームへ
-            <span style={{ fontSize: 18 }}>→</span>
-          </div>
-        </a>
-
-        <a href="recruit.html" style={{
-          textDecoration: 'none',
-          background: '#fff',
-          border: '1px solid var(--border-hair)',
-          borderRadius: 12,
-          padding: 40,
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-          minHeight: 220,
-          transition: 'all 280ms ease',
-        }}
-          onMouseEnter={e => { e.currentTarget.style.boxShadow = 'var(--shadow-2)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
-          onMouseLeave={e => { e.currentTarget.style.boxShadow = ''; e.currentTarget.style.transform = ''; }}
-        >
-          <div>
-            <div className="eyebrow-jp" style={{ marginBottom: 16 }}>RECRUIT</div>
-            <h2 style={{
-              fontFamily: 'var(--font-jp-serif)',
-              fontSize: 28, fontWeight: 500,
-              letterSpacing: '0.06em',
-              margin: '0 0 12px', color: 'var(--ink-1)',
-            }}>採用情報</h2>
-            <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0, lineHeight: 1.95 }}>
-              一緒に働く仲間を募集しています。未経験の方も歓迎いたします。
-            </p>
-          </div>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 12,
-            fontSize: 13, color: 'var(--tascal-cyan-deep)', fontWeight: 600,
-          }}>
-            募集要項を見る
-            <span style={{ fontSize: 18 }}>→</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-);
-
-/* ── App ───────────────────────────────────────────────────── */
-const App = () => (
-  <>
-    <Header current="home" />
-    <Hero />
-    <ConceptRow />
-    <ServiceIntro />
-    <BusinessIntro />
-    <AboutIntro />
-    <ContactBand />
-    <Footer />
-  </>
-);
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+<script>
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 24);
+}, { passive: true });
 </script>
 </body>
 </html>
