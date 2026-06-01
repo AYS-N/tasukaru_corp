@@ -370,7 +370,7 @@ dl, dt, dd { margin: 0; }
   height: 52px;
   border-radius: 50%;
   border: none;
-  background: var(--ink-1);
+  background: var(--leaf);
   color: #fff;
   cursor: pointer;
   box-shadow: var(--shadow-2);
@@ -390,6 +390,8 @@ dl, dt, dd { margin: 0; }
   transform: translateY(0);
 }
 .back-to-top:hover { background: var(--leaf-deep); }
+.back-to-top.on-dark { background: var(--leaf-bright); }
+.back-to-top.on-dark:hover { background: var(--leaf); }
 .back-to-top svg { width: 18px; height: 18px; display: block; }
 @media (max-width: 640px) {
   .back-to-top { right: 16px; bottom: 16px; width: 46px; height: 46px; }

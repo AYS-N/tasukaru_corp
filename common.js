@@ -125,6 +125,11 @@
     const onScroll = () => {
       if (header) header.classList.toggle('scrolled', window.scrollY > 24);
       btt.classList.toggle('visible', window.scrollY > 400);
+      // Brighten the button when it overlaps the dark footer
+      if (footer) {
+        const btnCenterY = window.innerHeight - 28 - 26;
+        btt.classList.toggle('on-dark', footer.getBoundingClientRect().top < btnCenterY);
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
