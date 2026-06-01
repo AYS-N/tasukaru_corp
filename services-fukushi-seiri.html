@@ -46,16 +46,6 @@
 .feature-no { font-family: var(--font-latin); font-size: 12px; font-weight: 500; letter-spacing: 0.24em; color: var(--tascal-cyan-deep); margin-bottom: 12px; }
 .feature h3 { font-family: var(--font-jp-serif); font-size: 19px; font-weight: 500; letter-spacing: 0.04em; margin: 0 0 12px; }
 .feature p { font-size: 13.5px; color: var(--ink-2); line-height: 2; margin: 0; }
-.flow-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; position: relative; }
-.flow-line { position: absolute; top: 32px; left: 12%; right: 12%; height: 1px; border-top: 1.5px dashed var(--taupe); opacity: 0.5; }
-.flow-step { position: relative; }
-.flow-circle { position: relative; z-index: 1; width: 64px; height: 64px; border-radius: 50%; background: #fff; border: 1.5px solid var(--tascal-cyan); color: var(--tascal-cyan-deep); display: flex; align-items: center; justify-content: center; font-family: var(--font-latin); font-weight: 500; font-size: 20px; margin: 0 auto 24px; box-shadow: var(--shadow-1); }
-.flow-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); margin-bottom: 8px; }
-.flow-title { font-family: var(--font-jp-serif); font-size: 17px; font-weight: 500; letter-spacing: 0.04em; margin: 0 0 10px; }
-.flow-body { font-size: 12.5px; color: var(--ink-2); line-height: 1.9; margin: 0; }
-.area-box { background: #fff; border: 1px solid var(--border-hair); border-radius: 12px; padding: 32px 40px; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
-.area-title { font-family: var(--font-jp-serif); font-size: 22px; font-weight: 500; letter-spacing: 0.04em; margin-top: 8px; }
-.area-note { font-size: 14.5px; color: var(--ink-2); line-height: 1.95; }
 .related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .related-card { text-decoration: none; background: #fff; border-radius: 12px; padding: 24px; box-shadow: var(--shadow-1); }
 .related-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.24em; color: var(--tascal-cyan-deep); }
@@ -63,9 +53,6 @@
 @media (max-width: 800px) {
   .sd-hero-grid { grid-template-columns: 1fr; }
   .concerns-grid, .features-grid, .related-grid { grid-template-columns: 1fr; }
-  .flow-grid { grid-template-columns: repeat(2,1fr); }
-  .flow-line { display: none; }
-  .area-box { grid-template-columns: 1fr; }
 }
 </style>
 <script type="application/ld+json">
@@ -104,36 +91,6 @@
       ]
     },
     {
-      "@type": "HowTo",
-      "name": "福祉整理の作業の流れ",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "position": 1,
-          "name": "お問い合わせ",
-          "text": "お電話・メール・フォームよりお気軽にご連絡ください。"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 2,
-          "name": "出張お見積もり",
-          "text": "スタッフがお伺いし、内容を確認の上、お見積もりを作成します。"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 3,
-          "name": "作業実施",
-          "text": "当日は丁寧に作業を進めます。立ち合いなしでも対応可能です。"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 4,
-          "name": "完了・お支払い",
-          "text": "お客様にご確認いただいた後、作業完了となります。"
-        }
-      ]
-    },
-    {
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -142,22 +99,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "ご高齢の方、介護を必要とする方、障害をお持ちの方、生活困窮にある方のご家庭で、安全に暮らせる住環境を整えるためのお片付けを行います。ケアマネジャー・ソーシャルワーカーとの連携実績も豊富です。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "福祉整理の対応エリアはどこですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "埼玉県・東京都・千葉県・神奈川県を中心に対応しております。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "福祉整理の作業の流れを教えてください。",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "1. お問い合わせ：お電話・メール・フォームよりお気軽にご連絡ください。 2. 出張お見積もり：スタッフがお伺いし、内容を確認の上、お見積もりを作成します。 3. 作業実施：当日は丁寧に作業を進めます。立ち合いなしでも対応可能です。 4. 完了・お支払い：お客様にご確認いただいた後、作業完了となります。"
           }
         }
       ]
@@ -248,32 +189,6 @@
         <div class="feature"><div class="feature-no">NO. 01</div><h3>ケアマネ・ソーシャルワーカーと連携</h3><p>行政・介護関係者と直接お打ち合わせの上、適切な範囲で作業を進めます。</p></div>
         <div class="feature"><div class="feature-no">NO. 02</div><h3>安全性を最優先</h3><p>転倒防止のための導線確保、危険物の撤去など、お住まいの安全性を第一に整えます。</p></div>
         <div class="feature"><div class="feature-no">NO. 03</div><h3>ゴミ屋敷状態も対応</h3><p>長期間蓄積したお宅も、判断せず、必要なものはきちんと残しながら整理します。</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sd-section">
-    <div class="sd-wrap">
-      <div class="eyebrow-jp" style="margin-bottom:24px">FLOW</div>
-      <h2 class="sd-h2">作業の流れ</h2>
-      <div class="flow-grid">
-        <div class="flow-line"></div>
-        <div class="flow-step"><div class="flow-circle">01</div><div style="text-align:center"><div class="flow-en">INQUIRY</div><h3 class="flow-title">お問い合わせ</h3><p class="flow-body">お電話・メール・フォームよりお気軽にご連絡ください。</p></div></div>
-        <div class="flow-step"><div class="flow-circle">02</div><div style="text-align:center"><div class="flow-en">ESTIMATE</div><h3 class="flow-title">出張お見積もり</h3><p class="flow-body">スタッフがお伺いし、内容を確認の上、お見積もりを作成します。</p></div></div>
-        <div class="flow-step"><div class="flow-circle">03</div><div style="text-align:center"><div class="flow-en">WORK</div><h3 class="flow-title">作業実施</h3><p class="flow-body">当日は丁寧に作業を進めます。立ち合いなしでも対応可能です。</p></div></div>
-        <div class="flow-step"><div class="flow-circle">04</div><div style="text-align:center"><div class="flow-en">COMPLETE</div><h3 class="flow-title">完了・お支払い</h3><p class="flow-body">お客様にご確認いただいた後、作業完了となります。</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:0 40px 120px">
-    <div class="sd-wrap">
-      <div class="area-box">
-        <div>
-          <div class="eyebrow-jp">AREA</div>
-          <div class="area-title">対応エリア</div>
-        </div>
-        <div class="area-note">埼玉県・東京都・千葉県・神奈川県を中心に対応しております。その他のエリアもご相談ください。</div>
       </div>
     </div>
   </section>
