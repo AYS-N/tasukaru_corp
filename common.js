@@ -82,6 +82,12 @@
         <span class="nav-item-jp">${p.jp}</span>
       </a>`).join('');
 
+    const mobileItems = NAV.map(p => `
+        <a href="${p.href}" class="mobile-nav-item${current === p.id ? ' active' : ''}">
+          <span class="en">${p.en}</span>
+          <span class="jp">${p.jp}</span>
+        </a>`).join('');
+
     return `
     <div class="header-inner">
       <a href="index.html" class="header-logo">
@@ -95,6 +101,19 @@
         </a>
         <a href="contact.html" class="header-contact-btn${current === 'contact' ? ' active' : ''}">お問い合わせ</a>
       </div>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <nav class="mobile-menu-inner">
+${mobileItems}
+        <a href="contact.html" class="mobile-contact-btn">お問い合わせ</a>
+        <a href="tel:0120433233" class="mobile-tel">
+          <span class="label">TEL · 受付 10:00-19:00</span>
+          <span class="num">0120-433-233</span>
+        </a>
+      </nav>
     </div>`;
   }
 
@@ -149,6 +168,31 @@
     if (footer) footer.innerHTML = footerHTML();
 
     const btt = createBackToTop();
+
+    // Mobile hamburger menu
+    if (header) {
+      const toggle = header.querySelector('.nav-toggle');
+      const closeMenu = () => {
+        header.classList.remove('open');
+        if (toggle) {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'メニューを開く');
+        }
+        document.body.style.overflow = '';
+      };
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const isOpen = header.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+      }
+      // Close + unlock when leaving mobile width
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 820 && header.classList.contains('open')) closeMenu();
+      }, { passive: true });
+    }
 
     const onScroll = () => {
       if (header) header.classList.toggle('scrolled', window.scrollY > 24);
