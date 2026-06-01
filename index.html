@@ -126,7 +126,10 @@
   padding: 28px; display: flex; flex-direction: column; justify-content: space-between;
   text-decoration: none; transition: transform 280ms, box-shadow 280ms;
 }
-.hero-card-kaitori { top: 0; right: 60px; width: 260px; height: 340px; background: #fff; padding: 32px; transform: rotate(2.5deg); }
+.hero-card-kaitori { top: 0; right: 60px; width: 260px; height: 340px; background: var(--cream-deep) url('img/taskal_corp_topimg2.png') center/cover no-repeat; padding: 32px; transform: rotate(2.5deg); overflow: hidden; justify-content: flex-end; }
+.hero-card-kaitori > * { position: relative; z-index: 1; }
+.hero-card-kaitori .card-title-kaitori { color: #fff; text-shadow: 0 1px 6px rgba(30,42,47,0.55); }
+.hero-card-kaitori .card-sub-kaitori { color: #fff; text-shadow: 0 1px 5px rgba(30,42,47,0.6); }
 .hero-card-kaitori:hover { transform: translateY(-6px) rotate(2.5deg); box-shadow: var(--shadow-3); }
 .hero-card-ihin { top: 120px; left: 0; width: 240px; height: 320px; background: var(--cream-deep) url('img/taskal_corp_topimg1.png') center/cover no-repeat; transform: rotate(-3deg); overflow: hidden; justify-content: flex-end; }
 .hero-card-ihin > * { position: relative; z-index: 1; }
@@ -266,7 +269,6 @@
     </div>
     <div class="hero-cards">
       <a href="services-kaitori.html" class="hero-card hero-card-kaitori">
-        <div class="card-service-label" style="color:var(--leaf-deep)">SERVICE 05</div>
         <div>
           <div class="card-title-kaitori">買取<br>事業</div>
           <div class="card-sub-kaitori">貴金属・時計・カメラ<br>骨董・着物・酒類まで</div>
