@@ -15,11 +15,33 @@
   position: absolute; top: -12%; right: -12%; width: 64%; height: 116%;
   background: var(--leaf-tint); transform: rotate(-7deg);
   border-radius: 42% 32% 36% 40%; opacity: 0.9; pointer-events: none;
+  will-change: transform, border-radius;
+  animation: float-blob-1 19s ease-in-out infinite;
 }
 .hero-bg-blob-2 {
   position: absolute; top: 8%; right: 2%; width: 44%; height: 76%;
   background: var(--leaf-soft); transform: rotate(-13deg);
   border-radius: 46% 34% 40% 30%; opacity: 0.55; pointer-events: none;
+  will-change: transform, border-radius;
+  animation: float-blob-2 24s ease-in-out infinite;
+}
+/* シャボン玉のようにふわふわ漂う動き（位置・回転・伸縮・形をゆっくり変化） */
+@keyframes float-blob-1 {
+  0%   { transform: translate(0, 0) rotate(-7deg) scale(1);        border-radius: 42% 32% 36% 40%; }
+  25%  { transform: translate(-18px, 22px) rotate(-3deg) scale(1.05); border-radius: 38% 44% 30% 46%; }
+  50%  { transform: translate(8px, 34px) rotate(-9deg) scale(0.97);  border-radius: 48% 30% 46% 34%; }
+  75%  { transform: translate(16px, 12px) rotate(-11deg) scale(1.03);border-radius: 36% 46% 38% 42%; }
+  100% { transform: translate(0, 0) rotate(-7deg) scale(1);        border-radius: 42% 32% 36% 40%; }
+}
+@keyframes float-blob-2 {
+  0%   { transform: translate(0, 0) rotate(-13deg) scale(1);        border-radius: 46% 34% 40% 30%; }
+  25%  { transform: translate(20px, -16px) rotate(-8deg) scale(1.06); border-radius: 40% 46% 32% 48%; }
+  50%  { transform: translate(-14px, 18px) rotate(-18deg) scale(0.95);border-radius: 52% 30% 48% 36%; }
+  75%  { transform: translate(-22px, -10px) rotate(-15deg) scale(1.02);border-radius: 38% 48% 34% 44%; }
+  100% { transform: translate(0, 0) rotate(-13deg) scale(1);        border-radius: 46% 34% 40% 30%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-blob-1, .hero-bg-blob-2 { animation: none; }
 }
 .hero-inner {
   position: relative; z-index: 1; max-width: 1320px; margin: 0 auto;
