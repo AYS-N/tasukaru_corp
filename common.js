@@ -28,6 +28,7 @@
   setTimeout(reveal, 4000); // safety: never block the page
 
   const NAV = [
+    { id: 'home',     en: 'HOME',     jp: 'トップ',         href: 'index.html' },
     { id: 'about',    en: 'ABOUT',    jp: '会社概要',       href: 'about.html' },
     { id: 'services', en: 'SERVICES', jp: '事業内容',       href: 'services.html' },
     { id: 'business', en: 'BUSINESS', jp: '法人のお客様へ', href: 'business.html' },
