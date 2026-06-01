@@ -96,7 +96,7 @@
       <nav class="header-nav">${navItems}</nav>
       <div class="header-actions">
         <a href="tel:0120433233" class="header-tel">
-          <span class="header-tel-label">TEL · 受付 9:00-18:00</span>
+          <span class="header-tel-label">TEL · 受付 10:00-19:00</span>
           <span class="header-tel-num">0120-433-233</span>
         </a>
         <a href="contact.html" class="header-contact-btn${current === 'contact' ? ' active' : ''}">お問い合わせ</a>
