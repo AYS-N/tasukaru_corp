@@ -93,10 +93,11 @@ dl, dt, dd { margin: 0; }
 .concept-ticks span:nth-child(3) { height: 14px; background: var(--leaf-soft); }
 .jp-spaced { letter-spacing: 0.28em; }
 
-/* ── Loading overlay ───────────────────────────────────────────
-   純CSSオーバーレイ＋スピナー。JSが読み込み完了で素早く消し、
-   JS無効時もCSSアニメ(loaderSafety)で自動的に消える。
-   擬似要素なのでDOM内容は隠さず、クローラには影響しない。 */
+/* ── Loading overlay (line-art logo draw-on) ───────────────────
+   body::before = クリームの覆い（headのCSSなので最初から表示＝ちらつき無し）。
+   #loader-logo（common.jsが注入）= ロゴが線で描かれ→塗りで完成→ループ。
+   JS無効時はbody::beforeがloaderSafetyで自動的に消える。
+   擬似要素/オーバーレイはDOMを隠さないのでクローラには影響しない。 */
 body::before {
   content: '';
   position: fixed;
@@ -107,31 +108,60 @@ body::before {
   transition: opacity 0.55s ease, visibility 0.55s ease;
   animation: loaderSafety 0s linear 5s forwards;
 }
-body::after {
-  content: '';
+#loader-logo {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  inset: 0;
   z-index: 9999;
-  width: 46px;
-  height: 46px;
-  margin: -23px 0 0 -23px;
-  border-radius: 50%;
-  border: 3px solid var(--leaf-soft);
-  border-top-color: var(--leaf-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
   transition: opacity 0.55s ease, visibility 0.55s ease;
-  animation: loaderSpin 0.8s linear infinite, loaderSafety 0s linear 5s forwards;
+}
+#loader-logo svg {
+  width: 320px;
+  max-width: 60vw;
+  height: auto;
+  overflow: visible;
+}
+.loader-fill {
+  fill: var(--leaf);
+  fill-opacity: 0;
+  animation: loaderFill 2.2s ease-in-out infinite;
+}
+.loader-line {
+  fill: none;
+  stroke: var(--leaf-deep);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: loaderDraw 2.2s ease-in-out infinite;
 }
 body.loaded::before,
-body.loaded::after {
+body.loaded #loader-logo {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
-@keyframes loaderSpin { to { transform: rotate(360deg); } }
+@keyframes loaderDraw {
+  0%   { stroke-dashoffset: 1; opacity: 1; }
+  41%  { stroke-dashoffset: 0; opacity: 1; }
+  86%  { stroke-dashoffset: 0; opacity: 1; }
+  94%  { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 1; opacity: 0; }
+}
+@keyframes loaderFill {
+  0%, 41% { fill-opacity: 0; }
+  57%     { fill-opacity: 1; }
+  86%     { fill-opacity: 1; }
+  94%, 100% { fill-opacity: 0; }
+}
 @keyframes loaderSafety { to { opacity: 0; visibility: hidden; } }
 @media (prefers-reduced-motion: reduce) {
-  body::after { animation: loaderSafety 0s linear 5s forwards; }
+  .loader-line { animation: none; stroke-dashoffset: 0; }
+  .loader-fill { animation: none; fill-opacity: 1; }
 }
 
 
