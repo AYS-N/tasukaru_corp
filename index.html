@@ -7,843 +7,150 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-/* ── Variables ─────────────────────────────────────────────── */
-:root {
-  --tascal-cyan:      #8FB73E;
-  --tascal-cyan-deep: #5E8526;
-  --tascal-cyan-soft: #DCE8BC;
-  --tascal-cyan-tint: #F1F6E3;
-  --leaf:             #8FB73E;
-  --leaf-bright:      #A8CC4A;
-  --leaf-deep:        #5E8526;
-  --leaf-soft:        #DCE8BC;
-  --leaf-tint:        #F1F6E3;
-  --cream:            #FAF6EE;
-  --cream-deep:       #F2EADC;
-  --sand:             #E8DCC4;
-  --taupe:            #B8A691;
-  --bark:             #6B5D4A;
-  --surface:          #FFFFFF;
-  --ink-1:            #1E2A2F;
-  --ink-2:            #4A5862;
-  --ink-3:            #8A95A0;
-  --ink-4:            #B8C2CB;
-  --border-hair:      #E2D9C7;
-  --shadow-1: 0 1px 3px rgba(107,93,74,.06), 0 1px 2px rgba(107,93,74,.04);
-  --shadow-2: 0 8px 24px rgba(107,93,74,.08), 0 2px 6px rgba(107,93,74,.05);
-  --shadow-3: 0 20px 48px rgba(107,93,74,.12), 0 6px 14px rgba(107,93,74,.06);
-  --font-jp:        'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
-  --font-jp-serif:  'Noto Serif JP', 'Hiragino Mincho Pro', 'Yu Mincho', serif;
-  --font-latin:     'Inter', system-ui, -apple-system, sans-serif;
-}
-
-/* ── Reset & Base ──────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--ink-1);
-  font-family: var(--font-jp);
-  font-size: 15px;
-  line-height: 1.95;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-}
-::selection { background: var(--leaf-tint); color: var(--ink-1); }
-a { color: var(--ink-1); text-decoration-color: var(--leaf); transition: color 200ms; }
-a:hover { color: var(--leaf-deep); }
-p { margin: 0 0 16px; color: var(--ink-2); line-height: 1.95; }
-h1, h2, h3 { margin: 0; }
-ul { list-style: none; margin: 0; padding: 0; }
-img { display: block; max-width: 100%; }
-dl, dt, dd { margin: 0; }
-
-/* ── Utilities ─────────────────────────────────────────────── */
-.eyebrow-jp {
-  font-family: var(--font-jp);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  color: var(--leaf-deep);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-.eyebrow-jp::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--leaf);
-  flex-shrink: 0;
-}
-.rule-diagonal {
-  width: 80px;
-  height: 1px;
-  background: var(--leaf);
-  transform: rotate(-12deg);
-  transform-origin: left center;
-  margin: 24px 0;
-}
-.concept-ticks {
-  display: inline-flex;
-  align-items: flex-end;
-  gap: 5px;
-}
-.concept-ticks span {
-  display: block;
-  width: 2px;
-  background: var(--leaf);
-  transform: skewX(-22deg);
-}
-.concept-ticks span:nth-child(1) { height: 26px; }
-.concept-ticks span:nth-child(2) { height: 20px; background: var(--leaf-bright); }
-.concept-ticks span:nth-child(3) { height: 14px; background: var(--leaf-soft); }
-.jp-spaced { letter-spacing: 0.28em; }
-.btn-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-jp);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink-1);
-  text-decoration: none;
-  border-bottom: 1.5px solid var(--ink-1);
-  padding-bottom: 6px;
-  transition: color 200ms, border-color 200ms;
-}
-.btn-arrow:hover { color: var(--leaf-deep); border-bottom-color: var(--leaf); }
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border-radius: 999px;
-  background: var(--ink-1);
-  color: #fff;
-  font-family: var(--font-jp);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 200ms;
-  white-space: nowrap;
-}
-.btn-primary:hover { background: var(--leaf-deep); color: #fff; }
-.btn-cyan {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border-radius: 999px;
-  background: var(--tascal-cyan);
-  color: #fff;
-  font-family: var(--font-jp);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 200ms;
-  white-space: nowrap;
-}
-.btn-cyan:hover { background: var(--tascal-cyan-deep); color: #fff; }
-
-/* ── Header ────────────────────────────────────────────────── */
-#site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: var(--cream);
-  border-bottom: 1px solid transparent;
-  transition: background 280ms ease, border-color 280ms ease, backdrop-filter 280ms ease;
-}
-#site-header.scrolled {
-  background: rgba(250,246,238,0.94);
-  backdrop-filter: blur(18px) saturate(140%);
-  border-bottom-color: var(--border-hair);
-}
-.header-inner {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 16px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.header-logo img { height: 44px; }
-.header-nav { display: flex; align-items: center; gap: 32px; }
-.nav-item {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  position: relative;
-  padding-bottom: 6px;
-}
-.nav-item-en {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: var(--tascal-cyan-deep);
-  opacity: 0.65;
-}
-.nav-item-jp { font-size: 13px; font-weight: 700; color: var(--ink-1); }
-.header-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
-.header-tel {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  line-height: 1.2;
-}
-.header-tel-label {
-  font-family: var(--font-latin);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  color: var(--ink-3);
-}
-.header-tel-num {
-  font-family: var(--font-latin);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--ink-1);
-}
-.header-contact-btn {
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--ink-1);
-  padding: 12px 22px;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: background 200ms;
-  white-space: nowrap;
-}
-.header-contact-btn:hover { background: var(--leaf-deep); color: #fff; }
-
 /* ── Hero ──────────────────────────────────────────────────── */
-#hero {
-  position: relative;
-  padding: 80px 40px 140px;
-  overflow: hidden;
-}
+#hero { position: relative; padding: 80px 40px 140px; overflow: hidden; }
 .hero-bg-blob-1 {
-  position: absolute;
-  top: -12%;
-  right: -12%;
-  width: 64%;
-  height: 116%;
-  background: var(--leaf-tint);
-  transform: rotate(-7deg);
-  border-radius: 42% 32% 36% 40%;
-  opacity: 0.9;
-  pointer-events: none;
+  position: absolute; top: -12%; right: -12%; width: 64%; height: 116%;
+  background: var(--leaf-tint); transform: rotate(-7deg);
+  border-radius: 42% 32% 36% 40%; opacity: 0.9; pointer-events: none;
 }
 .hero-bg-blob-2 {
-  position: absolute;
-  top: 8%;
-  right: 2%;
-  width: 44%;
-  height: 76%;
-  background: var(--leaf-soft);
-  transform: rotate(-13deg);
-  border-radius: 46% 34% 40% 30%;
-  opacity: 0.55;
-  pointer-events: none;
+  position: absolute; top: 8%; right: 2%; width: 44%; height: 76%;
+  background: var(--leaf-soft); transform: rotate(-13deg);
+  border-radius: 46% 34% 40% 30%; opacity: 0.55; pointer-events: none;
 }
 .hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 1320px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  gap: 80px;
-  align-items: center;
-  padding-top: 80px;
+  position: relative; z-index: 1; max-width: 1320px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 0.85fr; gap: 80px;
+  align-items: center; padding-top: 80px;
 }
-.hero-copy {}
 .hero-h1 {
   font-family: var(--font-jp-serif);
   font-size: clamp(40px, 4.8vw, 64px);
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: 0.08em;
-  color: var(--ink-1);
-  margin: 0 0 32px;
+  font-weight: 500; line-height: 1.45; letter-spacing: 0.08em;
+  color: var(--ink-1); margin: 0 0 32px;
 }
 .hero-h1 .accent { color: var(--leaf-deep); }
-.hero-h1 .underline-wrap {
-  position: relative;
-  display: inline-block;
-}
+.hero-h1 .underline-wrap { position: relative; display: inline-block; }
 .hero-h1 .underline-wrap::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 100%;
-  height: 8px;
-  background: var(--leaf);
-  opacity: 0.3;
-  border-radius: 4px;
+  content: ''; position: absolute; left: 0; bottom: -8px;
+  width: 100%; height: 8px; background: var(--leaf); opacity: 0.3; border-radius: 4px;
 }
-.hero-lead {
-  font-size: 17px;
-  color: var(--ink-2);
-  line-height: 1.95;
-  max-width: 540px;
-  margin: 0 0 48px;
-}
+.hero-lead { font-size: 17px; color: var(--ink-2); line-height: 1.95; max-width: 540px; margin: 0 0 48px; }
 .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
 .hero-cards { position: relative; height: 560px; }
-
-/* Hero cards */
 .hero-card {
-  position: absolute;
-  border-radius: 8px;
-  box-shadow: var(--shadow-2);
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  transition: transform 280ms ease, box-shadow 280ms ease;
+  position: absolute; border-radius: 8px; box-shadow: var(--shadow-2);
+  padding: 28px; display: flex; flex-direction: column; justify-content: space-between;
+  text-decoration: none; transition: transform 280ms, box-shadow 280ms;
 }
-.hero-card-kaitori {
-  top: 0;
-  right: 60px;
-  width: 260px;
-  height: 340px;
-  background: #fff;
-  padding: 32px;
-  transform: rotate(2.5deg);
-}
-.hero-card-kaitori:hover {
-  transform: translateY(-6px) rotate(2.5deg);
-  box-shadow: var(--shadow-3);
-}
-.hero-card-ihin {
-  top: 120px;
-  left: 0;
-  width: 240px;
-  height: 320px;
-  background: var(--cream-deep);
-  transform: rotate(-3deg);
-}
-.hero-card-ihin:hover {
-  transform: translateY(-6px) rotate(-3deg);
-  box-shadow: var(--shadow-3);
-}
+.hero-card-kaitori { top: 0; right: 60px; width: 260px; height: 340px; background: #fff; padding: 32px; transform: rotate(2.5deg); }
+.hero-card-kaitori:hover { transform: translateY(-6px) rotate(2.5deg); box-shadow: var(--shadow-3); }
+.hero-card-ihin { top: 120px; left: 0; width: 240px; height: 320px; background: var(--cream-deep); transform: rotate(-3deg); }
+.hero-card-ihin:hover { transform: translateY(-6px) rotate(-3deg); box-shadow: var(--shadow-3); }
 .hero-card-saitama {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 220px;
-  height: 220px;
-  background: var(--ink-1);
-  border-radius: 8px;
-  box-shadow: var(--shadow-3);
-  transform: rotate(1.5deg);
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #fff;
+  position: absolute; bottom: 0; right: 0; width: 220px; height: 220px;
+  background: var(--ink-1); border-radius: 8px; box-shadow: var(--shadow-3);
+  transform: rotate(1.5deg); padding: 28px;
+  display: flex; flex-direction: column; justify-content: space-between; color: #fff;
 }
-.card-service-label {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  font-weight: 600;
-}
-.card-title-kaitori {
-  font-family: var(--font-jp-serif);
-  font-size: 32px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-  color: var(--ink-1);
-}
-.card-sub-kaitori {
-  font-size: 12px;
-  color: var(--ink-3);
-  margin-top: 12px;
-  line-height: 1.8;
-}
-.card-title-ihin {
-  font-family: var(--font-jp-serif);
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-  color: var(--ink-1);
-}
-.card-sub-ihin {
-  font-size: 12px;
-  color: var(--ink-2);
-  margin-top: 12px;
-  line-height: 1.8;
-}
+.card-service-label { font-family: var(--font-latin); font-size: 10px; letter-spacing: 0.3em; font-weight: 600; }
+.card-title-kaitori { font-family: var(--font-jp-serif); font-size: 32px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.3; color: var(--ink-1); }
+.card-sub-kaitori { font-size: 12px; color: var(--ink-3); margin-top: 12px; line-height: 1.8; }
+.card-title-ihin { font-family: var(--font-jp-serif); font-size: 30px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.3; color: var(--ink-1); }
+.card-sub-ihin { font-size: 12px; color: var(--ink-2); margin-top: 12px; line-height: 1.8; }
 .hero-scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-latin);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: var(--ink-3);
-  writing-mode: vertical-rl;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-latin); font-size: 10px; letter-spacing: 0.3em;
+  color: var(--ink-3); writing-mode: vertical-rl;
+  display: flex; align-items: center; gap: 12px;
 }
-.hero-scroll-indicator::after {
-  content: '';
-  width: 1px;
-  height: 40px;
-  background: var(--ink-3);
-}
+.hero-scroll-indicator::after { content: ''; width: 1px; height: 40px; background: var(--ink-3); }
 
 /* ── ConceptRow ────────────────────────────────────────────── */
-#concept {
-  padding: 88px 40px 96px;
-  background: var(--cream);
-}
-.concept-grid {
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 56px;
-}
-.concept-item {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+#concept { padding: 88px 40px 96px; background: var(--cream); }
+.concept-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+.concept-item { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .concept-item .concept-ticks { margin-bottom: 22px; }
-.concept-item-jp {
-  font-family: var(--font-jp-serif);
-  font-size: 23px;
-  font-weight: 500;
-  color: var(--leaf-deep);
-  margin: 0 0 10px;
-  letter-spacing: 0.28em;
-}
-.concept-item-en {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.34em;
-  color: var(--ink-3);
-  margin-bottom: 16px;
-}
-.concept-item-sub {
-  font-size: 13.5px;
-  color: var(--ink-2);
-  line-height: 1.9;
-  margin: 0;
-  max-width: 260px;
-}
+.concept-item-jp { font-family: var(--font-jp-serif); font-size: 23px; font-weight: 500; color: var(--leaf-deep); margin: 0 0 10px; letter-spacing: 0.28em; }
+.concept-item-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.34em; color: var(--ink-3); margin-bottom: 16px; }
+.concept-item-sub { font-size: 13.5px; color: var(--ink-2); line-height: 1.9; margin: 0; max-width: 260px; }
 
 /* ── ServiceIntro ──────────────────────────────────────────── */
-#services {
-  padding: 120px 40px;
-  background: var(--cream);
-}
+#services { padding: 120px 40px; background: var(--cream); }
 .services-inner { max-width: 1320px; margin: 0 auto; }
-.services-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
-  margin-bottom: 64px;
-}
-.services-h2 {
-  font-family: var(--font-jp-serif);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: 0.06em;
-  margin: 20px 0 0;
-}
+.services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+.services-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; margin: 20px 0 0; }
 .services-header-right { text-align: right; }
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  align-items: stretch;
-}
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
 .service-card {
-  display: block;
-  text-decoration: none;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid var(--border-hair);
-  padding: 28px 28px 24px;
-  box-shadow: none;
-  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+  display: block; text-decoration: none; background: #fff; border-radius: 10px;
+  border: 1px solid var(--border-hair); padding: 28px 28px 24px;
+  transition: transform 280ms, box-shadow 280ms, border-color 280ms;
 }
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-2);
-  border-color: var(--leaf-soft);
-}
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-color: var(--leaf-soft); }
 .service-card .concept-ticks { margin-bottom: 18px; }
-.service-num {
-  font-family: var(--font-latin);
-  font-weight: 300;
-  font-size: 40px;
-  color: var(--leaf);
-  opacity: 0.4;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  margin-bottom: 10px;
-}
-.service-en {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  color: var(--tascal-cyan-deep);
-  margin-bottom: 6px;
-}
-.service-title {
-  font-family: var(--font-jp-serif);
-  font-size: 21px;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  margin: 0 0 12px;
-  color: var(--ink-1);
-}
-.service-short {
-  font-size: 13px;
-  color: var(--ink-2);
-  line-height: 1.85;
-  margin: 0;
-}
-.service-more {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-hair);
-  font-size: 12px;
-  color: var(--ink-3);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.service-num { font-family: var(--font-latin); font-weight: 300; font-size: 40px; color: var(--leaf); opacity: 0.4; line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px; }
+.service-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.24em; color: var(--tascal-cyan-deep); margin-bottom: 6px; }
+.service-title { font-family: var(--font-jp-serif); font-size: 21px; font-weight: 500; letter-spacing: 0.28em; margin: 0 0 12px; color: var(--ink-1); }
+.service-short { font-size: 13px; color: var(--ink-2); line-height: 1.85; margin: 0; }
+.service-more { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-hair); font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 8px; }
 .service-more .arrow { color: var(--tascal-cyan); }
 
 /* ── BusinessIntro ─────────────────────────────────────────── */
-#business {
-  padding: 120px 40px;
-  background: var(--ink-1);
-  color: #fff;
-}
-.business-inner {
-  max-width: 1320px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.business-eyebrow {
-  font-family: var(--font-latin);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.32em;
-  color: var(--tascal-cyan);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-.business-eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--tascal-cyan);
-  flex-shrink: 0;
-}
-.business-h2 {
-  font-family: var(--font-jp-serif);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: 0.06em;
-  color: #fff;
-  margin: 0 0 24px;
-}
+#business { padding: 120px 40px; background: var(--ink-1); color: #fff; }
+.business-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+.business-eyebrow { font-family: var(--font-latin); font-size: 12px; font-weight: 600; letter-spacing: 0.32em; color: var(--tascal-cyan); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.business-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--tascal-cyan); flex-shrink: 0; }
+.business-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; color: #fff; margin: 0 0 24px; }
 .business-h2 .accent { color: var(--tascal-cyan); }
-.business-lead {
-  font-size: 15.5px;
-  color: #B8C2CB;
-  line-height: 2.1;
-  margin: 0 0 32px;
-  max-width: 540px;
-}
-.business-panel {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 32px;
-}
-.business-panel-label {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: var(--tascal-cyan);
-  margin-bottom: 16px;
-}
+.business-lead { font-size: 15.5px; color: #B8C2CB; line-height: 2.1; margin: 0 0 32px; max-width: 540px; }
+.business-panel { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 32px; }
+.business-panel-label { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan); margin-bottom: 16px; }
 .partnership-list { display: flex; flex-direction: column; gap: 16px; }
-.partnership-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  gap: 16px;
-}
+.partnership-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 16px; }
 .partnership-item:last-child { border-bottom: none; }
-.partnership-label {
-  font-family: var(--font-jp-serif);
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 2px;
-}
+.partnership-label { font-family: var(--font-jp-serif); font-size: 16px; color: #fff; margin-bottom: 2px; }
 .partnership-sub { font-size: 12px; color: #7B8D98; }
 .partnership-arrow { color: var(--tascal-cyan); font-size: 18px; flex-shrink: 0; }
 
 /* ── AboutIntro ────────────────────────────────────────────── */
-#about {
-  padding: 120px 40px;
-  background: var(--cream);
-}
-.about-inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 80px;
-  align-items: start;
-}
-.about-h2 {
-  font-family: var(--font-jp-serif);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: 0.06em;
-  margin: 24px 0 32px;
-}
-.about-table .row {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 24px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border-hair);
-  align-items: start;
-}
-.about-table dt {
-  font-family: var(--font-jp-serif);
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.06em;
-  color: var(--ink-1);
-}
-.about-table dd {
-  font-size: 14px;
-  color: var(--ink-2);
-  line-height: 1.9;
-}
+#about { padding: 120px 40px; background: var(--cream); }
+.about-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+.about-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; margin: 24px 0 32px; }
+.about-table .row { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border-hair); align-items: start; }
+.about-table dt { font-family: var(--font-jp-serif); font-weight: 500; font-size: 14px; letter-spacing: 0.06em; color: var(--ink-1); }
+.about-table dd { font-size: 14px; color: var(--ink-2); line-height: 1.9; }
 
 /* ── ContactBand ───────────────────────────────────────────── */
-#contact-band {
-  padding: 120px 40px;
-  background: var(--cream);
-}
-.contact-band-inner {
-  max-width: 1320px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-.cta-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 220px;
-  background: #fff;
-  border: 1px solid var(--border-hair);
-  border-radius: 12px;
-  padding: 40px;
-  text-decoration: none;
-  transition: box-shadow 280ms ease, transform 280ms ease;
-}
-.cta-card:hover {
-  box-shadow: var(--shadow-2);
-  transform: translateY(-3px);
-}
-.cta-h2 {
-  font-family: var(--font-jp-serif);
-  font-size: 28px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  margin: 0 0 12px;
-  color: var(--ink-1);
-}
+#contact-band { padding: 120px 40px; background: var(--cream); }
+.contact-band-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.cta-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: #fff; border: 1px solid var(--border-hair); border-radius: 12px; padding: 40px; text-decoration: none; transition: box-shadow 280ms, transform 280ms; }
+.cta-card:hover { box-shadow: var(--shadow-2); transform: translateY(-3px); }
+.cta-h2 { font-family: var(--font-jp-serif); font-size: 28px; font-weight: 500; letter-spacing: 0.06em; margin: 0 0 12px; color: var(--ink-1); }
 .cta-lead { font-size: 14px; color: var(--ink-2); margin: 0; line-height: 1.95; }
-.cta-more {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  color: var(--tascal-cyan-deep);
-  font-weight: 600;
-  margin-top: 24px;
-}
+.cta-more { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--tascal-cyan-deep); font-weight: 600; margin-top: 24px; }
 
-/* ── Footer ────────────────────────────────────────────────── */
-#footer {
-  background: var(--ink-1);
-  color: #fff;
-  padding: 80px 40px 32px;
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-cards { display: none; }
+  .concept-grid { grid-template-columns: 1fr; gap: 40px; }
+  .services-header { grid-template-columns: 1fr; gap: 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .business-inner, .about-inner, .contact-band-inner { grid-template-columns: 1fr; gap: 40px; }
 }
-.footer-inner { max-width: 1320px; margin: 0 auto; }
-.footer-licenses {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 64px;
-}
-.footer-licenses-label {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: var(--tascal-cyan);
-  margin-bottom: 12px;
-}
-.footer-licenses-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-.license-badge {
-  font-size: 12px;
-  font-weight: 500;
-  color: #fff;
-  padding: 5px 12px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.license-badge .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 56px;
-  margin-bottom: 56px;
-}
-.footer-brand {}
-.footer-logo { height: 56px; filter: brightness(0) invert(1); }
-.footer-address {
-  margin-top: 28px;
-  font-size: 13px;
-  color: #B8C2CB;
-  line-height: 2;
-}
-.footer-tel-wrap { margin-top: 20px; line-height: 1.4; }
-.footer-tel-num {
-  font-family: var(--font-latin);
-  font-size: 22px;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  display: block;
-}
-.footer-tel-note { font-size: 11px; color: #7B8D98; margin-top: 2px; }
-.footer-col-label {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: var(--tascal-cyan);
-  margin-bottom: 16px;
-}
-.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-.footer-col a { font-size: 13.5px; color: #fff; text-decoration: none; }
-.footer-col a:hover { color: var(--leaf-soft); }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-size: 12px;
-  color: #7B8D98;
-}
-.footer-bottom-links { display: flex; gap: 24px; }
-.footer-bottom a { color: #7B8D98; text-decoration: none; }
-.footer-bottom a:hover { color: var(--leaf-soft); }
 </style>
 </head>
-<body>
+<body data-page="home">
 
-<!-- ── Header ──────────────────────────────────────────────── -->
-<header id="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="header-logo">
-      <img src="assets/logo-tasukaru-green.png" alt="タスカル tasukaru">
-    </a>
-    <nav class="header-nav">
-      <a href="about.html" class="nav-item">
-        <span class="nav-item-en">ABOUT</span>
-        <span class="nav-item-jp">会社概要</span>
-      </a>
-      <a href="services.html" class="nav-item">
-        <span class="nav-item-en">SERVICES</span>
-        <span class="nav-item-jp">事業内容</span>
-      </a>
-      <a href="business.html" class="nav-item">
-        <span class="nav-item-en">BUSINESS</span>
-        <span class="nav-item-jp">法人のお客様へ</span>
-      </a>
-      <a href="recruit.html" class="nav-item">
-        <span class="nav-item-en">RECRUIT</span>
-        <span class="nav-item-jp">採用情報</span>
-      </a>
-    </nav>
-    <div class="header-actions">
-      <a href="tel:0120433233" class="header-tel">
-        <span class="header-tel-label">TEL · 受付 9:00-18:00</span>
-        <span class="header-tel-num">0120-433-233</span>
-      </a>
-      <a href="contact.html" class="header-contact-btn">お問い合わせ</a>
-    </div>
-  </div>
-</header>
+<header id="site-header"></header>
 
 <!-- ── Hero ────────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-bg-blob-1"></div>
   <div class="hero-bg-blob-2"></div>
-
   <div class="hero-inner">
     <div class="hero-copy">
       <div class="eyebrow-jp" style="margin-bottom:32px">REUSE × ORGANIZE × CARE</div>
@@ -856,15 +163,10 @@ dl, dt, dd { margin: 0; }
         埼玉・上尾を拠点に、ご家庭の「困った」をまるごとお引き受けします。
       </p>
       <div class="hero-ctas">
-        <a href="contact.html" class="btn-primary">
-          お問い合わせ <span style="font-size:18px">→</span>
-        </a>
-        <a href="business.html" class="btn-arrow">
-          法人のお客様へ <span style="color:var(--tascal-cyan)">→</span>
-        </a>
+        <a href="contact.html" class="btn btn-primary">お問い合わせ <span style="font-size:18px">→</span></a>
+        <a href="business.html" class="btn-arrow">法人のお客様へ <span style="color:var(--tascal-cyan)">→</span></a>
       </div>
     </div>
-
     <div class="hero-cards">
       <a href="services-kaitori.html" class="hero-card hero-card-kaitori">
         <div class="card-service-label" style="color:var(--leaf-deep)">SERVICE 05</div>
@@ -873,7 +175,6 @@ dl, dt, dd { margin: 0; }
           <div class="card-sub-kaitori">貴金属・時計・カメラ<br>骨董・着物・酒類まで</div>
         </div>
       </a>
-
       <a href="services-ihin-seiri.html" class="hero-card hero-card-ihin">
         <div class="card-service-label" style="color:var(--bark)">SERVICE 01</div>
         <div>
@@ -881,7 +182,6 @@ dl, dt, dd { margin: 0; }
           <div class="card-sub-ihin">故人を偲びながら、<br>ひとつずつ丁寧に。</div>
         </div>
       </a>
-
       <div class="hero-card-saitama">
         <div style="font-family:var(--font-latin);font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--leaf-bright)">FROM SAITAMA</div>
         <div>
@@ -891,7 +191,6 @@ dl, dt, dd { margin: 0; }
       </div>
     </div>
   </div>
-
   <div class="hero-scroll-indicator">SCROLL</div>
 </section>
 
@@ -929,57 +228,48 @@ dl, dt, dd { margin: 0; }
         <h2 class="services-h2">６つの事業で、<br>暮らしと法人のご依頼に対応。</h2>
       </div>
       <div class="services-header-right">
-        <a href="services.html" class="btn-arrow">
-          事業内容一覧を見る <span style="color:var(--tascal-cyan);font-size:18px">→</span>
-        </a>
+        <a href="services.html" class="btn-arrow">事業内容一覧を見る <span style="color:var(--tascal-cyan);font-size:18px">→</span></a>
       </div>
     </div>
-
     <div class="services-grid">
       <a href="services-ihin-seiri.html" class="service-card">
         <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">01</div>
-        <div class="service-en">ESTATE CLEANUP</div>
+        <div class="service-num">01</div><div class="service-en">ESTATE CLEANUP</div>
         <h3 class="service-title">遺品整理</h3>
         <p class="service-short">ご遺族に代わり、故人の遺品を丁寧に仕分け・整理いたします。</p>
         <div class="service-more">詳しく見る <span class="arrow">→</span></div>
       </a>
       <a href="services-seizen-seiri.html" class="service-card">
         <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">02</div>
-        <div class="service-en">PRE-ESTATE ORGANIZE</div>
+        <div class="service-num">02</div><div class="service-en">PRE-ESTATE ORGANIZE</div>
         <h3 class="service-title">生前整理</h3>
         <p class="service-short">お元気なうちに、ご自身の手でモノと気持ちを整理する終活サポート。</p>
         <div class="service-more">詳しく見る <span class="arrow">→</span></div>
       </a>
       <a href="services-fukushi-seiri.html" class="service-card">
         <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">03</div>
-        <div class="service-en">WELFARE CLEANUP</div>
+        <div class="service-num">03</div><div class="service-en">WELFARE CLEANUP</div>
         <h3 class="service-title">福祉整理</h3>
         <p class="service-short">高齢者・障害者・生活困窮者の住環境を安全に整える整理サービス。</p>
         <div class="service-more">詳しく見る <span class="arrow">→</span></div>
       </a>
       <a href="services-cleanup.html" class="service-card">
         <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">04</div>
-        <div class="service-en">DECLUTTERING</div>
+        <div class="service-num">04</div><div class="service-en">DECLUTTERING</div>
         <h3 class="service-title">お片付け</h3>
         <p class="service-short">引っ越し前後・空き家・実家じまいの整理をワンストップで。</p>
         <div class="service-more">詳しく見る <span class="arrow">→</span></div>
       </a>
       <a href="services-kaitori.html" class="service-card">
         <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">05</div>
-        <div class="service-en">PURCHASE</div>
+        <div class="service-num">05</div><div class="service-en">PURCHASE</div>
         <h3 class="service-title">買取事業</h3>
         <p class="service-short">貴金属・時計・カメラ・骨董・着物・酒類など幅広い品目をお買取。</p>
         <div class="service-more">詳しく見る <span class="arrow">→</span></div>
       </a>
       <a href="services-ec.html" class="service-card">
         <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">06</div>
-        <div class="service-en">ONLINE SALES</div>
+        <div class="service-num">06</div><div class="service-en">ONLINE SALES</div>
         <h3 class="service-title">インターネット販売事業</h3>
         <p class="service-short">ヤフオク等のプラットフォームを通じた再販売事業。</p>
         <div class="service-more">詳しく見る <span class="arrow">→</span></div>
@@ -993,49 +283,17 @@ dl, dt, dd { margin: 0; }
   <div class="business-inner">
     <div>
       <div class="business-eyebrow">FOR BUSINESS</div>
-      <h2 class="business-h2">
-        法人のお客様へ。<br>
-        整理・買取の<span class="accent">協業パートナー</span>として。
-      </h2>
-      <p class="business-lead">
-        不動産会社様、士業の先生方、ケアマネジャー・福祉施設様、葬儀社様。それぞれの業種に合わせた連携パッケージをご用意しています。産廃許可・特別国際種登録・酒類販売業免許など、法人取引で必要となる許認可を整備しています。
-      </p>
-      <a href="business.html" class="btn-cyan">
-        法人のお客様へ <span style="font-size:18px">→</span>
-      </a>
+      <h2 class="business-h2">法人のお客様へ。<br>整理・買取の<span class="accent">協業パートナー</span>として。</h2>
+      <p class="business-lead">不動産会社様、士業の先生方、ケアマネジャー・福祉施設様、葬儀社様。それぞれの業種に合わせた連携パッケージをご用意しています。産廃許可・特別国際種登録・酒類販売業免許など、法人取引で必要となる許認可を整備しています。</p>
+      <a href="business.html" class="btn btn-cyan">法人のお客様へ <span style="font-size:18px">→</span></a>
     </div>
-
     <div class="business-panel">
       <div class="business-panel-label">PARTNERSHIP PACKAGES</div>
       <ul class="partnership-list">
-        <li class="partnership-item">
-          <div>
-            <div class="partnership-label">不動産会社様向け</div>
-            <div class="partnership-sub">お片付け + 遺品整理 + 買取</div>
-          </div>
-          <span class="partnership-arrow">→</span>
-        </li>
-        <li class="partnership-item">
-          <div>
-            <div class="partnership-label">士業の先生方向け</div>
-            <div class="partnership-sub">相続関連・遺品整理 + 買取</div>
-          </div>
-          <span class="partnership-arrow">→</span>
-        </li>
-        <li class="partnership-item">
-          <div>
-            <div class="partnership-label">ケアマネ・福祉施設様向け</div>
-            <div class="partnership-sub">福祉整理 + 生前整理 + お片付け</div>
-          </div>
-          <span class="partnership-arrow">→</span>
-        </li>
-        <li class="partnership-item" style="border-bottom:none">
-          <div>
-            <div class="partnership-label">葬儀社様向け</div>
-            <div class="partnership-sub">ご遺族紹介での遺品整理 + 買取</div>
-          </div>
-          <span class="partnership-arrow">→</span>
-        </li>
+        <li class="partnership-item"><div><div class="partnership-label">不動産会社様向け</div><div class="partnership-sub">お片付け + 遺品整理 + 買取</div></div><span class="partnership-arrow">→</span></li>
+        <li class="partnership-item"><div><div class="partnership-label">士業の先生方向け</div><div class="partnership-sub">相続関連・遺品整理 + 買取</div></div><span class="partnership-arrow">→</span></li>
+        <li class="partnership-item"><div><div class="partnership-label">ケアマネ・福祉施設様向け</div><div class="partnership-sub">福祉整理 + 生前整理 + お片付け</div></div><span class="partnership-arrow">→</span></li>
+        <li class="partnership-item"><div><div class="partnership-label">葬儀社様向け</div><div class="partnership-sub">ご遺族紹介での遺品整理 + 買取</div></div><span class="partnership-arrow">→</span></li>
       </ul>
     </div>
   </div>
@@ -1047,35 +305,15 @@ dl, dt, dd { margin: 0; }
     <div>
       <div class="eyebrow-jp">ABOUT US</div>
       <h2 class="about-h2">会社概要</h2>
-      <a href="about.html" class="btn-arrow">
-        会社情報を詳しく見る <span style="color:var(--tascal-cyan);font-size:18px">→</span>
-      </a>
+      <a href="about.html" class="btn-arrow">会社情報を詳しく見る <span style="color:var(--tascal-cyan);font-size:18px">→</span></a>
     </div>
     <dl class="about-table">
-      <div class="row">
-        <dt>社名</dt>
-        <dd>株式会社タスカル</dd>
-      </div>
-      <div class="row">
-        <dt>所在地</dt>
-        <dd>埼玉県上尾市仲町1-7-25</dd>
-      </div>
-      <div class="row">
-        <dt>事業内容</dt>
-        <dd>遺品整理・生前整理・福祉整理・お片付け・買取・インターネット販売</dd>
-      </div>
-      <div class="row">
-        <dt>対応エリア</dt>
-        <dd>埼玉県・東京都・千葉県・神奈川県（関東一円）</dd>
-      </div>
-      <div class="row">
-        <dt>許認可</dt>
-        <dd>古物商許可、産業廃棄物収集運搬業許可（埼玉県）、酒類販売業免許、特別国際種事業者登録</dd>
-      </div>
-      <div class="row">
-        <dt>保有資格</dt>
-        <dd>遺品整理士、3Rディレクター</dd>
-      </div>
+      <div class="row"><dt>社名</dt><dd>株式会社タスカル</dd></div>
+      <div class="row"><dt>所在地</dt><dd>埼玉県上尾市仲町1-7-25</dd></div>
+      <div class="row"><dt>事業内容</dt><dd>遺品整理・生前整理・福祉整理・お片付け・買取・インターネット販売</dd></div>
+      <div class="row"><dt>対応エリア</dt><dd>埼玉県・東京都・千葉県・神奈川県（関東一円）</dd></div>
+      <div class="row"><dt>許認可</dt><dd>古物商許可、産業廃棄物収集運搬業許可（埼玉県）、酒類販売業免許、特別国際種事業者登録</dd></div>
+      <div class="row"><dt>保有資格</dt><dd>遺品整理士、3Rディレクター</dd></div>
     </dl>
   </div>
 </section>
@@ -1089,9 +327,7 @@ dl, dt, dd { margin: 0; }
         <h2 class="cta-h2">お問い合わせ</h2>
         <p class="cta-lead">ご相談・ご依頼は、お電話またはフォームよりお気軽にご連絡ください。</p>
       </div>
-      <div class="cta-more">
-        お問い合わせフォームへ <span style="font-size:18px">→</span>
-      </div>
+      <div class="cta-more">お問い合わせフォームへ <span style="font-size:18px">→</span></div>
     </a>
     <a href="recruit.html" class="cta-card">
       <div>
@@ -1099,101 +335,12 @@ dl, dt, dd { margin: 0; }
         <h2 class="cta-h2">採用情報</h2>
         <p class="cta-lead">一緒に働く仲間を募集しています。未経験の方も歓迎いたします。</p>
       </div>
-      <div class="cta-more">
-        募集要項を見る <span style="font-size:18px">→</span>
-      </div>
+      <div class="cta-more">募集要項を見る <span style="font-size:18px">→</span></div>
     </a>
   </div>
 </section>
 
-<!-- ── Footer ───────────────────────────────────────────────── -->
-<footer id="footer">
-  <div class="footer-inner">
-    <div class="footer-licenses">
-      <div class="footer-licenses-label">LICENSES &amp; QUALIFICATIONS</div>
-      <div class="footer-licenses-badges">
-        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
-          <span class="dot" style="background:var(--tascal-cyan)"></span>古物商許可
-        </span>
-        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
-          <span class="dot" style="background:var(--tascal-cyan)"></span>産業廃棄物収集運搬業 (埼玉)
-        </span>
-        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
-          <span class="dot" style="background:var(--tascal-cyan)"></span>酒類販売業免許
-        </span>
-        <span class="license-badge" style="border:1px solid var(--tascal-cyan)">
-          <span class="dot" style="background:var(--tascal-cyan)"></span>特別国際種事業者登録
-        </span>
-        <span class="license-badge" style="border:1px solid var(--taupe)">
-          <span class="dot" style="background:var(--taupe)"></span>遺品整理士
-        </span>
-        <span class="license-badge" style="border:1px solid var(--taupe)">
-          <span class="dot" style="background:var(--taupe)"></span>3Rディレクター
-        </span>
-      </div>
-    </div>
-
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo-tasukaru.png" alt="タスカル tasukaru" class="footer-logo">
-        <div class="footer-address">
-          株式会社タスカル<br>
-          〒362-0035<br>
-          埼玉県上尾市仲町1-7-25
-        </div>
-        <div class="footer-tel-wrap">
-          <a href="tel:0120433233" class="footer-tel-num">0120-433-233</a>
-          <div class="footer-tel-note">受付 10:00 - 19:00 / 年中無休</div>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-label">ABOUT</div>
-        <ul>
-          <li><a href="about.html">— 会社概要</a></li>
-          <li><a href="about-greeting.html">— 代表挨拶</a></li>
-          <li><a href="about-history.html">— 会社沿革</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-label">SERVICES</div>
-        <ul>
-          <li><a href="services-ihin-seiri.html">— 遺品整理</a></li>
-          <li><a href="services-seizen-seiri.html">— 生前整理</a></li>
-          <li><a href="services-fukushi-seiri.html">— 福祉整理</a></li>
-          <li><a href="services-cleanup.html">— お片付け</a></li>
-          <li><a href="services-kaitori.html">— 買取事業</a></li>
-          <li><a href="services-ec.html">— インターネット販売</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-label">OTHERS</div>
-        <ul>
-          <li><a href="business.html">— 法人のお客様へ</a></li>
-          <li><a href="recruit.html">— 採用情報</a></li>
-          <li><a href="contact.html">— お問い合わせ</a></li>
-          <li><a href="privacy.html">— プライバシーポリシー</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div>© 株式会社タスカル All Rights Reserved.</div>
-      <div class="footer-bottom-links">
-        <a href="privacy.html">プライバシーポリシー</a>
-        <a href="contact.html">お問い合わせ</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-const header = document.getElementById('site-header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 24);
-}, { passive: true });
-</script>
+<footer id="site-footer"></footer>
+<script src="common.js"></script>
 </body>
 </html>

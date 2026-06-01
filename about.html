@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>会社概要 | 株式会社タスカル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.section { padding: 96px 40px; }
+.wrap-880 { max-width: 880px; margin: 0 auto; }
+.wrap-1080 { max-width: 1080px; margin: 0 auto; }
+.sec-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 36px); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; margin: 0 0 48px; }
+.info-row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border-hair); align-items: start; }
+.info-row dt { font-family: var(--font-jp-serif); font-weight: 500; font-size: 15px; letter-spacing: 0.06em; color: var(--ink-1); }
+.info-row dd { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.95; white-space: pre-line; }
+.quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.quick-card { text-decoration: none; background: #fff; border: 1px solid var(--border-hair); border-radius: 12px; padding: 36px; display: block; }
+.quick-card h3 { font-family: var(--font-jp-serif); font-size: 22px; font-weight: 500; letter-spacing: 0.06em; margin: 0 0 10px; color: var(--ink-1); }
+.quick-card p { font-size: 13.5px; color: var(--ink-2); margin: 0; line-height: 1.95; }
+.access-h2 { font-family: var(--font-jp-serif); font-size: clamp(24px, 2.6vw, 30px); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; margin: 0 0 32px; }
+.access-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: center; }
+.map-box { aspect-ratio: 4 / 3; background: var(--sand); border-radius: 12px; box-shadow: var(--shadow-1); display: flex; align-items: center; justify-content: center; color: var(--bark); font-family: var(--font-latin); font-size: 11px; font-weight: 600; letter-spacing: 0.28em; }
+@media (max-width: 800px) { .quick-grid, .access-grid { grid-template-columns: 1fr; } .info-row { grid-template-columns: 120px 1fr; } }
+</style>
+</head>
+<body data-page="about">
+
+<header id="site-header"></header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">ホーム</a><span class="sep">›</span><span class="current">会社概要</span>
+    </nav>
+    <div class="page-hero-en">ABOUT</div>
+    <h1 class="page-hero-h1">会社概要</h1>
+    <p class="page-hero-lead">株式会社タスカルの基本情報をご紹介いたします。</p>
+  </div>
+</section>
+
+<main>
+  <section class="section">
+    <div class="wrap-880">
+      <div class="eyebrow-jp" style="margin-bottom:24px">OVERVIEW</div>
+      <h2 class="sec-h2">会社概要</h2>
+      <dl>
+        <div class="info-row"><dt>社名</dt><dd>株式会社タスカル (Tasukaru Inc.)</dd></div>
+        <div class="info-row"><dt>所在地</dt><dd>〒362-0035 埼玉県上尾市仲町1-7-25</dd></div>
+        <div class="info-row"><dt>電話番号</dt><dd>0120-433-233 (受付 10:00-19:00 / 年中無休)</dd></div>
+        <div class="info-row"><dt>代表者</dt><dd>代表取締役 竹井 信二</dd></div>
+        <div class="info-row"><dt>設立</dt><dd>◯◯◯◯年◯月</dd></div>
+        <div class="info-row"><dt>資本金</dt><dd>◯◯◯万円</dd></div>
+        <div class="info-row"><dt>従業員数</dt><dd>◯◯名</dd></div>
+        <div class="info-row"><dt>事業内容</dt><dd>・買取事業
+・インターネット販売事業
+・お片付け
+・遺品整理
+・生前整理
+・福祉整理</dd></div>
+        <div class="info-row"><dt>対応エリア</dt><dd>埼玉県・東京都・千葉県・神奈川県を中心に関東一円</dd></div>
+        <div class="info-row"><dt>加盟団体</dt><dd>一般社団法人遺品整理士認定協会、その他</dd></div>
+        <div class="info-row"><dt>取引銀行</dt><dd>◯◯銀行 ◯◯支店、◯◯信用金庫</dd></div>
+        <div class="info-row"><dt>主要取引先</dt><dd>不動産会社様、士業事務所様、福祉施設様、葬儀社様 他</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-1080">
+      <div class="quick-grid">
+        <a href="about-greeting.html" class="quick-card lift">
+          <div class="eyebrow-jp" style="margin-bottom:16px">GREETING</div>
+          <h3>代表挨拶 →</h3>
+          <p>タスカルの理念と、創業からの想い。代表より一言ご挨拶申し上げます。</p>
+        </a>
+        <a href="about-history.html" class="quick-card lift">
+          <div class="eyebrow-jp" style="margin-bottom:16px">HISTORY</div>
+          <h3>会社沿革 →</h3>
+          <p>創業からの主要な出来事を年表でまとめております。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 40px 120px">
+    <div class="wrap-1080">
+      <div class="eyebrow-jp" style="margin-bottom:24px">ACCESS</div>
+      <h2 class="access-h2">アクセス</h2>
+      <div class="access-grid">
+        <div style="font-size:14.5px;color:var(--ink-2);line-height:2.05">
+          <div style="font-family:var(--font-jp-serif);font-size:17px;color:var(--ink-1);margin-bottom:12px">株式会社タスカル</div>
+          〒362-0035<br>埼玉県上尾市仲町1-7-25<br><br>
+          <strong style="color:var(--ink-1)">最寄駅:</strong> JR高崎線「上尾駅」<br>
+          <strong style="color:var(--ink-1)">TEL:</strong> 0120-433-233
+        </div>
+        <div class="map-box">MAP — 埼玉県上尾市仲町1-7-25</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="common.js"></script>
+</body>
+</html>

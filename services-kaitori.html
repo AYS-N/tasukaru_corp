@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>買取事業 | 株式会社タスカル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.sd-hero { padding: 64px 40px 80px; position: relative; }
+.sd-hero-inner { max-width: 1080px; margin: 0 auto; }
+.sd-hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; }
+.sd-hero-h1 { font-family: var(--font-jp-serif); font-size: clamp(36px,4.4vw,56px); font-weight: 500; line-height: 1.35; letter-spacing: 0.06em; margin: 0 0 20px; }
+.sd-hero-lead { font-size: 16px; color: var(--ink-2); line-height: 2.1; margin: 0; }
+.sd-numcard { aspect-ratio: 4 / 5; background: #fff; border-radius: 12px; box-shadow: var(--shadow-1); display: flex; align-items: center; justify-content: center; position: relative; }
+.sd-numcard-num { font-family: var(--font-latin); font-weight: 300; font-size: 120px; color: var(--tascal-cyan); opacity: 0.5; line-height: 1; letter-spacing: -0.04em; }
+.sd-numcard-title { font-family: var(--font-jp-serif); font-size: 28px; font-weight: 500; letter-spacing: 0.06em; color: var(--ink-1); margin-top: 20px; }
+.sd-numcard-tag { position: absolute; top: 20px; left: 20px; font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); }
+.sd-section { padding: 120px 40px; }
+.sd-wrap { max-width: 1080px; margin: 0 auto; }
+.sd-h2 { font-family: var(--font-jp-serif); font-size: clamp(26px,2.8vw,34px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; margin: 0 0 56px; }
+.concerns-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+.concern { background: #fff; border-radius: 8px; padding: 24px 28px; box-shadow: var(--shadow-1); display: flex; gap: 16px; align-items: flex-start; }
+.concern-check { flex-shrink: 0; color: var(--tascal-cyan); font-weight: 700; font-family: var(--font-jp-serif); font-size: 22px; line-height: 1.3; }
+.concern-text { font-size: 15px; color: var(--ink-1); line-height: 1.85; }
+.features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.feature { background: #fff; border-radius: 12px; padding: 28px; box-shadow: var(--shadow-1); }
+.feature-no { font-family: var(--font-latin); font-size: 12px; font-weight: 500; letter-spacing: 0.24em; color: var(--tascal-cyan-deep); margin-bottom: 12px; }
+.feature h3 { font-family: var(--font-jp-serif); font-size: 19px; font-weight: 500; letter-spacing: 0.04em; margin: 0 0 12px; }
+.feature p { font-size: 13.5px; color: var(--ink-2); line-height: 2; margin: 0; }
+.flow-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; position: relative; }
+.flow-line { position: absolute; top: 32px; left: 12%; right: 12%; height: 1px; border-top: 1.5px dashed var(--taupe); opacity: 0.5; }
+.flow-step { position: relative; }
+.flow-circle { position: relative; z-index: 1; width: 64px; height: 64px; border-radius: 50%; background: #fff; border: 1.5px solid var(--tascal-cyan); color: var(--tascal-cyan-deep); display: flex; align-items: center; justify-content: center; font-family: var(--font-latin); font-weight: 500; font-size: 20px; margin: 0 auto 24px; box-shadow: var(--shadow-1); }
+.flow-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); margin-bottom: 8px; }
+.flow-title { font-family: var(--font-jp-serif); font-size: 17px; font-weight: 500; letter-spacing: 0.04em; margin: 0 0 10px; }
+.flow-body { font-size: 12.5px; color: var(--ink-2); line-height: 1.9; margin: 0; }
+.area-box { background: #fff; border: 1px solid var(--border-hair); border-radius: 12px; padding: 32px 40px; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
+.area-title { font-family: var(--font-jp-serif); font-size: 22px; font-weight: 500; letter-spacing: 0.04em; margin-top: 8px; }
+.area-note { font-size: 14.5px; color: var(--ink-2); line-height: 1.95; }
+.related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.related-card { text-decoration: none; background: #fff; border-radius: 12px; padding: 24px; box-shadow: var(--shadow-1); }
+.related-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.24em; color: var(--tascal-cyan-deep); }
+.related-card h3 { font-family: var(--font-jp-serif); font-size: 19px; font-weight: 500; letter-spacing: 0.04em; margin: 8px 0 0; color: var(--ink-1); }
+@media (max-width: 800px) {
+  .sd-hero-grid { grid-template-columns: 1fr; }
+  .concerns-grid, .features-grid, .related-grid { grid-template-columns: 1fr; }
+  .flow-grid { grid-template-columns: repeat(2,1fr); }
+  .flow-line { display: none; }
+  .area-box { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-page="services">
+
+<header id="site-header"></header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">ホーム</a><span class="sep">›</span><a href="services.html">事業内容</a><span class="sep">›</span><span class="current">買取事業</span>
+    </nav>
+    <div class="page-hero-en">PURCHASE</div>
+    <h1 class="page-hero-h1">買取事業</h1>
+    <p class="page-hero-lead">貴金属・時計・カメラ・骨董・着物・酒類など幅広い品目をお買取。</p>
+  </div>
+</section>
+
+<main>
+  <section class="sd-hero" style="background:var(--cream-deep)">
+    <div class="sd-hero-inner">
+      <div class="sd-hero-grid">
+        <div>
+          <div class="eyebrow-jp" style="margin-bottom:16px">PURCHASE</div>
+          <h1 class="sd-hero-h1">買取事業</h1>
+          <p class="sd-hero-lead">貴金属・時計・カメラ・骨董品・着物・酒類・ブランド品など、幅広い品目に対応する買取事業です。古物商許可を取得し、酒類販売業免許・特別国際種事業者登録も保有しているため、適法な範囲での買取・再販売が可能です。</p>
+        </div>
+        <div class="sd-numcard">
+          <div style="text-align:center">
+            <div class="sd-numcard-num">05</div>
+            <div class="sd-numcard-title">買取事業</div>
+          </div>
+          <div class="sd-numcard-tag">NO. 05</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-section">
+    <div class="sd-wrap">
+      <div class="eyebrow-jp" style="margin-bottom:24px">CONCERNS</div>
+      <h2 class="sd-h2">こんなお悩みは<br>ありませんか？</h2>
+      <div class="concerns-grid">
+        <div class="concern"><span class="concern-check">✓</span><span class="concern-text">遺品の中に価値のある品物がありそう</span></div>
+        <div class="concern"><span class="concern-check">✓</span><span class="concern-text">使わない時計やカメラを売却したい</span></div>
+        <div class="concern"><span class="concern-check">✓</span><span class="concern-text">骨董品・古美術品の価値を知りたい</span></div>
+        <div class="concern"><span class="concern-check">✓</span><span class="concern-text">着物や帯がたくさん残っている</span></div>
+        <div class="concern"><span class="concern-check">✓</span><span class="concern-text">古いお酒の処分に困っている</span></div>
+        <div class="concern"><span class="concern-check">✓</span><span class="concern-text">象牙・べっ甲などの特殊品の処分相談</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-section" style="background:var(--cream-deep)">
+    <div class="sd-wrap">
+      <div class="eyebrow-jp" style="margin-bottom:24px">FEATURES</div>
+      <h2 class="sd-h2">サービスの特徴</h2>
+      <div class="features-grid">
+        <div class="feature"><div class="feature-no">NO. 01</div><h3>幅広い品目に対応</h3><p>貴金属・時計・カメラ・骨董・着物・ブランド品・酒類など、幅広いカテゴリーをお取り扱いします。</p></div>
+        <div class="feature"><div class="feature-no">NO. 02</div><h3>出張・店頭・宅配買取</h3><p>お客様の状況に合わせて、3つの買取スタイルからお選びいただけます。</p></div>
+        <div class="feature"><div class="feature-no">NO. 03</div><h3>特殊品にも適法対応</h3><p>酒類販売業免許・特別国際種事業者登録により、お酒・象牙等の特殊品も適法にお取り扱い可能です。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-section">
+    <div class="sd-wrap">
+      <div class="eyebrow-jp" style="margin-bottom:24px">FLOW</div>
+      <h2 class="sd-h2">作業の流れ</h2>
+      <div class="flow-grid">
+        <div class="flow-line"></div>
+        <div class="flow-step"><div class="flow-circle">01</div><div style="text-align:center"><div class="flow-en">INQUIRY</div><h3 class="flow-title">お問い合わせ</h3><p class="flow-body">お電話・メール・フォームよりお気軽にご連絡ください。</p></div></div>
+        <div class="flow-step"><div class="flow-circle">02</div><div style="text-align:center"><div class="flow-en">ESTIMATE</div><h3 class="flow-title">出張お見積もり</h3><p class="flow-body">スタッフがお伺いし、内容を確認の上、お見積もりを作成します。</p></div></div>
+        <div class="flow-step"><div class="flow-circle">03</div><div style="text-align:center"><div class="flow-en">WORK</div><h3 class="flow-title">作業実施</h3><p class="flow-body">当日は丁寧に作業を進めます。立ち合いなしでも対応可能です。</p></div></div>
+        <div class="flow-step"><div class="flow-circle">04</div><div style="text-align:center"><div class="flow-en">COMPLETE</div><h3 class="flow-title">完了・お支払い</h3><p class="flow-body">お客様にご確認いただいた後、作業完了となります。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 40px 120px">
+    <div class="sd-wrap">
+      <div class="area-box">
+        <div>
+          <div class="eyebrow-jp">AREA</div>
+          <div class="area-title">対応エリア</div>
+        </div>
+        <div class="area-note">出張買取は埼玉県・東京都・千葉県・神奈川県を中心に対応。店頭買取・宅配買取は全国対応です。古物商許可番号: 第◯◯◯◯◯◯◯◯◯◯号 (要差し替え)</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 40px 160px">
+    <div class="sd-wrap">
+      <div class="eyebrow-jp" style="margin-bottom:24px">RELATED</div>
+      <h2 class="sd-h2" style="margin-bottom:32px;font-size:clamp(24px,2.6vw,30px)">関連サービス</h2>
+      <div class="related-grid">
+        <a href="services-ec.html" class="related-card lift-card"><div class="related-en">ONLINE SALES</div><h3>インターネット販売事業 →</h3></a>
+        <a href="services-ihin-seiri.html" class="related-card lift-card"><div class="related-en">ESTATE CLEANUP</div><h3>遺品整理 →</h3></a>
+        <a href="services-cleanup.html" class="related-card lift-card"><div class="related-en">DECLUTTERING</div><h3>お片付け →</h3></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="common.js"></script>
+</body>
+</html>

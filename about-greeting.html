@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>代表挨拶 | 株式会社タスカル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.greeting-main { background: var(--cream); padding: 96px 40px 160px; }
+.greeting-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+.portrait { width: 100%; aspect-ratio: 4 / 5; background: var(--sand); border-radius: 12px; box-shadow: var(--shadow-1); display: flex; align-items: center; justify-content: center; color: var(--bark); font-size: 11px; font-family: var(--font-latin); letter-spacing: 0.24em; font-weight: 600; }
+.greeting-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3.2vw, 40px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; margin: 0 0 32px; }
+.greeting-intro { font-family: var(--font-jp-serif); font-size: 17px; font-weight: 400; line-height: 2.3; letter-spacing: 0.04em; color: var(--ink-1); margin: 0 0 24px; }
+.greeting-p { font-size: 14.5px; color: var(--ink-2); line-height: 2.1; margin: 0 0 20px; }
+.greeting-sign { font-family: var(--font-jp-serif); font-size: 15px; margin-top: 40px; color: var(--ink-1); letter-spacing: 0.04em; }
+@media (max-width: 800px) { .greeting-grid { grid-template-columns: 1fr; gap: 40px; } }
+</style>
+</head>
+<body data-page="about">
+
+<header id="site-header"></header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">ホーム</a><span class="sep">›</span><a href="about.html">会社概要</a><span class="sep">›</span><span class="current">代表挨拶</span>
+    </nav>
+    <div class="page-hero-en">GREETING</div>
+    <h1 class="page-hero-h1">代表挨拶</h1>
+    <p class="page-hero-lead">代表よりご挨拶を申し上げます。</p>
+  </div>
+</section>
+
+<main class="greeting-main">
+  <div class="greeting-grid">
+    <div>
+      <div class="portrait">PORTRAIT</div>
+      <div style="margin-top:20px">
+        <div style="font-family:var(--font-jp-serif);font-size:18px;color:var(--ink-1);margin-bottom:4px">代表取締役 竹井 信二</div>
+        <div style="font-size:12px;color:var(--ink-3)">CEO, Tasukaru Inc.</div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow-jp" style="margin-bottom:16px">GREETING</div>
+      <h2 class="greeting-h2">「助かった」と<br>言っていただけるその瞬間まで。</h2>
+      <p class="greeting-intro">ホームページをご覧いただき、ありがとうございます。<br>株式会社タスカル代表取締役の竹井と申します。</p>
+      <p class="greeting-p">私たちタスカルは、埼玉県上尾市を拠点に、ご家庭の整理・買取・再販売を一貫してお引き受けする会社です。遺品整理、生前整理、福祉整理、お片付け、買取、そしてインターネット販売まで、お客様の暮らしと向き合うあらゆる場面を、責任を持ってお手伝いいたします。</p>
+      <p class="greeting-p">私たちが大切にしているのは、モノを片付けるという行為が、単に空間を整える作業ではないということです。一つひとつのお品物には、ご家族の物語があり、思い出があります。乱暴に「処分」するのではなく、必要なものは残し、使えるものは次の方の手へ、そうでないものは丁寧に手放す。その判断のすべてに、お客様への敬意を込めてお取り組みしています。</p>
+      <p class="greeting-p">また、法人のお客様との連携にも力を入れています。不動産会社様、士業の先生方、福祉施設様、葬儀社様。それぞれの業種で発生する整理・処分のご相談に、コンプライアンス体制を整えた上でお応えできるよう、必要な許認可・資格を順次取得してまいりました。</p>
+      <p class="greeting-p">「助かった」とお客様に言っていただけるその瞬間まで、私たちは伴走します。ご相談だけでも構いません。お気軽にお問い合わせください。</p>
+      <p class="greeting-sign">株式会社タスカル<br>代表取締役 竹井 信二</p>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="common.js"></script>
+</body>
+</html>

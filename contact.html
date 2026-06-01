@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>お問い合わせ | 株式会社タスカル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.contact-main { background: var(--cream); padding: 96px 40px 160px; }
+.contact-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+.contact-aside-h2 { font-family: var(--font-jp-serif); font-size: clamp(22px,2.4vw,30px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; margin: 0 0 32px; }
+.info-block { margin-bottom: 28px; }
+.info-label { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); margin-bottom: 8px; }
+.info-tel { font-family: var(--font-latin); font-size: 26px; font-weight: 600; color: var(--ink-1); text-decoration: none; letter-spacing: 0.02em; }
+.info-note { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+.info-mail { font-size: 15px; color: var(--ink-1); text-decoration: underline; text-decoration-color: var(--tascal-cyan); text-underline-offset: 4px; }
+.info-callout { padding: 24px; background: var(--tascal-cyan-tint); border-radius: 8px; border: 1px solid var(--tascal-cyan-soft); }
+.info-callout-title { font-family: var(--font-jp-serif); font-size: 16px; color: var(--ink-1); margin-bottom: 8px; }
+.info-callout p { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.85; }
+.form-box { background: #fff; border-radius: 12px; padding: 48px; box-shadow: var(--shadow-1); }
+.form { display: flex; flex-direction: column; gap: 28px; }
+.form label.field-label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-1); margin-bottom: 8px; }
+.req { color: var(--error); font-size: 11px; margin-left: 4px; }
+.opt { color: var(--ink-3); font-size: 11px; margin-left: 4px; }
+select.input { border-top: none; border-left: none; border-right: none; background: transparent; padding-left: 0; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--border-hair); border-radius: 999px; font-size: 13px; cursor: pointer; background: #fff; }
+.chip input { accent-color: var(--tascal-cyan); }
+.form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.privacy-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-2); }
+.privacy-row input { accent-color: var(--tascal-cyan); }
+.thanks { text-align: center; padding: 32px 0; }
+.thanks-en { font-family: var(--font-latin); font-size: 11px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); margin-bottom: 16px; }
+.thanks h3 { font-family: var(--font-jp-serif); font-size: 28px; font-weight: 500; letter-spacing: 0.06em; margin: 0 0 16px; }
+.thanks p { font-size: 14px; color: var(--ink-2); line-height: 2; margin: 0; }
+.hidden { display: none !important; }
+@media (max-width: 800px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-box { padding: 32px; }
+  .form-2col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-page="contact">
+
+<header id="site-header"></header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">ホーム</a><span class="sep">›</span><span class="current">お問い合わせ</span>
+    </nav>
+    <div class="page-hero-en">CONTACT</div>
+    <h1 class="page-hero-h1">お問い合わせ</h1>
+    <p class="page-hero-lead">サービス・法人提携・採用応募など、お気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<main class="contact-main">
+  <div class="contact-grid">
+    <aside>
+      <div class="eyebrow-jp" style="margin-bottom:24px">INFORMATION</div>
+      <h2 class="contact-aside-h2">その他の<br>お問い合わせ方法</h2>
+      <div class="info-block">
+        <div class="info-label">TEL</div>
+        <a href="tel:0120433233" class="info-tel">0120-433-233</a>
+        <div class="info-note">受付 10:00 - 19:00 / 年中無休</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">EMAIL</div>
+        <a href="mailto:info@tasukaru.example.com" class="info-mail">info@tasukaru.example.com</a>
+      </div>
+      <div class="info-block">
+        <div class="info-label">OFFICE</div>
+        <div style="font-size:14px;color:var(--ink-2);line-height:1.95">〒362-0035<br>埼玉県上尾市仲町1-7-25</div>
+      </div>
+      <div class="info-callout">
+        <div class="info-callout-title">ご相談・お見積もりは無料です</div>
+        <p>出張査定・お見積もりにかかる費用は一切ありません。お気軽にお問い合わせください。</p>
+      </div>
+    </aside>
+
+    <div class="form-box">
+      <form class="form" id="contact-form">
+        <div>
+          <label class="field-label">お問い合わせ種別 <span class="req">必須</span></label>
+          <select class="input" id="type-select" required>
+            <option value="service">サービスについて</option>
+            <option value="business">法人提携について</option>
+            <option value="recruit">採用応募について</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <div id="topic-block">
+          <label class="field-label">ご相談内容 (複数選択可)</label>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="topic" value="遺品整理">遺品整理</label>
+            <label class="chip"><input type="checkbox" name="topic" value="生前整理">生前整理</label>
+            <label class="chip"><input type="checkbox" name="topic" value="福祉整理">福祉整理</label>
+            <label class="chip"><input type="checkbox" name="topic" value="お片付け">お片付け</label>
+            <label class="chip"><input type="checkbox" name="topic" value="買取">買取</label>
+            <label class="chip"><input type="checkbox" name="topic" value="その他">その他</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="field-label">お名前 <span class="req">必須</span></label>
+          <input class="input" placeholder="山田 太郎" required>
+        </div>
+
+        <div id="company-block" class="hidden">
+          <label class="field-label">貴社名</label>
+          <input class="input" placeholder="株式会社○○">
+        </div>
+
+        <div class="form-2col">
+          <div>
+            <label class="field-label">電話番号</label>
+            <input class="input" placeholder="000-0000-0000" type="tel">
+          </div>
+          <div>
+            <label class="field-label">メールアドレス <span class="req">必須</span></label>
+            <input class="input" type="email" placeholder="example@email.com" required>
+          </div>
+        </div>
+
+        <div>
+          <label class="field-label">ご住所 <span class="opt">任意</span></label>
+          <input class="input" placeholder="埼玉県◯◯市...">
+        </div>
+
+        <div>
+          <label class="field-label">お問い合わせ内容</label>
+          <textarea class="input" rows="5" placeholder="ご相談したい内容をご記入ください" style="resize:vertical"></textarea>
+        </div>
+
+        <div class="privacy-row">
+          <input type="checkbox" id="privacy" required>
+          <label for="privacy"><a href="privacy.html" style="color:var(--ink-1)">プライバシーポリシー</a>に同意する</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:16px 40px">送信する <span style="font-size:18px">→</span></button>
+      </form>
+
+      <div class="thanks hidden" id="thanks">
+        <div class="thanks-en">THANK YOU</div>
+        <h3>お問い合わせ<br>ありがとうございます。</h3>
+        <p>内容を確認のうえ、3営業日以内にご連絡いたします。</p>
+        <button class="btn btn-ghost" id="reset-btn" style="margin-top:32px">新しい問い合わせ</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="common.js"></script>
+<script>
+(function () {
+  const typeSelect = document.getElementById('type-select');
+  const topicBlock = document.getElementById('topic-block');
+  const companyBlock = document.getElementById('company-block');
+  const form = document.getElementById('contact-form');
+  const thanks = document.getElementById('thanks');
+  const resetBtn = document.getElementById('reset-btn');
+
+  // Preselect type from ?type=
+  const params = new URLSearchParams(window.location.search);
+  const initial = params.get('type');
+  if (initial && ['service', 'business', 'recruit', 'other'].includes(initial)) {
+    typeSelect.value = initial;
+  }
+
+  function sync() {
+    const t = typeSelect.value;
+    topicBlock.classList.toggle('hidden', t !== 'service');
+    companyBlock.classList.toggle('hidden', t !== 'business');
+  }
+  typeSelect.addEventListener('change', sync);
+  sync();
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.classList.add('hidden');
+    thanks.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  resetBtn.addEventListener('click', function () {
+    form.reset();
+    sync();
+    thanks.classList.add('hidden');
+    form.classList.remove('hidden');
+  });
+})();
+</script>
+</body>
+</html>

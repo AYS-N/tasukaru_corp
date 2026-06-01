@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>会社沿革 | 株式会社タスカル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.history-main { background: var(--cream); padding: 96px 40px 160px; }
+.history-wrap { max-width: 880px; margin: 0 auto; }
+.history-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 36px); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; margin: 0 0 24px; }
+.history-lead { font-size: 14.5px; color: var(--ink-2); line-height: 2.05; margin: 0 0 56px; max-width: 640px; }
+.timeline { position: relative; }
+.timeline-line { position: absolute; left: 130px; top: 12px; bottom: 12px; width: 1px; background: var(--taupe); opacity: 0.4; }
+.tl-row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 20px 0; }
+.tl-year-wrap { position: relative; }
+.tl-year { font-family: var(--font-latin); font-weight: 500; font-size: 22px; color: var(--tascal-cyan-deep); letter-spacing: 0.04em; }
+.tl-month { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+.tl-dot { position: absolute; left: 130px; top: 14px; width: 11px; height: 11px; border-radius: 50%; background: var(--tascal-cyan); border: 3px solid var(--cream); }
+.tl-body { font-size: 14.5px; color: var(--ink-1); line-height: 2; padding-top: 4px; }
+@media (max-width: 640px) {
+  .timeline-line, .tl-dot { display: none; }
+  .tl-row { grid-template-columns: 100px 1fr; gap: 16px; }
+}
+</style>
+</head>
+<body data-page="about">
+
+<header id="site-header"></header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">ホーム</a><span class="sep">›</span><a href="about.html">会社概要</a><span class="sep">›</span><span class="current">会社沿革</span>
+    </nav>
+    <div class="page-hero-en">HISTORY</div>
+    <h1 class="page-hero-h1">会社沿革</h1>
+    <p class="page-hero-lead">創業からこれまでの歩みをご紹介いたします。</p>
+  </div>
+</section>
+
+<main class="history-main">
+  <div class="history-wrap">
+    <div class="eyebrow-jp" style="margin-bottom:24px">HISTORY</div>
+    <h2 class="history-h2">会社沿革</h2>
+    <p class="history-lead">創業からこれまでの主要な出来事を、年表形式でご紹介いたします。</p>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="tl-row"><div class="tl-year-wrap"><div class="tl-year">◯◯◯◯</div><div class="tl-month">◯月</div><span class="tl-dot"></span></div><div class="tl-body">創業前史:代表◯◯が、リユース・整理業界での経験を積む。</div></div>
+      <div class="tl-row"><div class="tl-year-wrap"><div class="tl-year">◯◯◯◯</div><div class="tl-month">◯月</div><span class="tl-dot"></span></div><div class="tl-body">株式会社タスカル設立。埼玉県上尾市にて事業開始。古物商許可取得。</div></div>
+      <div class="tl-row"><div class="tl-year-wrap"><div class="tl-year">◯◯◯◯</div><div class="tl-month">◯月</div><span class="tl-dot"></span></div><div class="tl-body">酒類販売業免許取得。買取品目を拡大。</div></div>
+      <div class="tl-row"><div class="tl-year-wrap"><div class="tl-year">◯◯◯◯</div><div class="tl-month">◯月</div><span class="tl-dot"></span></div><div class="tl-body">産業廃棄物収集運搬業許可(埼玉県)取得。法人取引対応体制を整備。</div></div>
+      <div class="tl-row"><div class="tl-year-wrap"><div class="tl-year">◯◯◯◯</div><div class="tl-month">◯月</div><span class="tl-dot"></span></div><div class="tl-body">特別国際種事業者登録。象牙等の特殊品の合法取扱い体制を確立。</div></div>
+      <div class="tl-row"><div class="tl-year-wrap"><div class="tl-year">◯◯◯◯</div><div class="tl-month">◯月</div><span class="tl-dot"></span></div><div class="tl-body">遺品整理士・3Rディレクター資格を取得。専門資格を有するスタッフ体制を整備。</div></div>
+      <div class="tl-row"><div class="tl-year-wrap"><div class="tl-year">◯◯◯◯</div><div class="tl-month">◯月</div><span class="tl-dot"></span></div><div class="tl-body">法人提携パッケージを正式リリース。</div></div>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="common.js"></script>
+</body>
+</html>

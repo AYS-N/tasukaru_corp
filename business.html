@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>法人のお客様へ | 株式会社タスカル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.wrap-1080 { max-width: 1080px; margin: 0 auto; }
+.wrap-1320 { max-width: 1320px; margin: 0 auto; }
+.b-lead-h2 { font-family: var(--font-jp-serif); font-size: clamp(26px,2.8vw,34px); font-weight: 500; line-height: 1.65; letter-spacing: 0.06em; margin: 0 0 32px; color: var(--ink-1); }
+.b-lead-p { font-size: 15.5px; color: var(--ink-2); line-height: 2.1; margin: 0; max-width: 720px; }
+.b-h2 { font-family: var(--font-jp-serif); font-size: clamp(26px,2.8vw,34px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; margin: 0 0 56px; }
+.pkg-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+.pkg { background: #fff; border-radius: 12px; padding: 36px; box-shadow: var(--shadow-1); }
+.pkg-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); margin-bottom: 10px; }
+.pkg h3 { font-family: var(--font-jp-serif); font-size: 22px; font-weight: 500; letter-spacing: 0.04em; margin: 0 0 8px; }
+.pkg-use { font-size: 12.5px; color: var(--ink-3); margin-bottom: 20px; letter-spacing: 0.04em; }
+.pkg-body { font-size: 14px; color: var(--ink-2); line-height: 2.05; margin: 0 0 20px; }
+.pkg-items { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 16px; border-top: 1px solid var(--border-hair); }
+.pkg-tag { font-size: 12px; font-weight: 600; color: var(--tascal-cyan-deep); background: var(--tascal-cyan-tint); padding: 4px 12px; border-radius: 999px; }
+.strengths { padding: 96px 40px; background: var(--ink-1); color: #fff; }
+.strengths-eyebrow { font-family: var(--font-latin); font-size: 12px; font-weight: 600; letter-spacing: 0.32em; color: var(--tascal-cyan); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.strengths-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--tascal-cyan); }
+.strengths-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px,3vw,40px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; color: #fff; margin: 0 0 56px; }
+.strengths-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+.strength { padding: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
+.strength-no { font-family: var(--font-latin); font-size: 11px; font-weight: 600; letter-spacing: 0.24em; color: var(--tascal-cyan); margin-bottom: 12px; }
+.strength h3 { font-family: var(--font-jp-serif); font-size: 18px; font-weight: 500; letter-spacing: 0.04em; color: #fff; margin: 0 0 12px; }
+.strength p { font-size: 13.5px; color: #B8C2CB; line-height: 2.05; margin: 0; }
+.flow-list { display: flex; flex-direction: column; gap: 16px; }
+.flow-item { background: #fff; border-radius: 12px; padding: 24px 32px; box-shadow: var(--shadow-1); display: grid; grid-template-columns: 64px 1fr; gap: 24px; align-items: center; }
+.flow-circle2 { width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1.5px solid var(--tascal-cyan); color: var(--tascal-cyan-deep); display: flex; align-items: center; justify-content: center; font-family: var(--font-latin); font-weight: 500; font-size: 18px; }
+.flow-item h3 { font-family: var(--font-jp-serif); font-size: 19px; font-weight: 500; letter-spacing: 0.04em; margin: 0 0 6px; }
+.flow-item p { font-size: 13.5px; color: var(--ink-2); margin: 0; line-height: 1.95; }
+.b-cta { background: var(--cream-deep); border-radius: 12px; padding: 48px 56px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+.b-cta h2 { font-family: var(--font-jp-serif); font-size: clamp(24px,2.6vw,30px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; margin: 0 0 14px; }
+.b-cta p { font-size: 14.5px; color: var(--ink-2); margin: 0; line-height: 1.95; }
+.b-cta-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.b-cta-actions .btn { width: 100%; }
+@media (max-width: 800px) {
+  .pkg-grid, .strengths-grid { grid-template-columns: 1fr; }
+  .b-cta { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-page="business">
+
+<header id="site-header"></header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">ホーム</a><span class="sep">›</span><span class="current">法人のお客様へ</span>
+    </nav>
+    <div class="page-hero-en">FOR BUSINESS</div>
+    <h1 class="page-hero-h1">法人のお客様へ</h1>
+    <p class="page-hero-lead">不動産会社様、士業の先生方、福祉施設様、葬儀社様。各業種の協業パートナーとして連携可能です。</p>
+  </div>
+</section>
+
+<main>
+  <section style="padding:96px 40px 80px">
+    <div class="wrap-1080">
+      <h2 class="b-lead-h2">整理・買取・再販売を一貫して扱う事業者として、<br>法人のお客様の協業パートナーを目指します。</h2>
+      <p class="b-lead-p">タスカルは、整理・買取・再販売の垂直統合モデルを軸に、各業種の協業パートナーとして機能できる体制を整えています。古物商許可・産業廃棄物収集運搬業許可・酒類販売業免許・特別国際種事業者登録に加え、遺品整理士・3Rディレクターなどの専門資格を持つスタッフが対応。法人取引で必要となるコンプライアンス要件を満たし、安心してお取引いただける環境をご提供します。</p>
+    </div>
+  </section>
+
+  <section style="padding:40px 40px 96px">
+    <div class="wrap-1320">
+      <div class="eyebrow-jp" style="margin-bottom:24px">PACKAGES</div>
+      <h2 class="b-h2">業種別 連携パッケージ</h2>
+      <div class="pkg-grid">
+        <div class="pkg">
+          <div class="pkg-en">REAL ESTATE</div>
+          <h3>不動産会社様向け</h3>
+          <div class="pkg-use">残置物処理 / 相続物件 / 空き家管理</div>
+          <p class="pkg-body">不動産売買・賃貸物件における残置物の処理、相続不動産の整理、空き家管理など。発生した品物を当社で買い取り、お見積もり金額から相殺することで、貴社・買主様双方のご負担を軽減します。</p>
+          <div class="pkg-items"><span class="pkg-tag">お片付け</span><span class="pkg-tag">遺品整理</span><span class="pkg-tag">買取事業</span></div>
+        </div>
+        <div class="pkg">
+          <div class="pkg-en">LEGAL · TAX</div>
+          <h3>士業の先生方向け</h3>
+          <div class="pkg-use">相続案件 / 後見業務 / 任意整理</div>
+          <p class="pkg-body">相続案件・後見業務に伴う遺品整理、生前整理のご相談に対応します。古物商として適法な買取、特別国際種事業者として象牙等の合法処理など、法的に整った形でお引き受けいたします。</p>
+          <div class="pkg-items"><span class="pkg-tag">遺品整理</span><span class="pkg-tag">生前整理</span><span class="pkg-tag">買取事業</span></div>
+        </div>
+        <div class="pkg">
+          <div class="pkg-en">WELFARE</div>
+          <h3>ケアマネジャー・福祉施設様向け</h3>
+          <div class="pkg-use">入居前整理 / 在宅環境整備 / ゴミ屋敷対応</div>
+          <p class="pkg-body">ご利用者様の介護施設入居前のお片付け、在宅生活継続のための住環境整備、ゴミ屋敷状態の改善など。ケアマネジャー様・ソーシャルワーカー様と直接連携した実績が豊富です。</p>
+          <div class="pkg-items"><span class="pkg-tag">福祉整理</span><span class="pkg-tag">生前整理</span><span class="pkg-tag">お片付け</span></div>
+        </div>
+        <div class="pkg">
+          <div class="pkg-en">FUNERAL</div>
+          <h3>葬儀社様向け</h3>
+          <div class="pkg-use">ご遺族紹介 / 遺品整理 / 遺品買取</div>
+          <p class="pkg-body">ご葬儀後のご遺族へのご紹介サービスとして、遺品整理・買取をパッケージで提供します。お焚き上げ・供養手配まで一括対応可能で、ご遺族のお手間を最小限に抑えます。</p>
+          <div class="pkg-items"><span class="pkg-tag">遺品整理</span><span class="pkg-tag">買取事業</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strengths">
+    <div class="wrap-1320">
+      <div class="strengths-eyebrow">OUR STRENGTHS</div>
+      <h2 class="strengths-h2">法人取引における当社の強み</h2>
+      <div class="strengths-grid">
+        <div class="strength"><div class="strength-no">NO. 01</div><h3>産業廃棄物収集運搬業 (埼玉県) 取得</h3><p>法人取引で発生する事業活動廃棄物を、適法に運搬できる許認可を取得しています。不動産・士業案件で発生する大量物件にも対応可能です。</p></div>
+        <div class="strength"><div class="strength-no">NO. 02</div><h3>特別国際種事業者登録</h3><p>象牙・べっ甲などワシントン条約該当品の取り扱いに必要な登録を保有。骨董案件・相続案件で出てくる特殊品にも安心してご相談いただけます。</p></div>
+        <div class="strength"><div class="strength-no">NO. 03</div><h3>酒類販売業免許</h3><p>相続案件等で出てくる古酒・高級酒を、適法に買取・再販売できる体制があります。</p></div>
+        <div class="strength"><div class="strength-no">NO. 04</div><h3>コンプライアンス体制</h3><p>古物商許可をはじめとする許認可・専門資格を組み合わせ、法令遵守の体制を整備。法人取引で必要となる証憑類の発行にも対応します。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:96px 40px">
+    <div class="wrap-1080">
+      <div class="eyebrow-jp" style="margin-bottom:24px">FLOW</div>
+      <h2 class="b-h2">提携・取引の流れ</h2>
+      <ol class="flow-list">
+        <li class="flow-item"><div class="flow-circle2">01</div><div><h3>お問い合わせ</h3><p>専用フォーム・お電話にて、業種・想定案件をお伝えください。</p></div></li>
+        <li class="flow-item"><div class="flow-circle2">02</div><div><h3>個別お打ち合わせ</h3><p>貴社のご業務内容に合わせた連携プランをご提案させていただきます。</p></div></li>
+        <li class="flow-item"><div class="flow-circle2">03</div><div><h3>取引契約</h3><p>NDA・基本契約書を締結。継続的なお取引の枠組みを整えます。</p></div></li>
+        <li class="flow-item"><div class="flow-circle2">04</div><div><h3>案件ごとのご依頼・対応</h3><p>案件発生のたびにご依頼いただき、その都度お見積もりの上で対応いたします。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section style="padding:0 40px 160px">
+    <div class="wrap-1080">
+      <div class="b-cta">
+        <div>
+          <h2>法人専用 お問い合わせ窓口</h2>
+          <p>業務提携・継続取引のご相談は、こちらからご連絡ください。担当者よりご連絡を差し上げます。</p>
+        </div>
+        <div class="b-cta-actions">
+          <a href="contact.html?type=business" class="btn btn-primary">法人取引のご相談 <span style="font-size:18px">→</span></a>
+          <a href="tel:0120433233" class="btn btn-ghost">0120-433-233 (法人専用)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="common.js"></script>
+</body>
+</html>
