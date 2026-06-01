@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>買取事業 | 株式会社タスカル</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin: 0; }
+  ::selection { background: var(--tascal-cyan-tint); color: var(--ink-1); }
+  html { scroll-behavior: smooth; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+<script type="text/babel" src="PageHero.jsx"></script>
+<script type="text/babel" src="services-data.jsx"></script>
+<script type="text/babel" src="ServiceDetail.jsx"></script>
+
+<script type="text/babel">
+
+const PageHeroSvc = ({ slug }) => {
+  const s = window.SERVICES_DATA[slug];
+  return (
+    <PageHero
+      en={s.en}
+      jp={s.title}
+      lead={s.short}
+      crumbs={[{label:'事業内容', href:'services.html'},{label:s.title}]}
+    />
+  );
+};
+const ServiceDetailWrap = ({ slug }) => {
+  const s = window.SERVICES_DATA[slug];
+  const HREFS = {"ihin-seiri":"services-ihin-seiri.html","seizen-seiri":"services-seizen-seiri.html","fukushi-seiri":"services-fukushi-seiri.html","cleanup":"services-cleanup.html","kaitori":"services-kaitori.html","ec":"services-ec.html"};
+  const relatedData = s.related.map(k => ({
+    title: window.SERVICES_DATA[k].title,
+    en:    window.SERVICES_DATA[k].en,
+    href:  HREFS[k],
+  }));
+  return <ServiceDetail meta={s} concerns={s.concerns} features={s.features} areaNote={s.areaNote} related={relatedData} />;
+};
+
+const App = () => (
+  <>
+    <Header current="services" />
+    <PageHeroSvc slug="kaitori" />
+    <ServiceDetailWrap slug="kaitori" />
+    <Footer />
+  </>
+);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
