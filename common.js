@@ -1,5 +1,19 @@
 // common.js — injects shared header & footer, sets active nav, header scroll.
 (function () {
+  // Loading overlay: reveal the page once it has finished loading.
+  let revealed = false;
+  const reveal = () => {
+    if (revealed) return;
+    revealed = true;
+    document.body.classList.add('loaded');
+  };
+  if (document.readyState === 'complete') {
+    setTimeout(reveal, 250);
+  } else {
+    window.addEventListener('load', () => setTimeout(reveal, 250));
+  }
+  setTimeout(reveal, 3500); // safety: never block the page
+
   const NAV = [
     { id: 'about',    en: 'ABOUT',    jp: '会社概要',       href: 'about.html' },
     { id: 'services', en: 'SERVICES', jp: '事業内容',       href: 'services.html' },

@@ -93,6 +93,48 @@ dl, dt, dd { margin: 0; }
 .concept-ticks span:nth-child(3) { height: 14px; background: var(--leaf-soft); }
 .jp-spaced { letter-spacing: 0.28em; }
 
+/* ── Loading overlay ───────────────────────────────────────────
+   純CSSオーバーレイ＋スピナー。JSが読み込み完了で素早く消し、
+   JS無効時もCSSアニメ(loaderSafety)で自動的に消える。
+   擬似要素なのでDOM内容は隠さず、クローラには影響しない。 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: var(--cream);
+  opacity: 1;
+  transition: opacity 0.55s ease, visibility 0.55s ease;
+  animation: loaderSafety 0s linear 5s forwards;
+}
+body::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  border: 3px solid var(--leaf-soft);
+  border-top-color: var(--leaf-deep);
+  transition: opacity 0.55s ease, visibility 0.55s ease;
+  animation: loaderSpin 0.8s linear infinite, loaderSafety 0s linear 5s forwards;
+}
+body.loaded::before,
+body.loaded::after {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+@keyframes loaderSpin { to { transform: rotate(360deg); } }
+@keyframes loaderSafety { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: loaderSafety 0s linear 5s forwards; }
+}
+
+
 /* ── Buttons ───────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
