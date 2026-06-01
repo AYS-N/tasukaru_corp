@@ -128,11 +128,10 @@
 }
 .hero-card-kaitori { top: 0; right: 60px; width: 260px; height: 340px; background: #fff; padding: 32px; transform: rotate(2.5deg); }
 .hero-card-kaitori:hover { transform: translateY(-6px) rotate(2.5deg); box-shadow: var(--shadow-3); }
-.hero-card-ihin { top: 120px; left: 0; width: 240px; height: 320px; background: var(--cream-deep) url('img/taskal_corp_topimg1.png') center/cover no-repeat; transform: rotate(-3deg); overflow: hidden; }
-.hero-card-ihin::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,42,47,0.72) 0%, rgba(30,42,47,0.20) 50%, rgba(30,42,47,0.05) 100%); }
+.hero-card-ihin { top: 120px; left: 0; width: 240px; height: 320px; background: var(--cream-deep) url('img/taskal_corp_topimg1.png') center/cover no-repeat; transform: rotate(-3deg); overflow: hidden; justify-content: flex-end; }
 .hero-card-ihin > * { position: relative; z-index: 1; }
-.hero-card-ihin .card-title-ihin { color: #fff; }
-.hero-card-ihin .card-sub-ihin { color: rgba(255,255,255,0.85); }
+.hero-card-ihin .card-title-ihin { color: #fff; text-shadow: 0 1px 6px rgba(30,42,47,0.55); }
+.hero-card-ihin .card-sub-ihin { color: #fff; text-shadow: 0 1px 5px rgba(30,42,47,0.6); }
 .hero-card-ihin:hover { transform: translateY(-6px) rotate(-3deg); box-shadow: var(--shadow-3); }
 .hero-card-saitama {
   position: absolute; bottom: 0; right: 0; width: 220px; height: 220px;
@@ -274,7 +273,6 @@
         </div>
       </a>
       <a href="services-ihin-seiri.html" class="hero-card hero-card-ihin">
-        <div class="card-service-label" style="color:#fff">SERVICE 01</div>
         <div>
           <div class="card-title-ihin">遺品<br>整理</div>
           <div class="card-sub-ihin">故人を偲びながら、<br>ひとつずつ丁寧に。</div>
