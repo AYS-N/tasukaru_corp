@@ -120,11 +120,27 @@
     if (header) header.innerHTML = headerHTML(current);
     if (footer) footer.innerHTML = footerHTML();
 
-    if (header) {
-      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    }
+    const btt = createBackToTop();
+
+    const onScroll = () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 24);
+      btt.classList.toggle('visible', window.scrollY > 400);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  function createBackToTop() {
+    const btn = document.createElement('button');
+    btn.className = 'back-to-top';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'ページ上部へ戻る');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.body.appendChild(btn);
+    return btn;
   }
 
   if (document.readyState === 'loading') {
