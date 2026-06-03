@@ -95,9 +95,9 @@
       </a>
       <nav class="header-nav">${navItems}</nav>
       <div class="header-actions">
-        <a href="tel:0120433233" class="header-tel">
+        <a href="tel:0487826606" class="header-tel">
           <span class="header-tel-label">TEL · 受付 10:00-19:00</span>
-          <span class="header-tel-num">0120-433-233</span>
+          <span class="header-tel-num">048-782-6606</span>
         </a>
         <a href="contact.html" class="header-contact-btn${current === 'contact' ? ' active' : ''}">お問い合わせ</a>
       </div>
@@ -109,9 +109,9 @@
       <nav class="mobile-menu-inner">
 ${mobileItems}
         <a href="contact.html" class="mobile-contact-btn">お問い合わせ</a>
-        <a href="tel:0120433233" class="mobile-tel">
+        <a href="tel:0487826606" class="mobile-tel">
           <span class="label">TEL · 受付 10:00-19:00</span>
-          <span class="num">0120-433-233</span>
+          <span class="num">048-782-6606</span>
         </a>
       </nav>
     </div>`;
@@ -144,7 +144,7 @@ ${mobileItems}
             株式会社タスカル<br>〒362-0035<br>埼玉県上尾市仲町1-7-25
           </div>
           <div class="footer-tel-wrap">
-            <a href="tel:0120433233" class="footer-tel-num">0120-433-233</a>
+            <a href="tel:0487826606" class="footer-tel-num">048-782-6606</a>
             <div class="footer-tel-note">受付 10:00 - 19:00 / 年中無休</div>
           </div>
         </div>
