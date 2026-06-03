@@ -120,10 +120,10 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
     </aside>
 
     <div class="form-box">
-      <form class="form" id="contact-form">
+      <form class="form" id="contact-form" action="contact-send.php" method="post">
         <div>
           <label class="field-label">お問い合わせ種別 <span class="req">必須</span></label>
-          <select class="input" id="type-select" required>
+          <select class="input" id="type-select" name="type" required>
             <option value="service">サービスについて</option>
             <option value="business">法人提携について</option>
             <option value="recruit">採用応募について</option>
@@ -134,12 +134,12 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
         <div id="topic-block">
           <label class="field-label">ご相談内容 (複数選択可)</label>
           <div class="chip-group">
-            <label class="chip"><input type="checkbox" name="topic" value="遺品整理">遺品整理</label>
-            <label class="chip"><input type="checkbox" name="topic" value="生前整理">生前整理</label>
-            <label class="chip"><input type="checkbox" name="topic" value="福祉整理">福祉整理</label>
-            <label class="chip"><input type="checkbox" name="topic" value="お片付け">お片付け</label>
-            <label class="chip"><input type="checkbox" name="topic" value="買取">買取</label>
-            <label class="chip"><input type="checkbox" name="topic" value="その他">その他</label>
+            <label class="chip"><input type="checkbox" name="topic[]" value="遺品整理">遺品整理</label>
+            <label class="chip"><input type="checkbox" name="topic[]" value="生前整理">生前整理</label>
+            <label class="chip"><input type="checkbox" name="topic[]" value="福祉整理">福祉整理</label>
+            <label class="chip"><input type="checkbox" name="topic[]" value="お片付け">お片付け</label>
+            <label class="chip"><input type="checkbox" name="topic[]" value="買取">買取</label>
+            <label class="chip"><input type="checkbox" name="topic[]" value="その他">その他</label>
           </div>
         </div>
 
@@ -202,12 +202,34 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
   const form = document.getElementById('contact-form');
   const thanks = document.getElementById('thanks');
   const resetBtn = document.getElementById('reset-btn');
+  const namedFields = [
+    ['input.input', 'name'],
+    ['#company-block input.input', 'company'],
+    ['input[type="tel"]', 'tel'],
+    ['input[type="email"]', 'email'],
+    ['.form > div:nth-of-type(6) input.input', 'address'],
+    ['textarea.input', 'message'],
+  ];
 
   // Preselect type from ?type=
   const params = new URLSearchParams(window.location.search);
   const initial = params.get('type');
   if (initial && ['service', 'business', 'recruit', 'other'].includes(initial)) {
     typeSelect.value = initial;
+  }
+
+  namedFields.forEach(function ([selector, name]) {
+    const field = form.querySelector(selector);
+    if (field) field.setAttribute('name', name);
+  });
+
+  if (params.get('sent') === '1') {
+    form.classList.add('hidden');
+    thanks.classList.remove('hidden');
+  }
+
+  if (params.get('error') === '1') {
+    form.insertAdjacentHTML('afterbegin', '<p style="color:var(--error);margin:0">送信できませんでした。時間をおいて再度お試しください。</p>');
   }
 
   function sync() {
@@ -218,11 +240,8 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
   typeSelect.addEventListener('change', sync);
   sync();
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    form.classList.add('hidden');
-    thanks.classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  form.addEventListener('submit', function () {
+    form.querySelector('button[type="submit"]').disabled = true;
   });
   resetBtn.addEventListener('click', function () {
     form.reset();
