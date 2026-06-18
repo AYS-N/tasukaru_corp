@@ -370,33 +370,6 @@ body.loaded #loader-logo {
   padding: 80px 40px 32px;
 }
 .footer-inner { max-width: 1320px; margin: 0 auto; }
-.footer-licenses {
-  background: var(--surface);
-  border: 1px solid var(--border-hair);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 64px;
-}
-.footer-licenses-label {
-  font-family: var(--font-latin);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: var(--tascal-cyan-deep);
-  margin-bottom: 12px;
-}
-.footer-licenses-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-.license-badge {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink-1);
-  padding: 5px 12px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.license-badge .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .footer-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1fr;

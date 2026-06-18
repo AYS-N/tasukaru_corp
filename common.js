@@ -66,15 +66,6 @@
     },
   ];
 
-  const LICENSES = [
-    ['許認可', '古物商許可'],
-    ['許認可', '産業廃棄物収集運搬業 (埼玉)'],
-    ['許認可', '酒類販売業免許'],
-    ['許認可', '特別国際種事業者登録'],
-    ['資格', '遺品整理士'],
-    ['資格', '3Rディレクター'],
-  ];
-
   function headerHTML(current) {
     const navItems = NAV.map(p => `
       <a href="${p.href}" class="nav-item${current === p.id ? ' active' : ''}">
@@ -118,13 +109,6 @@ ${mobileItems}
   }
 
   function footerHTML() {
-    const badges = LICENSES.map(([kind, name]) => {
-      const color = kind === '許認可' ? 'var(--tascal-cyan)' : 'var(--taupe)';
-      return `<span class="license-badge" style="border:1px solid ${color}">
-        <span class="dot" style="background:${color}"></span>${name}
-      </span>`;
-    }).join('');
-
     const cols = SITEMAP.map(col => `
       <div class="footer-col">
         <div class="footer-col-label">${col.en}</div>
@@ -133,10 +117,6 @@ ${mobileItems}
 
     return `
     <div class="footer-inner">
-      <div class="footer-licenses">
-        <div class="footer-licenses-label">LICENSES &amp; QUALIFICATIONS</div>
-        <div class="footer-licenses-badges">${badges}</div>
-      </div>
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/logo-tasukaru-green.png" alt="タスカル tasukaru" class="footer-logo">
