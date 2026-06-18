@@ -18,10 +18,10 @@
             '<g class="loader-leg-r">' +
               '<rect class="loader-leg" x="3" y="180" width="10" height="24" rx="5"/>' +
             '</g>' +
-            '<rect class="loader-box" x="-32" y="48" width="64" height="132" rx="2.5"/>' +
-            '<rect class="loader-box-shade" x="20" y="48" width="12" height="132"/>' +
-            '<path class="loader-box-fold" d="M -32 66 L 32 66 M 0 48 L 0 66"/>' +
-            '<rect class="loader-tape" x="-28" y="48" width="22" height="6" rx="1"/>' +
+            '<rect class="loader-box" x="-36" y="108" width="72" height="72" rx="2.5"/>' +
+            '<rect class="loader-box-shade" x="24" y="108" width="12" height="72"/>' +
+            '<path class="loader-box-fold" d="M -36 124 L 36 124 M 0 108 L 0 124"/>' +
+            '<rect class="loader-tape" x="-30" y="108" width="22" height="6" rx="1"/>' +
             '<g class="loader-symbols">' +
               '<path d="M -16 158 L -16 148 M -18 150 L -16 148 L -14 150"/>' +
               '<path d="M -10 158 L -10 148 M -12 150 L -10 148 L -8 150"/>' +
