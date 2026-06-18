@@ -139,7 +139,7 @@ ${mobileItems}
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo-tasukaru.png" alt="タスカル tasukaru" class="footer-logo">
+          <img src="assets/logo-tasukaru-green.png" alt="タスカル tasukaru" class="footer-logo">
           <div class="footer-address">
             株式会社タスカル<br>〒362-0035<br>埼玉県上尾市仲町1-7-25
           </div>

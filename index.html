@@ -126,19 +126,19 @@
   padding: 28px; display: flex; flex-direction: column; justify-content: space-between;
   text-decoration: none; transition: transform 280ms, box-shadow 280ms;
 }
-.hero-card-kaitori { top: 0; right: 60px; width: 260px; height: 340px; background: var(--cream-deep) url('img/taskal_corp_topimg2.png') center/cover no-repeat; padding: 32px; transform: rotate(2.5deg); overflow: hidden; justify-content: flex-start; }
+.hero-card-kaitori { top: 0; right: 60px; width: 260px; height: 340px; background: var(--surface); border: 1px solid var(--border-hair); padding: 32px; transform: rotate(2.5deg); overflow: hidden; justify-content: flex-start; }
 .hero-card-kaitori > * { position: relative; z-index: 1; }
-.hero-card-kaitori .card-title-kaitori { color: var(--ink-1); text-shadow: 0 0 8px rgba(255,255,255,0.7); }
-.hero-card-kaitori .card-sub-kaitori { color: var(--ink-1); text-shadow: 0 0 7px rgba(255,255,255,0.75); }
+.hero-card-kaitori .card-title-kaitori { color: var(--ink-1); }
+.hero-card-kaitori .card-sub-kaitori { color: var(--ink-2); }
 .hero-card-kaitori:hover { transform: translateY(-6px) rotate(2.5deg); box-shadow: var(--shadow-3); }
-.hero-card-ihin { top: 120px; left: 0; width: 240px; height: 320px; background: var(--cream-deep) url('img/taskal_corp_topimg1.png') center/cover no-repeat; transform: rotate(-3deg); overflow: hidden; justify-content: flex-start; }
+.hero-card-ihin { top: 120px; left: 0; width: 240px; height: 320px; background: var(--tascal-cyan-tint); border: 1px solid var(--leaf-soft); transform: rotate(-3deg); overflow: hidden; justify-content: flex-start; }
 .hero-card-ihin > * { position: relative; z-index: 1; }
-.hero-card-ihin .card-title-ihin { color: var(--ink-1); text-shadow: 0 0 8px rgba(255,255,255,0.7); }
-.hero-card-ihin .card-sub-ihin { color: var(--ink-1); text-shadow: 0 0 7px rgba(255,255,255,0.75); }
+.hero-card-ihin .card-title-ihin { color: var(--ink-1); }
+.hero-card-ihin .card-sub-ihin { color: var(--ink-2); }
 .hero-card-ihin:hover { transform: translateY(-6px) rotate(-3deg); box-shadow: var(--shadow-3); }
 .hero-card-saitama {
   position: absolute; bottom: 0; right: 0; width: 220px; height: 220px;
-  background: var(--ink-1); border-radius: 8px; box-shadow: var(--shadow-3);
+  background: var(--leaf-deep); border-radius: 8px; box-shadow: var(--shadow-3);
   transform: rotate(1.5deg); padding: 28px;
   display: flex; flex-direction: column; justify-content: space-between; color: #fff;
 }
@@ -186,21 +186,21 @@
 .service-more .arrow { color: var(--tascal-cyan); }
 
 /* ── BusinessIntro ─────────────────────────────────────────── */
-#business { padding: 120px 40px; background: var(--ink-1); color: #fff; }
+#business { padding: 120px 40px; background: var(--tascal-cyan-tint); color: var(--ink-1); }
 .business-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
-.business-eyebrow { font-family: var(--font-latin); font-size: 12px; font-weight: 600; letter-spacing: 0.32em; color: var(--tascal-cyan); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-.business-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--tascal-cyan); flex-shrink: 0; }
-.business-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; color: #fff; margin: 0 0 24px; }
-.business-h2 .accent { color: var(--tascal-cyan); }
-.business-lead { font-size: 15.5px; color: #B8C2CB; line-height: 2.1; margin: 0 0 32px; max-width: 540px; }
-.business-panel { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 32px; }
-.business-panel-label { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan); margin-bottom: 16px; }
+.business-eyebrow { font-family: var(--font-latin); font-size: 12px; font-weight: 600; letter-spacing: 0.32em; color: var(--tascal-cyan-deep); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.business-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--tascal-cyan-deep); flex-shrink: 0; }
+.business-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; color: var(--ink-1); margin: 0 0 24px; }
+.business-h2 .accent { color: var(--tascal-cyan-deep); }
+.business-lead { font-size: 15.5px; color: var(--ink-2); line-height: 2.1; margin: 0 0 32px; max-width: 540px; }
+.business-panel { background: var(--surface); border: 1px solid var(--border-hair); border-radius: 12px; padding: 32px; }
+.business-panel-label { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); margin-bottom: 16px; }
 .partnership-list { display: flex; flex-direction: column; gap: 16px; }
-.partnership-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 16px; }
+.partnership-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border-hair); gap: 16px; }
 .partnership-item:last-child { border-bottom: none; }
-.partnership-label { font-family: var(--font-jp-serif); font-size: 16px; color: #fff; margin-bottom: 2px; }
-.partnership-sub { font-size: 12px; color: #7B8D98; }
-.partnership-arrow { color: var(--tascal-cyan); font-size: 18px; flex-shrink: 0; }
+.partnership-label { font-family: var(--font-jp-serif); font-size: 16px; color: var(--ink-1); margin-bottom: 2px; }
+.partnership-sub { font-size: 12px; color: var(--ink-3); }
+.partnership-arrow { color: var(--tascal-cyan-deep); font-size: 18px; flex-shrink: 0; }
 
 /* ── AboutIntro ────────────────────────────────────────────── */
 #about { padding: 120px 40px; background: var(--cream); }
@@ -284,7 +284,7 @@
         <div style="font-family:var(--font-latin);font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--leaf-bright)">FROM SAITAMA</div>
         <div>
           <div style="font-family:var(--font-jp-serif);font-size:22px;font-weight:500;line-height:1.4;letter-spacing:.06em">上尾から、<br>関東一円へ。</div>
-          <div style="font-size:11px;margin-top:12px;color:#B8C2CB;letter-spacing:.08em">Ageo, Saitama</div>
+          <div style="font-size:11px;margin-top:12px;color:var(--leaf-soft);letter-spacing:.08em">Ageo, Saitama</div>
         </div>
       </div>
     </div>

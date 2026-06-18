@@ -183,12 +183,12 @@ body.loaded #loader-logo {
   transition: background 200ms, color 200ms, border-color 200ms;
   white-space: nowrap;
 }
-.btn-primary { background: var(--ink-1); color: #fff; }
-.btn-primary:hover { background: var(--leaf-deep); color: #fff; }
+.btn-primary { background: var(--tascal-cyan); color: #fff; }
+.btn-primary:hover { background: var(--tascal-cyan-deep); color: #fff; }
 .btn-cyan { background: var(--tascal-cyan); color: #fff; }
 .btn-cyan:hover { background: var(--tascal-cyan-deep); color: #fff; }
-.btn-ghost { background: transparent; color: var(--ink-1); border-color: var(--ink-1); }
-.btn-ghost:hover { background: var(--ink-1); color: #fff; }
+.btn-ghost { background: transparent; color: var(--leaf-deep); border-color: var(--leaf-deep); }
+.btn-ghost:hover { background: var(--leaf-deep); color: #fff; }
 .btn-arrow {
   display: inline-flex;
   align-items: center;
@@ -316,7 +316,7 @@ body.loaded #loader-logo {
   font-size: 13px;
   font-weight: 600;
   color: #fff;
-  background: var(--ink-1);
+  background: var(--tascal-cyan);
   padding: 12px 22px;
   border-radius: 999px;
   text-decoration: none;
@@ -364,14 +364,15 @@ body.loaded #loader-logo {
 
 /* ── Footer ────────────────────────────────────────────────── */
 #site-footer {
-  background: var(--ink-1);
-  color: #fff;
+  background: var(--cream-deep);
+  color: var(--ink-1);
+  border-top: 1px solid var(--border-hair);
   padding: 80px 40px 32px;
 }
 .footer-inner { max-width: 1320px; margin: 0 auto; }
 .footer-licenses {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--surface);
+  border: 1px solid var(--border-hair);
   border-radius: 12px;
   padding: 20px 24px;
   margin-bottom: 64px;
@@ -381,14 +382,14 @@ body.loaded #loader-logo {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.28em;
-  color: var(--tascal-cyan);
+  color: var(--tascal-cyan-deep);
   margin-bottom: 12px;
 }
 .footer-licenses-badges { display: flex; flex-wrap: wrap; gap: 8px; }
 .license-badge {
   font-size: 12px;
   font-weight: 500;
-  color: #fff;
+  color: var(--ink-1);
   padding: 5px 12px;
   border-radius: 999px;
   display: inline-flex;
@@ -402,42 +403,42 @@ body.loaded #loader-logo {
   gap: 56px;
   margin-bottom: 56px;
 }
-.footer-logo { height: 56px; filter: brightness(0) invert(1); }
-.footer-address { margin-top: 28px; font-size: 13px; color: #B8C2CB; line-height: 2; }
+.footer-logo { height: 56px; }
+.footer-address { margin-top: 28px; font-size: 13px; color: var(--ink-2); line-height: 2; }
 .footer-tel-wrap { margin-top: 20px; line-height: 1.4; }
 .footer-tel-num {
   font-family: var(--font-latin);
   font-size: 22px;
   font-weight: 600;
-  color: #fff;
+  color: var(--ink-1);
   text-decoration: none;
   display: block;
 }
-.footer-tel-note { font-size: 11px; color: #7B8D98; margin-top: 2px; }
+.footer-tel-note { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
 .footer-col-label {
   font-family: var(--font-latin);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.28em;
-  color: var(--tascal-cyan);
+  color: var(--tascal-cyan-deep);
   margin-bottom: 16px;
 }
 .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-.footer-col a { font-size: 13.5px; color: #fff; text-decoration: none; }
-.footer-col a:hover { color: var(--leaf-soft); }
+.footer-col a { font-size: 13.5px; color: var(--ink-1); text-decoration: none; }
+.footer-col a:hover { color: var(--leaf-deep); }
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid var(--border-hair);
   padding-top: 24px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
   font-size: 12px;
-  color: #7B8D98;
+  color: var(--ink-3);
 }
 .footer-bottom-links { display: flex; gap: 24px; }
-.footer-bottom a { color: #7B8D98; text-decoration: none; }
-.footer-bottom a:hover { color: var(--leaf-soft); }
+.footer-bottom a { color: var(--ink-3); text-decoration: none; }
+.footer-bottom a:hover { color: var(--leaf-deep); }
 
 /* ── Hover helpers (used by JS-free cards) ─────────────────── */
 .lift { transition: box-shadow 280ms, transform 280ms, border-color 280ms; }
@@ -567,11 +568,11 @@ body.loaded #loader-logo {
   font-size: 15px;
   font-weight: 600;
   color: #fff;
-  background: var(--ink-1);
+  background: var(--tascal-cyan);
   padding: 15px 22px;
   border-radius: 999px;
 }
-.mobile-contact-btn:hover { color: #fff; background: var(--leaf-deep); }
+.mobile-contact-btn:hover { color: #fff; background: var(--tascal-cyan-deep); }
 .mobile-tel {
   text-decoration: none;
   text-align: center;
