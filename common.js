@@ -1,19 +1,33 @@
 // common.js — injects shared header & footer, sets active nav, header scroll.
 (function () {
-  // ── Loading overlay: 箱が左→真ん中(頂点)→右に着地するホップアニメ ──
+  // ── Loading overlay: 足付き段ボールが歩いて→ジャンプして右に着地 ──
   const buildLoader = () => {
     if (!document.body || document.getElementById('loader-logo')) return;
     const w = document.createElement('div');
     w.id = 'loader-logo';
     w.setAttribute('aria-hidden', 'true');
     w.innerHTML =
-      '<svg viewBox="0 0 480 200" role="img" aria-label="読み込み中">' +
-        '<line class="loader-ground" x1="20" y1="170" x2="460" y2="170"/>' +
+      '<svg viewBox="0 0 480 220" role="img" aria-label="読み込み中">' +
+        '<line class="loader-ground" x1="30" y1="205" x2="450" y2="205"/>' +
         '<g class="loader-hop-x">' +
+          '<ellipse class="loader-shadow" cx="0" cy="206" rx="32" ry="3.5"/>' +
           '<g class="loader-hop-y">' +
-            '<rect class="loader-box" x="-30" y="124" width="60" height="46" rx="3"/>' +
-            '<line class="loader-box-line" x1="-30" y1="146" x2="30" y2="146"/>' +
-            '<line class="loader-box-line" x1="0" y1="124" x2="0" y2="146"/>' +
+            '<g class="loader-leg-l">' +
+              '<rect class="loader-leg" x="-13" y="180" width="10" height="24" rx="5"/>' +
+            '</g>' +
+            '<g class="loader-leg-r">' +
+              '<rect class="loader-leg" x="3" y="180" width="10" height="24" rx="5"/>' +
+            '</g>' +
+            '<rect class="loader-box" x="-32" y="48" width="64" height="132" rx="2.5"/>' +
+            '<rect class="loader-box-shade" x="20" y="48" width="12" height="132"/>' +
+            '<path class="loader-box-fold" d="M -32 66 L 32 66 M 0 48 L 0 66"/>' +
+            '<rect class="loader-tape" x="-28" y="48" width="22" height="6" rx="1"/>' +
+            '<g class="loader-symbols">' +
+              '<path d="M -16 158 L -16 148 M -18 150 L -16 148 L -14 150"/>' +
+              '<path d="M -10 158 L -10 148 M -12 150 L -10 148 L -8 150"/>' +
+              '<path d="M -4 152 Q 0 147 4 152 M 0 152 L 0 158"/>' +
+              '<path d="M 10 148 L 16 148 L 14 153 L 12 153 Z M 13 153 L 13 158 M 11 158 L 15 158"/>' +
+            '</g>' +
           '</g>' +
         '</g>' +
       '</svg>';

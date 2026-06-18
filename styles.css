@@ -130,20 +130,60 @@ body::before {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-dasharray: 4 8;
-  opacity: 0.35;
+  opacity: 0.28;
+}
+.loader-shadow {
+  fill: rgba(0, 0, 0, 0.2);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: loaderShadow 2.4s ease-in-out infinite;
 }
 .loader-box {
-  fill: var(--leaf);
-  stroke: var(--leaf-deep);
-  stroke-width: 3;
+  fill: #d4a574;
+  stroke: #6b4a25;
+  stroke-width: 2.5;
   stroke-linejoin: round;
 }
-.loader-box-line {
+.loader-box-shade {
+  fill: #a87a3e;
+  opacity: 0.38;
+}
+.loader-box-fold {
   fill: none;
-  stroke: var(--leaf-deep);
-  stroke-width: 2;
+  stroke: #6b4a25;
+  stroke-width: 1.5;
   stroke-linecap: round;
-  opacity: 0.55;
+  opacity: 0.65;
+}
+.loader-tape {
+  fill: #f0d6a0;
+  stroke: #a8804a;
+  stroke-width: 1;
+  opacity: 0.85;
+}
+.loader-symbols {
+  fill: none;
+  stroke: #4a3018;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.85;
+}
+.loader-leg {
+  fill: #d4a574;
+  stroke: #6b4a25;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.loader-leg-l {
+  transform-origin: 100% 0%;
+  transform-box: fill-box;
+  animation: loaderLegL 2.4s ease-in-out infinite;
+}
+.loader-leg-r {
+  transform-origin: 0% 0%;
+  transform-box: fill-box;
+  animation: loaderLegR 2.4s ease-in-out infinite;
 }
 .loader-hop-x {
   transform: translateX(70px);
@@ -159,24 +199,48 @@ body.loaded #loader-logo {
   pointer-events: none;
 }
 @keyframes loaderHopX {
-  0%, 8%    { transform: translateX(70px);  opacity: 1; }
-  28%, 42%  { transform: translateX(240px); opacity: 1; }
-  62%, 84%  { transform: translateX(410px); opacity: 1; }
+  0%, 6%    { transform: translateX(70px);  opacity: 1; }
+  38%, 44%  { transform: translateX(240px); opacity: 1; }
+  66%, 86%  { transform: translateX(410px); opacity: 1; }
   92%       { transform: translateX(410px); opacity: 0; }
   93%       { transform: translateX(70px);  opacity: 0; }
   100%      { transform: translateX(70px);  opacity: 1; }
 }
 @keyframes loaderHopY {
-  0%, 8%    { transform: translateY(0); }
-  18%       { transform: translateY(-72px); }
-  28%, 42%  { transform: translateY(0); }
-  52%       { transform: translateY(-72px); }
-  62%, 100% { transform: translateY(0); }
+  0%, 44%   { transform: translateY(0); }
+  55%       { transform: translateY(-80px); }
+  66%, 100% { transform: translateY(0); }
+}
+@keyframes loaderLegL {
+  0%, 8%    { transform: rotate(0); }
+  17%       { transform: rotate(-22deg); }
+  26%       { transform: rotate(20deg); }
+  35%       { transform: rotate(-20deg); }
+  44%       { transform: rotate(0); }
+  55%       { transform: rotate(-28deg); }
+  66%, 100% { transform: rotate(0); }
+}
+@keyframes loaderLegR {
+  0%, 8%    { transform: rotate(0); }
+  17%       { transform: rotate(22deg); }
+  26%       { transform: rotate(-20deg); }
+  35%       { transform: rotate(20deg); }
+  44%       { transform: rotate(0); }
+  55%       { transform: rotate(28deg); }
+  66%, 100% { transform: rotate(0); }
+}
+@keyframes loaderShadow {
+  0%, 44%   { transform: scale(1); }
+  55%       { transform: scale(0.5); opacity: 0.35; }
+  66%, 100% { transform: scale(1); }
 }
 @keyframes loaderSafety { to { opacity: 0; visibility: hidden; } }
 @media (prefers-reduced-motion: reduce) {
   .loader-hop-x { animation: none; transform: translateX(240px); }
-  .loader-hop-y { animation: none; transform: translateY(0); }
+  .loader-hop-y,
+  .loader-leg-l,
+  .loader-leg-r,
+  .loader-shadow { animation: none; transform: none; }
 }
 
 
