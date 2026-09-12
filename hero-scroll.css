@@ -149,7 +149,7 @@ body:has(.hero-story.is-pinned) .back-to-top,body:has(.hero-story.is-pinned) .pr
 #story-organize .gallery-copy .circle-arrow{border-color:#999}
 #story-organize .gallery-copy .round-link:hover .circle-arrow{background:#fff;color:#111}
 #story-organize .gallery-photo img{filter:grayscale(1);opacity:.3}
-#story-organize .gallery-photo-one img{object-position:75% center}
+#story-organize .gallery-photo-one img{object-position:50% center}
 #story-organize .gallery-photo-three img{object-position:50% center}
 #hero-story:has(#story-organize[aria-hidden="false"]) .story-controls{color:#ddd}
 #hero-story:has(#story-organize[aria-hidden="false"]) .story-pagination button{color:#b5b5b5}
