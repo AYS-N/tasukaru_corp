@@ -21,6 +21,14 @@
   let travel = 0, panDistance = 0, introHold = 0, revealStart = 0, revealLength = 1;
   let measuredHeader = -1, offsets = [], photoMetrics = [], hintPhase = '';
 
+  function syncHeader(visible) {
+    if (!header || header.classList.contains('open')) return;
+    header.classList.toggle('is-intro-complete', visible);
+    header.inert = !visible;
+    if (visible) header.removeAttribute('aria-hidden');
+    else header.setAttribute('aria-hidden', 'true');
+  }
+
   function setCurrent(current) {
     if (current === active) return;
     active = current;
@@ -36,6 +44,8 @@
     frame = 0;
     if (!enabled) return;
     const distance = clamp(scrollY - start, 0, travel);
+    // Show navigation only once the completed opening starts moving upward.
+    syncHeader(scrollY > start + travel + 2);
     // One continuous rail: no scene-by-scene easing or stops during the pan.
     const pan = clamp(distance - introHold, 0, panDistance);
     const reveal = clamp((distance - revealStart) / revealLength);
@@ -69,13 +79,15 @@
 
   function measure() {
     if (header?.classList.contains('open')) return;
+    enabled = !reducedMotion.matches && innerHeight >= 440;
+    document.documentElement.classList.toggle('has-hero-intro', enabled);
     const headerHeight = Math.round(header?.getBoundingClientRect().height || 0);
     measuredHeader = headerHeight;
-    story.style.setProperty('--story-header', headerHeight + 'px');
-    enabled = !reducedMotion.matches && innerHeight - headerHeight >= 440;
+    story.style.setProperty('--story-header', (enabled ? 0 : headerHeight) + 'px');
     story.classList.toggle('is-scroll-story', enabled);
     controls.hidden = !enabled;
     if (!enabled) {
+      syncHeader(true);
       story.classList.remove('is-pinned', 'is-final-stage');
       track.style.removeProperty('transform');
       story.style.removeProperty('--story-travel');
@@ -100,7 +112,7 @@
     revealStart = introHold + panDistance + photoHold;
     travel = revealStart + revealLength + Math.max(180, height * .27);
     story.style.setProperty('--story-travel', travel + 'px');
-    start = story.getBoundingClientRect().top + scrollY - headerHeight;
+    start = story.getBoundingClientRect().top + scrollY;
     const trackLeft = track.getBoundingClientRect().left;
     photoMetrics = photos.map(node => ({node, left:node.getBoundingClientRect().left - trackLeft, photoWidth:node.offsetWidth, drift:Number(node.dataset.drift)}));
     paint();

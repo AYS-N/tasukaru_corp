@@ -1,4 +1,10 @@
 /* Native page scrolling drives this pinned, horizontal opening sequence. */
+/* The opening uses the full viewport; the fixed header enters after it ends. */
+html.has-hero-intro #site-header{position:fixed;inset:0 0 auto;transform:translateY(-100%);visibility:hidden;pointer-events:none;transition:transform .4s cubic-bezier(.22,.61,.36,1),visibility 0s .4s}
+html.has-hero-intro #site-header.is-intro-complete{transform:translateY(0);visibility:visible;pointer-events:auto;transition-delay:0s}
+html.has-hero-intro .hero-story{--story-header:0px;--story-height:100svh}
+@media(prefers-reduced-motion:reduce){html.has-hero-intro #site-header{transition:none}}
+@media print{html.has-hero-intro #site-header{position:relative;transform:none;visibility:visible;pointer-events:auto}}
 .hero-story{--story-header:96px;--story-height:calc(100svh - var(--story-header));position:relative;background:#111211}
 .hero-stage{position:relative}
 .story-slide.main-hero{height:var(--story-height);min-height:540px;max-height:none;width:100%;isolation:isolate}
