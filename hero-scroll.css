@@ -140,20 +140,59 @@ body:has(.hero-story.is-pinned) .back-to-top,body:has(.hero-story.is-pinned) .pr
   :is(#story-care,#story-reuse) .hero-description{line-height:1.85;margin-bottom:16px}
 }
 
-/* Preserve the photo gallery's layout and motion, with a dark canvas. */
-#story-organize{background:#111;color:#fff;--accent:#fff;--ink-1:#fff;--ink-2:#ddd}
-#story-organize .gallery-copy h2{color:#fff}
-#story-organize .gallery-copy .eyeline,#story-organize .gallery-caption{color:#c5c5c5}
-#story-organize .gallery-copy .hero-description{color:#dedede}
-#story-organize .gallery-copy .round-link{color:#fff}
-#story-organize .gallery-copy .circle-arrow{border-color:#999}
-#story-organize .gallery-copy .round-link:hover .circle-arrow{background:#fff;color:#111}
-#story-organize .gallery-photo img{filter:grayscale(1);opacity:.3}
-#story-organize .gallery-photo-one img{object-position:50% center}
-#story-organize .gallery-photo-three img{object-position:50% center}
-#hero-story:has(#story-organize[aria-hidden="false"]) .story-controls{color:#ddd}
-#hero-story:has(#story-organize[aria-hidden="false"]) .story-pagination button{color:#b5b5b5}
-#hero-story:has(#story-organize[aria-hidden="false"]) .story-pagination button[aria-current]{color:#fff}
-#hero-story:has(#story-organize[aria-hidden="false"]) .story-pagination button[aria-current]::after,#hero-story:has(#story-organize[aria-hidden="false"]) .story-progress>span{background:#fff}
-#hero-story:has(#story-organize[aria-hidden="false"]) .story-progress{background:#ffffff55}
-#hero-story:has(#story-organize[aria-hidden="false"]) .story-skip{color:#ddd}
+/* A light, welcoming opening; motion and the five-photo rail stay intact. */
+#hero-story{background:#fff;--hero-ink:#29312b;--hero-muted:#626c61;--hero-accent:#687e3c}
+#hero-story .story-slide{background:#fff;color:var(--hero-ink);--accent:var(--hero-accent);--ink-1:var(--hero-ink);--ink-2:var(--hero-muted)}
+#hero-story .hero-shade{display:none}
+#hero-story :is(.hero-content,.gallery-copy) :is(h1,h2){color:var(--hero-ink)}
+#hero-story :is(.eyeline,.gallery-caption,.hero-side-note){color:var(--hero-muted)}
+#hero-story :is(.hero-content,.gallery-copy) .hero-description{color:var(--hero-muted)}
+#hero-story :is(.hero-content,.gallery-copy) .round-link{color:var(--hero-ink)}
+#hero-story :is(.hero-content,.gallery-copy) .circle-arrow{color:var(--hero-accent);border-color:#d7dfc7;background:#edf2e5}
+#hero-story :is(.hero-content,.gallery-copy) .round-link:hover .circle-arrow{background:var(--hero-accent);border-color:var(--hero-accent);color:#fff}
+#hero-story :is(#story-care,#story-reuse) .main-hero-photo{inset:7% 0 12% auto;width:52%;height:81%;filter:none;opacity:1;object-position:65% center;border-radius:64px 0 0 0}
+#hero-story :is(#story-care,#story-reuse) .hero-content{width:42%;max-width:none;margin-left:4.5%;margin-right:0;padding:24px 0 76px;align-items:flex-start;justify-content:center}
+#hero-story :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(38px,4.55vw,78px);font-weight:500;line-height:1.5;letter-spacing:.055em;margin-bottom:26px}
+#hero-story :is(#story-care,#story-reuse) .hero-description{font-size:13px;line-height:2.15;letter-spacing:.035em;margin-bottom:25px}
+#hero-story :is(#story-care,#story-reuse) .eyeline{font-size:9px;margin-bottom:24px}
+#hero-story .hero-side-note{top:auto;bottom:8.5%;right:25px;writing-mode:horizontal-tb;font-size:8px}
+#story-organize .gallery-photo img{filter:none;opacity:1}
+#story-organize .gallery-photo-one img,#story-organize .gallery-photo-three img{object-position:50% center}
+#hero-story .story-controls{color:#626c61}
+#hero-story .story-pagination button{color:#697266}
+#hero-story .story-pagination button[aria-current]{color:#29312b}
+#hero-story .story-pagination button[aria-current]::after,#hero-story .story-progress>span{background:#687e3c}
+#hero-story .story-progress{background:#d4dccb}
+#hero-story .story-skip{color:#465240}
+@media(max-width:900px) and (min-width:601px){
+  #hero-story :is(#story-care,#story-reuse) :is(h1,h2){font-size:4.45vw}
+  #hero-story :is(#story-care,#story-reuse) .hero-description{font-size:11px;letter-spacing:0}
+  #hero-story :is(#story-care,#story-reuse) .round-link{font-size:11px;gap:15px}
+}
+@media(max-width:600px){
+  #hero-story :is(#story-care,#story-reuse){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);row-gap:24px}
+  #hero-story :is(#story-care,#story-reuse) .hero-content{grid-area:1 / 1;width:calc(100% - 64px);height:auto;margin:0 auto;padding:clamp(24px,4.5svh,40px) 0 0;justify-content:flex-start}
+  #hero-story :is(#story-care,#story-reuse) .eyeline{font-size:8px;line-height:1.5;margin-bottom:20px;letter-spacing:.14em}
+  #hero-story :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(28px,8.9vw,42px);line-height:1.5;font-weight:400;letter-spacing:.06em;margin-bottom:20px}
+  #hero-story :is(#story-care,#story-reuse) .hero-description{font-size:11px;line-height:2;letter-spacing:.015em;margin-bottom:18px}
+  #hero-story :is(#story-care,#story-reuse) .round-link{font-size:11px;gap:18px;min-height:36px}
+  #hero-story :is(#story-care,#story-reuse) .circle-arrow{width:34px;height:34px}
+  #hero-story :is(#story-care,#story-reuse) .main-hero-photo{grid-area:2 / 1;position:relative;inset:auto;align-self:stretch;width:calc(100% - 44px);height:calc(100% - 64px);min-height:0;margin:0 auto 64px;object-position:65% 58%;border-radius:0 36px 0 0}
+  #hero-story .hero-side-note{display:none}
+}
+@media(max-width:600px) and (max-height:700px){
+  #hero-story :is(#story-care,#story-reuse){row-gap:16px}
+  #hero-story :is(#story-care,#story-reuse) .hero-content{padding-top:24px}
+  #hero-story :is(#story-care,#story-reuse) .eyeline{margin-bottom:14px}
+  #hero-story :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(27px,8.3vw,36px);line-height:1.42;margin-bottom:14px}
+  #hero-story :is(#story-care,#story-reuse) .hero-description{line-height:1.85;margin-bottom:12px}
+}
+@media(max-width:600px){
+  #hero-story:not(.is-scroll-story) :is(#story-care,#story-reuse){height:auto;min-height:700px;grid-template-rows:auto 290px}
+  #hero-story:not(.is-scroll-story) :is(#story-care,#story-reuse) .main-hero-photo{height:260px;margin-bottom:30px}
+}
+@media(max-height:600px) and (min-width:601px){
+  #hero-story :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(30px,8svh,48px);line-height:1.4;margin-bottom:15px}
+  #hero-story :is(#story-care,#story-reuse) .eyeline{margin-bottom:14px}
+  #hero-story :is(#story-care,#story-reuse) .hero-description{font-size:11px;line-height:1.9;margin-bottom:15px}
+}

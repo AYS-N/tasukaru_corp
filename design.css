@@ -16,7 +16,7 @@ body:not([data-page="home"]) .page-hero{padding:35px 56px 74px;background:#16181
 .sd-hero-grid{max-width:none}.nf-quick-grid{background:var(--surface);border-radius:0}.nf-blob{display:none}.portrait{border-radius:0!important;background:#1c2017!important;border:1px solid #404b32;overflow:hidden;position:relative}.portrait::after{content:'';position:absolute;inset:0;background:#1c2017 url('assets/logo-tasukaru-white.png') center/70% auto no-repeat;background-blend-mode:screen}.preview-tag{left:auto;right:12px;bottom:10px}.back-to-top{bottom:45px}
 @media(max-width:900px){#site-header.open .mobile-menu{position:absolute;top:100%;left:0;right:0;height:calc(100dvh - 78px);max-height:none;overflow-y:auto}body:has(#site-header.open) .back-to-top{display:none}}
 @media(max-width:600px){#site-header.open .mobile-menu{height:calc(100dvh - 72px)}.preview-tag{right:8px;bottom:6px}.back-to-top{bottom:34px}}
-.header-logo img{width:210px;height:56px;object-fit:cover;margin-inline:-17px;flex-shrink:0}.footer-logo{width:255px;height:70px;object-fit:cover;margin-inline:-21px}.portrait::after{background-image:url('assets/logo-tasukaru-v2-a.png')}
+.header-logo img{width:210px;height:56px;object-fit:cover;margin-inline:-17px;flex-shrink:0}.footer-logo{width:255px;height:70px;object-fit:cover;margin-inline:-21px}.portrait::after{background-image:url('assets/logo-tasukaru-green.png')}
 #site-header.scrolled,#site-header.open{background:#111211;backdrop-filter:none}
 @media(max-width:1150px) and (min-width:901px){.header-logo .brand-caption{display:none}}
 @media(max-width:600px){.header-logo img{width:187px;height:50px;margin-inline:-15px}.footer-logo{width:229px;height:62px;margin-inline:-19px}}
