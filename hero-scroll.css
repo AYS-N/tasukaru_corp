@@ -139,3 +139,21 @@ body:has(.hero-story.is-pinned) .back-to-top,body:has(.hero-story.is-pinned) .pr
   :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(28px,8.8vw,38px);line-height:1.45;margin-bottom:18px}
   :is(#story-care,#story-reuse) .hero-description{line-height:1.85;margin-bottom:16px}
 }
+
+/* Preserve the photo gallery's layout and motion, with a dark canvas. */
+#story-organize{background:#111;color:#fff;--accent:#fff;--ink-1:#fff;--ink-2:#ddd}
+#story-organize .gallery-copy h2{color:#fff}
+#story-organize .gallery-copy .eyeline,#story-organize .gallery-caption{color:#c5c5c5}
+#story-organize .gallery-copy .hero-description{color:#dedede}
+#story-organize .gallery-copy .round-link{color:#fff}
+#story-organize .gallery-copy .circle-arrow{border-color:#999}
+#story-organize .gallery-copy .round-link:hover .circle-arrow{background:#fff;color:#111}
+#story-organize .gallery-photo img{filter:grayscale(1);opacity:.3}
+#story-organize .gallery-photo-one img{object-position:75% center}
+#story-organize .gallery-photo-three img{object-position:50% center}
+#hero-story:has(#story-organize[aria-hidden="false"]) .story-controls{color:#ddd}
+#hero-story:has(#story-organize[aria-hidden="false"]) .story-pagination button{color:#b5b5b5}
+#hero-story:has(#story-organize[aria-hidden="false"]) .story-pagination button[aria-current]{color:#fff}
+#hero-story:has(#story-organize[aria-hidden="false"]) .story-pagination button[aria-current]::after,#hero-story:has(#story-organize[aria-hidden="false"]) .story-progress>span{background:#fff}
+#hero-story:has(#story-organize[aria-hidden="false"]) .story-progress{background:#ffffff55}
+#hero-story:has(#story-organize[aria-hidden="false"]) .story-skip{color:#ddd}
