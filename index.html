@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>株式会社タスカル | 整理・買取・再販のリユース事業</title>
-<meta name="description" content="埼玉・上尾の株式会社タスカル。遺品整理・生前整理・福祉整理・お片付けから、買取・インターネット販売まで。ご家庭の「困った」をまるごとお引き受けします。関東一円対応。"/>
-<link rel="canonical" href="https://example.com/"/>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社タスカル | 整理・買取・再販売</title>
+<meta name="description" content="埼玉・上尾の株式会社タスカル。遺品整理・生前整理・福祉整理・お片付けから、買取・インターネット販売まで。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="design.css"><link rel="stylesheet" href="hero-scroll.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="refinement.css"><link rel="canonical" href="https://example.com/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="株式会社タスカル"/>
 <meta property="og:title" content="株式会社タスカル | 整理・買取・再販のリユース事業"/>
@@ -62,166 +65,6 @@
   "description": "埼玉・上尾の株式会社タスカル。遺品整理・生前整理・福祉整理・お片付けから、買取・インターネット販売まで。ご家庭の「困った」をまるごとお引き受けします。関東一円対応。"
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<style>
-/* ── Hero ──────────────────────────────────────────────────── */
-#hero { position: relative; padding: 80px 40px 140px; overflow: hidden; }
-.hero-bg-blob-1 {
-  position: absolute; top: -12%; right: -12%; width: 64%; height: 116%;
-  background: var(--leaf-tint); transform: rotate(-7deg);
-  border-radius: 42% 32% 36% 40%; opacity: 0.9; pointer-events: none;
-  will-change: transform, border-radius;
-  animation: float-blob-1 19s ease-in-out infinite;
-}
-.hero-bg-blob-2 {
-  position: absolute; top: 8%; right: 2%; width: 44%; height: 76%;
-  background: var(--leaf-soft); transform: rotate(-13deg);
-  border-radius: 46% 34% 40% 30%; opacity: 0.55; pointer-events: none;
-  will-change: transform, border-radius;
-  animation: float-blob-2 24s ease-in-out infinite;
-}
-/* シャボン玉のようにふわふわ漂う動き（位置・回転・伸縮・形をゆっくり変化） */
-@keyframes float-blob-1 {
-  0%   { transform: translate(0, 0) rotate(-7deg) scale(1);        border-radius: 42% 32% 36% 40%; }
-  25%  { transform: translate(-18px, 22px) rotate(-3deg) scale(1.05); border-radius: 38% 44% 30% 46%; }
-  50%  { transform: translate(8px, 34px) rotate(-9deg) scale(0.97);  border-radius: 48% 30% 46% 34%; }
-  75%  { transform: translate(16px, 12px) rotate(-11deg) scale(1.03);border-radius: 36% 46% 38% 42%; }
-  100% { transform: translate(0, 0) rotate(-7deg) scale(1);        border-radius: 42% 32% 36% 40%; }
-}
-@keyframes float-blob-2 {
-  0%   { transform: translate(0, 0) rotate(-13deg) scale(1);        border-radius: 46% 34% 40% 30%; }
-  25%  { transform: translate(20px, -16px) rotate(-8deg) scale(1.06); border-radius: 40% 46% 32% 48%; }
-  50%  { transform: translate(-14px, 18px) rotate(-18deg) scale(0.95);border-radius: 52% 30% 48% 36%; }
-  75%  { transform: translate(-22px, -10px) rotate(-15deg) scale(1.02);border-radius: 38% 48% 34% 44%; }
-  100% { transform: translate(0, 0) rotate(-13deg) scale(1);        border-radius: 46% 34% 40% 30%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-blob-1, .hero-bg-blob-2 { animation: none; }
-}
-.hero-inner {
-  position: relative; z-index: 1; max-width: 1320px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 0.85fr; gap: 80px;
-  align-items: center; padding-top: 80px;
-}
-.hero-h1 {
-  font-family: var(--font-jp-serif);
-  font-size: clamp(40px, 4.8vw, 64px);
-  font-weight: 500; line-height: 1.45; letter-spacing: 0.08em;
-  color: var(--ink-1); margin: 0 0 32px;
-}
-.hero-h1 .accent { color: var(--leaf-deep); }
-.hero-h1 .underline-wrap { position: relative; display: inline-block; }
-.hero-h1 .underline-wrap::after {
-  content: ''; position: absolute; left: 0; bottom: -8px;
-  width: 100%; height: 8px; background: var(--leaf); opacity: 0.3; border-radius: 4px;
-}
-.hero-lead { font-size: 17px; color: var(--ink-2); line-height: 1.95; max-width: 540px; margin: 0 0 48px; }
-.hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-.hero-cards { position: relative; height: 560px; }
-.hero-card {
-  position: absolute; border-radius: 8px; box-shadow: var(--shadow-2);
-  padding: 28px; display: flex; flex-direction: column; justify-content: space-between;
-  text-decoration: none; transition: transform 280ms, box-shadow 280ms;
-}
-.hero-card-kaitori { top: 0; right: 60px; width: 260px; height: 340px; background: var(--surface); border: 1px solid var(--border-hair); padding: 32px; transform: rotate(2.5deg); overflow: hidden; justify-content: flex-start; }
-.hero-card-kaitori > * { position: relative; z-index: 1; }
-.hero-card-kaitori .card-title-kaitori { color: var(--ink-1); }
-.hero-card-kaitori .card-sub-kaitori { color: var(--ink-2); }
-.hero-card-kaitori:hover { transform: translateY(-6px) rotate(2.5deg); box-shadow: var(--shadow-3); }
-.hero-card-ihin { top: 120px; left: 0; width: 240px; height: 320px; background: var(--tascal-cyan-tint); border: 1px solid var(--leaf-soft); transform: rotate(-3deg); overflow: hidden; justify-content: flex-start; }
-.hero-card-ihin > * { position: relative; z-index: 1; }
-.hero-card-ihin .card-title-ihin { color: var(--ink-1); }
-.hero-card-ihin .card-sub-ihin { color: var(--ink-2); }
-.hero-card-ihin:hover { transform: translateY(-6px) rotate(-3deg); box-shadow: var(--shadow-3); }
-.card-service-label { font-family: var(--font-latin); font-size: 10px; letter-spacing: 0.3em; font-weight: 600; }
-.card-title-kaitori { font-family: var(--font-jp-serif); font-size: 32px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.3; color: var(--ink-1); }
-.card-sub-kaitori { font-size: 12px; color: var(--ink-3); margin-top: 12px; line-height: 1.8; }
-.card-title-ihin { font-family: var(--font-jp-serif); font-size: 30px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.3; color: var(--ink-1); }
-.card-sub-ihin { font-size: 12px; color: var(--ink-2); margin-top: 12px; line-height: 1.8; }
-.hero-scroll-indicator {
-  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-  font-family: var(--font-latin); font-size: 10px; letter-spacing: 0.3em;
-  color: var(--ink-3); writing-mode: vertical-rl;
-  display: flex; align-items: center; gap: 12px;
-}
-.hero-scroll-indicator::after { content: ''; width: 1px; height: 40px; background: var(--ink-3); }
-
-/* ── ConceptRow ────────────────────────────────────────────── */
-#concept { padding: 88px 40px 96px; background: var(--cream); }
-.concept-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
-.concept-item { text-align: center; display: flex; flex-direction: column; align-items: center; }
-.concept-item .concept-ticks { margin-bottom: 22px; }
-.concept-item-jp { font-family: var(--font-jp-serif); font-size: 23px; font-weight: 500; color: var(--leaf-deep); margin: 0 0 10px; letter-spacing: 0.28em; }
-.concept-item-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.34em; color: var(--ink-3); margin-bottom: 16px; }
-.concept-item-sub { font-size: 13.5px; color: var(--ink-2); line-height: 1.9; margin: 0; max-width: 260px; }
-
-/* ── ServiceIntro ──────────────────────────────────────────── */
-#services { padding: 120px 40px; background: var(--cream); }
-.services-inner { max-width: 1320px; margin: 0 auto; }
-.services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
-.services-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; margin: 20px 0 0; }
-.services-header-right { text-align: right; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
-.service-card {
-  display: block; text-decoration: none; background: #fff; border-radius: 10px;
-  border: 1px solid var(--border-hair); padding: 28px 28px 24px;
-  transition: transform 280ms, box-shadow 280ms, border-color 280ms;
-}
-.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-color: var(--leaf-soft); }
-.service-card .concept-ticks { margin-bottom: 18px; }
-.service-num { font-family: var(--font-latin); font-weight: 300; font-size: 40px; color: var(--leaf); opacity: 0.4; line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px; }
-.service-en { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.24em; color: var(--tascal-cyan-deep); margin-bottom: 6px; }
-.service-title { font-family: var(--font-jp-serif); font-size: 21px; font-weight: 500; letter-spacing: 0.28em; margin: 0 0 12px; color: var(--ink-1); }
-.service-short { font-size: 13px; color: var(--ink-2); line-height: 1.85; margin: 0; }
-.service-more { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-hair); font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 8px; }
-.service-more .arrow { color: var(--tascal-cyan); }
-
-/* ── BusinessIntro ─────────────────────────────────────────── */
-#business { padding: 120px 40px; background: var(--tascal-cyan-tint); color: var(--ink-1); }
-.business-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
-.business-eyebrow { font-family: var(--font-latin); font-size: 12px; font-weight: 600; letter-spacing: 0.32em; color: var(--tascal-cyan-deep); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-.business-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--tascal-cyan-deep); flex-shrink: 0; }
-.business-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.45; letter-spacing: 0.06em; color: var(--ink-1); margin: 0 0 24px; }
-.business-h2 .accent { color: var(--tascal-cyan-deep); }
-.business-lead { font-size: 15.5px; color: var(--ink-2); line-height: 2.1; margin: 0 0 32px; max-width: 540px; }
-.business-panel { background: var(--surface); border: 1px solid var(--border-hair); border-radius: 12px; padding: 32px; }
-.business-panel-label { font-family: var(--font-latin); font-size: 10px; font-weight: 600; letter-spacing: 0.28em; color: var(--tascal-cyan-deep); margin-bottom: 16px; }
-.partnership-list { display: flex; flex-direction: column; gap: 16px; }
-.partnership-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border-hair); gap: 16px; }
-.partnership-item:last-child { border-bottom: none; }
-.partnership-label { font-family: var(--font-jp-serif); font-size: 16px; color: var(--ink-1); margin-bottom: 2px; }
-.partnership-sub { font-size: 12px; color: var(--ink-3); }
-.partnership-arrow { color: var(--tascal-cyan-deep); font-size: 18px; flex-shrink: 0; }
-
-/* ── AboutIntro ────────────────────────────────────────────── */
-#about { padding: 120px 40px; background: var(--cream); }
-.about-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
-.about-h2 { font-family: var(--font-jp-serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; margin: 24px 0 32px; }
-.about-table .row { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border-hair); align-items: start; }
-.about-table dt { font-family: var(--font-jp-serif); font-weight: 500; font-size: 14px; letter-spacing: 0.06em; color: var(--ink-1); }
-.about-table dd { font-size: 14px; color: var(--ink-2); line-height: 1.9; }
-
-/* ── ContactBand ───────────────────────────────────────────── */
-#contact-band { padding: 120px 40px; background: var(--cream); }
-.contact-band-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.cta-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: #fff; border: 1px solid var(--border-hair); border-radius: 12px; padding: 40px; text-decoration: none; transition: box-shadow 280ms, transform 280ms; }
-.cta-card:hover { box-shadow: var(--shadow-2); transform: translateY(-3px); }
-.cta-h2 { font-family: var(--font-jp-serif); font-size: 28px; font-weight: 500; letter-spacing: 0.06em; margin: 0 0 12px; color: var(--ink-1); }
-.cta-lead { font-size: 14px; color: var(--ink-2); margin: 0; line-height: 1.95; }
-.cta-more { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--tascal-cyan-deep); font-weight: 600; margin-top: 24px; }
-
-@media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-cards { display: none; }
-  .concept-grid { grid-template-columns: 1fr; gap: 40px; }
-  .services-header { grid-template-columns: 1fr; gap: 24px; }
-  .services-grid { grid-template-columns: 1fr; }
-  .business-inner, .about-inner, .contact-band-inner { grid-template-columns: 1fr; gap: 40px; }
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -238,194 +81,92 @@
 </script>
 </head>
 <body data-page="home">
-
-<header id="site-header"><noscript><nav aria-label="グローバルナビ"><a href="index.html">ホーム</a> | <a href="about.html">会社概要</a> | <a href="services.html">事業内容</a> | <a href="business.html">法人のお客様へ</a> | <a href="recruit.html">採用情報</a> | <a href="contact.html">お問い合わせ</a></nav></noscript></header>
-
-<!-- ── Hero ────────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-bg-blob-1"></div>
-  <div class="hero-bg-blob-2"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="eyebrow-jp" style="margin-bottom:32px">REUSE × ORGANIZE × CARE</div>
-      <h1 class="hero-h1">
-        かたづかない<span class="accent">モノ</span>と<br>
-        <span class="underline-wrap">思い出を、丁寧に。</span>
-      </h1>
-      <p class="hero-lead">
-        お片付け・遺品整理・生前整理・福祉整理から、買取・インターネット販売まで。<br>
-        埼玉・上尾を拠点に、ご家庭の「困った」をまるごとお引き受けします。
-      </p>
-      <div class="hero-ctas">
-        <a href="contact.html" class="btn btn-primary">お問い合わせ <span style="font-size:18px">→</span></a>
-        <a href="business.html" class="btn-arrow">法人のお客様へ <span style="color:var(--tascal-cyan)">→</span></a>
-      </div>
+<header id="site-header"><a class="skip-link" href="#main-content">本文へスキップ</a><div class="header-inner"><a href="index.html" class="header-logo" aria-label="株式会社タスカル トップページ"><img src="assets/logo-tasukaru-v2-a.png" alt="タスカル" width="135" height="45"><span class="brand-caption">整理・買取・再販売<br>株式会社タスカル</span></a><nav class="header-nav" aria-label="グローバルナビ"><a href="index.html" class="nav-item active" aria-current="page"><span class="nav-item-jp">トップ</span></a><a href="about.html" class="nav-item"><span class="nav-item-jp">会社情報</span></a><a href="services.html" class="nav-item"><span class="nav-item-jp">事業内容</span></a><a href="business.html" class="nav-item"><span class="nav-item-jp">法人のお客様へ</span></a><a href="recruit.html" class="nav-item"><span class="nav-item-jp">採用情報</span></a></nav><div class="header-actions"><a href="contact.html" class="header-contact-btn">お問い合わせ <span aria-hidden="true">↗</span></a></div><button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobile-menu" hidden><nav class="mobile-menu-inner" aria-label="モバイルナビ"><a href="index.html" class="mobile-nav-item active" aria-current="page"><span class="en">HOME</span><span class="jp">トップ</span></a><a href="about.html" class="mobile-nav-item"><span class="en">ABOUT</span><span class="jp">会社情報</span></a><a href="services.html" class="mobile-nav-item"><span class="en">SERVICES</span><span class="jp">事業内容</span></a><a href="business.html" class="mobile-nav-item"><span class="en">BUSINESS</span><span class="jp">法人のお客様へ</span></a><a href="recruit.html" class="mobile-nav-item"><span class="en">RECRUIT</span><span class="jp">採用情報</span></a><a href="contact.html" class="mobile-contact-btn">お問い合わせ ↗</a><a href="tel:0487826606" class="mobile-tel"><span class="label">受付 10:00–19:00 / 年中無休</span><span class="num">048-782-6606</span></a></nav></div></header>
+<main id="main-content">
+  <section class="hero-story" aria-label="タスカルが大切にしていること" id="hero-story">
+  <div class="hero-stage">
+  <div class="hero-track">
+  <article class="main-hero story-slide" aria-labelledby="hero-heading" id="story-care">
+    <img class="main-hero-photo" src="assets/hero-care.png" alt="大切な器を一つひとつ丁寧に梱包する手元のイメージ" fetchpriority="high" width="1536" height="1024">
+    <div class="hero-shade"></div>
+    <div class="hero-content container">
+      <div class="eyeline"><span class="small-dot"></span> REUSE. ORGANIZE. CARE.</div>
+      <h1 id="hero-heading">モノの先に、<br>人の想い。</h1>
+      <p class="hero-description">かたづかないモノと、思い出を、丁寧に。<br>整理から買取・再販売まで。<br>ご家庭の「困った」を、まるごとお引き受けします。</p>
+      <a class="round-link" href="services.html">タスカルの事業を知る <span class="circle-arrow" aria-hidden="true">↗</span></a>
     </div>
-    <div class="hero-cards">
-      <a href="services-kaitori.html" class="hero-card hero-card-kaitori">
-        <div>
-          <div class="card-title-kaitori">買取<br>事業</div>
-          <div class="card-sub-kaitori">貴金属・時計・カメラ<br>骨董・着物・酒類まで</div>
-        </div>
-      </a>
-      <a href="services-ihin-seiri.html" class="hero-card hero-card-ihin">
-        <div>
-          <div class="card-title-ihin">遺品<br>整理</div>
-          <div class="card-sub-ihin">故人を偲びながら、<br>ひとつずつ丁寧に。</div>
-        </div>
-      </a>
+    <div class="hero-side-note" aria-hidden="true">TASUKARU INC. / SINCE 2021</div>
+  </article>
+  <article class="main-hero story-slide story-gallery" aria-labelledby="organize-heading" id="story-organize">
+    <div class="gallery-surface">
+      <figure class="gallery-photo gallery-photo-one" data-drift="-48"><img src="assets/services/service-ihin-seiri-v2.png" alt="写真立てやアルバムなど思い出の品物を丁寧に整理するイメージ" width="1122" height="1402"></figure>
+      <figure class="gallery-photo gallery-photo-two" data-drift="32"><img src="assets/services/service-seizen-seiri-v2.png" alt="ノートを使い、ご自身の持ち物の整理を計画する手元のイメージ" width="1536" height="1024"></figure>
+      <figure class="gallery-photo gallery-photo-three" data-drift="-28"><img src="assets/services/service-fukushi-seiri-v2.png" alt="車いすでも移動しやすいよう通路を整えた室内のイメージ" width="1536" height="1024"></figure>
+      <figure class="gallery-photo gallery-photo-four" data-drift="44"><img src="assets/services/service-cleanup-v2.png" alt="お部屋の荷物を箱にまとめて運ぶ作業のイメージ" width="1536" height="1024"></figure>
+      <figure class="gallery-photo gallery-photo-five" data-drift="-36"><img src="assets/services/service-ec-v2.png" alt="通販サイトの商品画面と発送準備のイメージ" width="1536" height="1024"></figure>
+    <div class="gallery-copy">
+      <div class="eyeline"><span class="small-dot"></span> 02 / ORGANIZE WITH CARE</div>
+      <h2 id="organize-heading">想いをほどき、<br>暮らしを整える。</h2>
+      <p class="hero-description">大切なものを、一つひとつ。<br>ご本人とご家族のお気持ちに寄り添い、<br>これからの暮らしをお手伝いします。</p>
+      <a class="round-link" href="services-ihin-seiri.html">整理サービスを知る <span class="circle-arrow" aria-hidden="true">↗</span></a>
     </div>
+      <span class="gallery-caption" aria-hidden="true">EVERY MEMORY HAS A NEXT CHAPTER.</span>
+    </div>
+  </article>
+  <article class="main-hero story-slide story-reuse" aria-labelledby="reuse-heading" id="story-reuse">
+    <img class="main-hero-photo" src="assets/services/service-kaitori-v2.png" alt="時計やカメラなど、次の持ち主へつなぐ品物を査定するイメージ" width="1536" height="1024">
+    <div class="hero-shade"></div>
+    <div class="hero-content container final-copy">
+      <div class="eyeline" data-reveal="0"><span class="small-dot"></span> 03 / PASS VALUE FORWARD</div>
+      <h2 id="reuse-heading"><span class="reveal-mask"><span data-reveal="0.06">次の誰かへ、</span></span><span class="reveal-mask"><span data-reveal="0.19">価値をつなぐ。</span></span></h2>
+      <p class="hero-description" data-reveal="0.38">「捨てる」前に、活かす選択肢を。<br>買取から再販売まで。<br>モノの可能性を、次の人へつないでいきます。</p>
+      <a class="round-link" href="services-kaitori.html" data-reveal="0.57">買取・リユースを知る <span class="circle-arrow" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-side-note" aria-hidden="true">A NEW CHAPTER FOR EVERY OBJECT.</div>
+  </article>
   </div>
-  <div class="hero-scroll-indicator">SCROLL</div>
-</section>
-
-<!-- ── ConceptRow ───────────────────────────────────────────── -->
-<section id="concept">
-  <div class="concept-grid">
-    <div class="concept-item">
-      <div class="concept-ticks"><span></span><span></span><span></span></div>
-      <h3 class="concept-item-jp">ていねいに、整える</h3>
-      <div class="concept-item-en">WITH CARE</div>
-      <p class="concept-item-sub">暮らしのペースに寄り添い、ひとつずつ。</p>
+  <div class="story-controls container" hidden>
+    <div class="story-pagination" role="group" aria-label="トップの場面を選ぶ">
+      <button type="button" data-story-index="0" aria-label="1番目：人の想い" aria-controls="story-care" aria-current="step">01</button>
+      <span class="story-progress" aria-hidden="true"><span></span></span>
+      <button type="button" data-story-index="1" aria-label="2番目：暮らしを整える" aria-controls="story-organize">02</button>
+      <button type="button" data-story-index="2" aria-label="3番目：価値をつなぐ" aria-controls="story-reuse">03</button>
     </div>
-    <div class="concept-item">
-      <div class="concept-ticks"><span></span><span></span><span></span></div>
-      <h3 class="concept-item-jp">想いごと、引き継ぐ</h3>
-      <div class="concept-item-en">RESPECT</div>
-      <p class="concept-item-sub">故人とご家族の気持ちを、何より大切に。</p>
-    </div>
-    <div class="concept-item">
-      <div class="concept-ticks"><span></span><span></span><span></span></div>
-      <h3 class="concept-item-jp">資源を、めぐらせる</h3>
-      <div class="concept-item-en">REUSE</div>
-      <p class="concept-item-sub">「捨てる」前に、活かす選択肢を。</p>
-    </div>
+    <span class="story-scroll-hint"><span class="story-hint-label">SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></span>
+    <a class="story-skip" href="#philosophy">私たちの想いへ <span aria-hidden="true">↘</span></a>
   </div>
-</section>
-
-<!-- ── ServiceIntro ─────────────────────────────────────────── -->
-<section id="services">
-  <div class="services-inner">
-    <div class="services-header">
-      <div>
-        <div class="eyebrow-jp">SERVICES</div>
-        <div class="rule-diagonal"></div>
-        <h2 class="services-h2">６つの事業で、<br>暮らしと法人のご依頼に対応。</h2>
-      </div>
-      <div class="services-header-right">
-        <a href="services.html" class="btn-arrow">事業内容一覧を見る <span style="color:var(--tascal-cyan);font-size:18px">→</span></a>
-      </div>
-    </div>
-    <div class="services-grid">
-      <a href="services-ihin-seiri.html" class="service-card">
-        <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">01</div><div class="service-en">ESTATE CLEANUP</div>
-        <h3 class="service-title">遺品整理</h3>
-        <p class="service-short">ご遺族に代わり、故人の遺品を丁寧に仕分け・整理いたします。</p>
-        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
-      </a>
-      <a href="services-seizen-seiri.html" class="service-card">
-        <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">02</div><div class="service-en">PRE-ESTATE ORGANIZE</div>
-        <h3 class="service-title">生前整理</h3>
-        <p class="service-short">お元気なうちに、ご自身の手でモノと気持ちを整理する終活サポート。</p>
-        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
-      </a>
-      <a href="services-fukushi-seiri.html" class="service-card">
-        <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">03</div><div class="service-en">WELFARE CLEANUP</div>
-        <h3 class="service-title">福祉整理</h3>
-        <p class="service-short">高齢者・障害者・生活困窮者の住環境を安全に整える整理サービス。</p>
-        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
-      </a>
-      <a href="services-cleanup.html" class="service-card">
-        <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">04</div><div class="service-en">DECLUTTERING</div>
-        <h3 class="service-title">お片付け</h3>
-        <p class="service-short">引っ越し前後・空き家・実家じまいの整理をワンストップで。</p>
-        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
-      </a>
-      <a href="services-kaitori.html" class="service-card">
-        <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">05</div><div class="service-en">PURCHASE</div>
-        <h3 class="service-title">買取事業</h3>
-        <p class="service-short">貴金属・時計・カメラ・骨董・着物・酒類など幅広い品目をお買取。</p>
-        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
-      </a>
-      <a href="services-ec.html" class="service-card">
-        <div class="concept-ticks"><span></span><span></span><span></span></div>
-        <div class="service-num">06</div><div class="service-en">ONLINE SALES</div>
-        <h3 class="service-title">インターネット販売事業</h3>
-        <p class="service-short">ヤフオク等のプラットフォームを通じた再販売事業。</p>
-        <div class="service-more">詳しく見る <span class="arrow">→</span></div>
-      </a>
-    </div>
   </div>
-</section>
-
-<!-- ── BusinessIntro ────────────────────────────────────────── -->
-<section id="business">
-  <div class="business-inner">
-    <div>
-      <div class="business-eyebrow">FOR BUSINESS</div>
-      <h2 class="business-h2">法人のお客様へ。<br>整理・買取の<span class="accent">協業パートナー</span>として。</h2>
-      <p class="business-lead">不動産会社様、士業の先生方、ケアマネジャー・福祉施設様、葬儀社様。それぞれの業種に合わせた連携パッケージをご用意しています。産廃許可・特別国際種登録・酒類販売業免許など、法人取引で必要となる許認可を整備しています。</p>
-      <a href="business.html" class="btn btn-cyan">法人のお客様へ <span style="font-size:18px">→</span></a>
-    </div>
-    <div class="business-panel">
-      <div class="business-panel-label">PARTNERSHIP PACKAGES</div>
-      <ul class="partnership-list">
-        <li class="partnership-item"><div><div class="partnership-label">不動産会社様向け</div><div class="partnership-sub">お片付け + 遺品整理 + 買取</div></div><span class="partnership-arrow">→</span></li>
-        <li class="partnership-item"><div><div class="partnership-label">士業の先生方向け</div><div class="partnership-sub">相続関連・遺品整理 + 買取</div></div><span class="partnership-arrow">→</span></li>
-        <li class="partnership-item"><div><div class="partnership-label">ケアマネ・福祉施設様向け</div><div class="partnership-sub">福祉整理 + 生前整理 + お片付け</div></div><span class="partnership-arrow">→</span></li>
-        <li class="partnership-item"><div><div class="partnership-label">葬儀社様向け</div><div class="partnership-sub">ご遺族紹介での遺品整理 + 買取</div></div><span class="partnership-arrow">→</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ── AboutIntro ───────────────────────────────────────────── -->
-<section id="about">
-  <div class="about-inner">
-    <div>
-      <div class="eyebrow-jp">ABOUT US</div>
-      <h2 class="about-h2">会社概要</h2>
-      <a href="about.html" class="btn-arrow">会社情報を詳しく見る <span style="color:var(--tascal-cyan);font-size:18px">→</span></a>
-    </div>
-    <dl class="about-table">
+  </section>
+  <div class="service-strip"><div class="container"><span>暮らしに寄り添う、6つの事業</span><p>遺品整理 <i>/</i> 生前整理 <i>/</i> 福祉整理 <i>/</i> お片付け <i>/</i> 買取 <i>/</i> インターネット販売</p><a href="services.html" aria-label="事業内容一覧へ">↗</a></div></div>
+  <section class="philosophy container section-space" id="philosophy">
+    <div class="section-label"><span>01 / OUR PHILOSOPHY</span><span>私たちの想い</span></div>
+    <div class="philosophy-grid"><h2>大切だったものに、<br>これからの役割を。</h2><div><p class="large-copy">整理するのは、モノだけではありません。<br>そこにある暮らしや、積み重ねた時間にも<br>きちんと向き合いたい。</p><p>ていねいに整え、想いごと引き継ぎ、資源をめぐらせる。<br>私たちタスカルは、整理・買取・再販売を通じて、<br>人とモノの次の一歩をお手伝いします。</p><a class="text-link" href="about-greeting.html">タスカルの想いを知る <span aria-hidden="true">↗</span></a></div></div>
+    <div class="values-grid"><article><span class="value-no">01</span><div><h3>ていねいに、整える</h3><p>暮らしのペースに寄り添い、ひとつずつ。</p></div><span class="value-en">WITH CARE</span></article><article><span class="value-no">02</span><div><h3>想いごと、引き継ぐ</h3><p>故人とご家族の気持ちを、何より大切に。</p></div><span class="value-en">RESPECT</span></article><article><span class="value-no">03</span><div><h3>資源を、めぐらせる</h3><p>「捨てる」前に、活かす選択肢を。</p></div><span class="value-en">REUSE</span></article></div>
+  </section>
+  <section class="home-services section-space" id="services"><div class="container">
+    <div class="section-label"><span>02 / OUR SERVICES</span><span>事業内容</span></div>
+    <div class="section-intro"><div><h2 class="display-en">Our services<span>.</span></h2><p class="section-jp">暮らしの節目を、まるごと支える。</p></div><a class="text-link" href="services.html">すべての事業を見る <span aria-hidden="true">↗</span></a></div>
+    <div class="service-editorial-grid"><a class="service-editorial" href="services-ihin-seiri.html"><div class="service-visual"><img src="assets/services/service-ihin-seiri-v2.png" alt="遺品整理のイメージ" loading="lazy" width="800" height="600"><span class="service-index">SERVICE / 01</span></div><div class="service-heading"><h3>遺品整理</h3><span aria-hidden="true">↗</span></div><div class="service-english">ESTATE CLEANUP</div><p>ご遺族に代わり、故人の遺品を丁寧に仕分け・整理いたします。</p></a><a class="service-editorial" href="services-seizen-seiri.html"><div class="service-visual"><img src="assets/services/service-seizen-seiri-v2.png" alt="生前整理のイメージ" loading="lazy" width="800" height="600"><span class="service-index">SERVICE / 02</span></div><div class="service-heading"><h3>生前整理</h3><span aria-hidden="true">↗</span></div><div class="service-english">PRE-ESTATE ORGANIZE</div><p>お元気なうちに、ご自身の手でモノと気持ちを整理する終活サポート。</p></a><a class="service-editorial" href="services-fukushi-seiri.html"><div class="service-visual"><img src="assets/services/service-fukushi-seiri-v2.png" alt="福祉整理のイメージ" loading="lazy" width="800" height="600"><span class="service-index">SERVICE / 03</span></div><div class="service-heading"><h3>福祉整理</h3><span aria-hidden="true">↗</span></div><div class="service-english">WELFARE CLEANUP</div><p>高齢者・障害者・生活困窮者の住環境を安全に整える整理サービス。</p></a><a class="service-editorial" href="services-cleanup.html"><div class="service-visual"><img src="assets/services/service-cleanup-v2.png" alt="お片付けのイメージ" loading="lazy" width="800" height="600"><span class="service-index">SERVICE / 04</span></div><div class="service-heading"><h3>お片付け</h3><span aria-hidden="true">↗</span></div><div class="service-english">DECLUTTERING</div><p>引っ越し前後・空き家・実家じまいの整理をワンストップで。</p></a><a class="service-editorial" href="services-kaitori.html"><div class="service-visual"><img src="assets/services/service-kaitori-v2.png" alt="買取事業のイメージ" loading="lazy" width="800" height="600"><span class="service-index">SERVICE / 05</span></div><div class="service-heading"><h3>買取事業</h3><span aria-hidden="true">↗</span></div><div class="service-english">PURCHASE</div><p>貴金属・時計・カメラ・骨董・着物・酒類など幅広い品目をお買取。</p></a><a class="service-editorial" href="services-ec.html"><div class="service-visual"><img src="assets/services/service-ec-v2.png" alt="インターネット販売事業のイメージ" loading="lazy" width="800" height="600"><span class="service-index">SERVICE / 06</span></div><div class="service-heading"><h3>インターネット販売事業</h3><span aria-hidden="true">↗</span></div><div class="service-english">ONLINE SALES</div><p>ヤフオク等のプラットフォームを通じた再販売事業。</p></a></div>
+  </div></section>
+  <section class="home-business section-space container" id="business">
+    <div class="section-label"><span>03 / FOR BUSINESS</span><span>法人のお客様へ</span></div>
+    <div class="business-split"><div><h2>その現場に、<br>タスカルの力を。</h2><p>不動産会社様、士業の先生方、ケアマネジャー・福祉施設様、葬儀社様。それぞれの業種に合わせた連携パッケージをご用意しています。</p><p class="business-note">産廃許可・特別国際種登録・酒類販売業免許など、法人取引で必要となる許認可を整備しています。</p><a class="round-link" href="business.html">法人向けサービスを見る <span class="circle-arrow" aria-hidden="true">↗</span></a></div><div class="partner-list"><a href="business.html"><span class="partner-no">01</span><div><h3>不動産会社様</h3><p>お片付け + 遺品整理 + 買取</p></div><span class="partner-arrow" aria-hidden="true">↗</span></a><a href="business.html"><span class="partner-no">02</span><div><h3>士業の先生方</h3><p>相続関連・遺品整理 + 買取</p></div><span class="partner-arrow" aria-hidden="true">↗</span></a><a href="business.html"><span class="partner-no">03</span><div><h3>ケアマネ・福祉施設様</h3><p>福祉整理 + 生前整理 + お片付け</p></div><span class="partner-arrow" aria-hidden="true">↗</span></a><a href="business.html"><span class="partner-no">04</span><div><h3>葬儀社様</h3><p>ご遺族紹介での遺品整理 + 買取</p></div><span class="partner-arrow" aria-hidden="true">↗</span></a></div></div>
+  </section>
+  <section class="home-company section-space" id="company"><div class="container">
+    <div class="section-label"><span>04 / COMPANY</span><span>会社情報</span></div>
+    <div class="company-split"><div><h2 class="display-en">With you<span>.</span></h2><h3>上尾から、関東一円へ。</h3><p>一つひとつの「助かる」のために。<br>地域に根ざし、人とモノに向き合います。</p><a class="text-link" href="about.html">会社概要を見る <span aria-hidden="true">↗</span></a></div><dl class="company-table">
       <div class="row"><dt>社名</dt><dd>株式会社タスカル</dd></div>
       <div class="row"><dt>所在地</dt><dd>埼玉県上尾市仲町1-7-25</dd></div>
       <div class="row"><dt>事業内容</dt><dd>遺品整理・生前整理・福祉整理・お片付け・買取・インターネット販売</dd></div>
       <div class="row"><dt>対応エリア</dt><dd>埼玉県・東京都・千葉県・神奈川県（関東一円）</dd></div>
       <div class="row"><dt>許認可</dt><dd>古物商許可、産業廃棄物収集運搬業許可（埼玉県）、酒類販売業免許、特別国際種事業者登録</dd></div>
       <div class="row"><dt>保有資格</dt><dd>遺品整理士、3Rディレクター</dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- ── ContactBand ──────────────────────────────────────────── -->
-<section id="contact-band">
-  <div class="contact-band-inner">
-    <a href="contact.html" class="cta-card">
-      <div>
-        <div class="eyebrow-jp" style="margin-bottom:16px">CONTACT</div>
-        <h2 class="cta-h2">お問い合わせ</h2>
-        <p class="cta-lead">ご相談・ご依頼は、お電話またはフォームよりお気軽にご連絡ください。</p>
-      </div>
-      <div class="cta-more">お問い合わせフォームへ <span style="font-size:18px">→</span></div>
-    </a>
-    <a href="recruit.html" class="cta-card">
-      <div>
-        <div class="eyebrow-jp" style="margin-bottom:16px">RECRUIT</div>
-        <h2 class="cta-h2">採用情報</h2>
-        <p class="cta-lead">一緒に働く仲間を募集しています。未経験の方も歓迎いたします。</p>
-      </div>
-      <div class="cta-more">募集要項を見る <span style="font-size:18px">→</span></div>
-    </a>
-  </div>
-</section>
-
-<footer id="site-footer"><noscript><div><p>株式会社タスカル｜〒362-0035 埼玉県上尾市仲町1-7-25｜TEL 048-782-6606（受付 10:00-19:00 / 年中無休）</p><p>許認可：古物商許可／産業廃棄物収集運搬業（埼玉）／酒類販売業免許／特別国際種事業者登録　資格：遺品整理士／3Rディレクター</p><nav aria-label="サイトマップ"><a href="about.html">会社概要</a> / <a href="about-greeting.html">代表挨拶</a> / <a href="about-history.html">会社沿革</a> / <a href="services.html">事業内容</a> / <a href="services-ihin-seiri.html">遺品整理</a> / <a href="services-seizen-seiri.html">生前整理</a> / <a href="services-fukushi-seiri.html">福祉整理</a> / <a href="services-cleanup.html">お片付け</a> / <a href="services-kaitori.html">買取事業</a> / <a href="services-ec.html">インターネット販売</a> / <a href="business.html">法人のお客様へ</a> / <a href="recruit.html">採用情報</a> / <a href="contact.html">お問い合わせ</a> / <a href="privacy.html">プライバシーポリシー</a></nav></div></noscript></footer>
+    </dl></div>
+  </div></section>
+  <section class="home-recruit container"><a href="recruit.html"><div><span class="section-label">05 / RECRUIT</span><h2>誰かの「助かった」が、<br>自分のやりがいになる。</h2><p>一緒に働く仲間を募集しています。未経験の方も歓迎いたします。</p></div><span class="recruit-link">採用情報を見る <span class="circle-arrow" aria-hidden="true">↗</span></span></a></section>
+  <section class="home-contact"><div class="container"><div class="section-label"><span>LET'S TALK</span><span>ご相談・お問い合わせ</span></div><a class="contact-display" href="contact.html">Contact us<span aria-hidden="true">↗</span></a><div class="contact-bottom"><p>ご相談・ご依頼は、お電話またはフォームより<br>お気軽にご連絡ください。</p><div><a href="tel:0487826606">048-782-6606</a><span>受付 10:00–19:00 / 年中無休</span></div></div></div></section>
+</main>
+<footer id="site-footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><a href="index.html" aria-label="タスカル トップページ"><img src="assets/logo-tasukaru-v2-a.png" alt="タスカル" class="footer-logo" width="174" height="58"></a><div class="footer-address">株式会社タスカル<br>〒362-0035<br>埼玉県上尾市仲町1-7-25</div><div class="footer-tel-wrap"><a href="tel:0487826606" class="footer-tel-num">048-782-6606</a><div class="footer-tel-note">受付 10:00 - 19:00 / 年中無休</div></div></div><div class="footer-col"><div class="footer-col-label">COMPANY</div><ul><li><a href="about.html">会社概要</a></li><li><a href="about-greeting.html">代表挨拶</a></li><li><a href="about-history.html">会社沿革</a></li></ul></div><div class="footer-col"><div class="footer-col-label">SERVICES</div><ul><li><a href="services-ihin-seiri.html">遺品整理</a></li><li><a href="services-seizen-seiri.html">生前整理</a></li><li><a href="services-fukushi-seiri.html">福祉整理</a></li><li><a href="services-cleanup.html">お片付け</a></li><li><a href="services-kaitori.html">買取事業</a></li><li><a href="services-ec.html">インターネット販売</a></li></ul></div><div class="footer-col"><div class="footer-col-label">INFORMATION</div><ul><li><a href="business.html">法人のお客様へ</a></li><li><a href="recruit.html">採用情報</a></li><li><a href="contact.html">お問い合わせ</a></li><li><a href="privacy.html">プライバシーポリシー</a></li></ul></div></div><div class="footer-signature" aria-hidden="true">TASUKARU.</div><div class="footer-bottom"><div>© 株式会社タスカル All Rights Reserved.</div><div class="footer-bottom-links"><a href="privacy.html">プライバシーポリシー</a><a href="contact.html">お問い合わせ</a></div></div></div></footer>
 <script src="common.js"></script>
-</body>
-</html>
+<script src="hero-scroll.js"></script>
+</body></html>

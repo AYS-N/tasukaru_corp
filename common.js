@@ -1,227 +1,50 @@
-// common.js — injects shared header & footer, sets active nav, header scroll.
-(function () {
-  // ── Loading overlay: 足付き段ボールが歩いて→ジャンプして右に着地 ──
-  const buildLoader = () => {
-    if (!document.body || document.getElementById('loader-logo')) return;
-    const w = document.createElement('div');
-    w.id = 'loader-logo';
-    w.setAttribute('aria-hidden', 'true');
-    w.innerHTML =
-      '<svg viewBox="0 0 480 220" role="img" aria-label="読み込み中">' +
-        '<line class="loader-ground" x1="30" y1="205" x2="450" y2="205"/>' +
-        '<g class="loader-hop-x">' +
-          '<ellipse class="loader-shadow" cx="0" cy="206" rx="32" ry="3.5"/>' +
-          '<g class="loader-hop-y">' +
-            '<g class="loader-leg-l">' +
-              '<rect class="loader-leg" x="-13" y="180" width="10" height="24" rx="5"/>' +
-            '</g>' +
-            '<g class="loader-leg-r">' +
-              '<rect class="loader-leg" x="3" y="180" width="10" height="24" rx="5"/>' +
-            '</g>' +
-            '<rect class="loader-box" x="-36" y="108" width="72" height="72" rx="2.5"/>' +
-            '<rect class="loader-box-shade" x="24" y="108" width="12" height="72"/>' +
-            '<path class="loader-box-fold" d="M -36 124 L 36 124 M 0 108 L 0 124"/>' +
-            '<rect class="loader-tape" x="-30" y="108" width="22" height="6" rx="1"/>' +
-            '<g class="loader-symbols">' +
-              '<path d="M -16 158 L -16 148 M -18 150 L -16 148 L -14 150"/>' +
-              '<path d="M -10 158 L -10 148 M -12 150 L -10 148 L -8 150"/>' +
-              '<path d="M -4 152 Q 0 147 4 152 M 0 152 L 0 158"/>' +
-              '<path d="M 10 148 L 16 148 L 14 153 L 12 153 Z M 13 153 L 13 158 M 11 158 L 15 158"/>' +
-            '</g>' +
-          '</g>' +
-        '</g>' +
-      '</svg>';
-    document.body.appendChild(w);
-  };
-  buildLoader();
-
-  // 読み込み完了でオーバーレイをフェードアウト
-  let revealed = false;
-  const reveal = () => {
-    if (revealed) return;
-    revealed = true;
-    document.body.classList.add('loaded');
-  };
-  if (document.readyState === 'complete') setTimeout(reveal, 1100);
-  else window.addEventListener('load', () => setTimeout(reveal, 1100));
-  setTimeout(reveal, 4000); // safety: never block the page
-
-  const NAV = [
-    { id: 'home',     en: 'HOME',     jp: 'トップ',         href: 'index.html' },
-    { id: 'about',    en: 'ABOUT',    jp: '会社概要',       href: 'about.html' },
-    { id: 'services', en: 'SERVICES', jp: '事業内容',       href: 'services.html' },
-    { id: 'business', en: 'BUSINESS', jp: '法人のお客様へ', href: 'business.html' },
-    { id: 'recruit',  en: 'RECRUIT',  jp: '採用情報',       href: 'recruit.html' },
-  ];
-
-  const SITEMAP = [
-    {
-      en: 'ABOUT',
-      items: [
-        ['会社概要', 'about.html'],
-        ['代表挨拶', 'about-greeting.html'],
-        ['会社沿革', 'about-history.html'],
-      ],
-    },
-    {
-      en: 'SERVICES',
-      items: [
-        ['遺品整理', 'services-ihin-seiri.html'],
-        ['生前整理', 'services-seizen-seiri.html'],
-        ['福祉整理', 'services-fukushi-seiri.html'],
-        ['お片付け', 'services-cleanup.html'],
-        ['買取事業', 'services-kaitori.html'],
-        ['インターネット販売', 'services-ec.html'],
-      ],
-    },
-    {
-      en: 'OTHERS',
-      items: [
-        ['法人のお客様へ', 'business.html'],
-        ['採用情報', 'recruit.html'],
-        ['お問い合わせ', 'contact.html'],
-        ['プライバシーポリシー', 'privacy.html'],
-      ],
-    },
-  ];
-
-  function headerHTML(current) {
-    const navItems = NAV.map(p => `
-      <a href="${p.href}" class="nav-item${current === p.id ? ' active' : ''}">
-        <span class="nav-item-en">${p.en}</span>
-        <span class="nav-item-jp">${p.jp}</span>
-      </a>`).join('');
-
-    const mobileItems = NAV.map(p => `
-        <a href="${p.href}" class="mobile-nav-item${current === p.id ? ' active' : ''}">
-          <span class="en">${p.en}</span>
-          <span class="jp">${p.jp}</span>
-        </a>`).join('');
-
-    return `
-    <div class="header-inner">
-      <a href="index.html" class="header-logo">
-        <img src="assets/logo-tasukaru-green.png" alt="タスカル tasukaru">
-      </a>
-      <nav class="header-nav">${navItems}</nav>
-      <div class="header-actions">
-        <a href="tel:0487826606" class="header-tel">
-          <span class="header-tel-label">TEL · 受付 10:00-19:00</span>
-          <span class="header-tel-num">048-782-6606</span>
-        </a>
-        <a href="contact.html" class="header-contact-btn${current === 'contact' ? ' active' : ''}">お問い合わせ</a>
-      </div>
-      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <nav class="mobile-menu-inner">
-${mobileItems}
-        <a href="contact.html" class="mobile-contact-btn">お問い合わせ</a>
-        <a href="tel:0487826606" class="mobile-tel">
-          <span class="label">TEL · 受付 10:00-19:00</span>
-          <span class="num">048-782-6606</span>
-        </a>
-      </nav>
-    </div>`;
+(() => {
+  'use strict';
+  const header = document.getElementById('site-header');
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.mobile-menu');
+  const main = document.querySelector('main');
+  const footer = document.querySelector('footer');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function setMenu(open, focusToggle = false) {
+    if (!menu || !toggle) return;
+    menu.hidden = !open;
+    header.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (main) main.inert = open;
+    if (footer) footer.inert = open;
+    if (focusToggle) toggle.focus();
   }
-
-  function footerHTML() {
-    const cols = SITEMAP.map(col => `
-      <div class="footer-col">
-        <div class="footer-col-label">${col.en}</div>
-        <ul>${col.items.map(([t, h]) => `<li><a href="${h}">— ${t}</a></li>`).join('')}</ul>
-      </div>`).join('');
-
-    return `
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="assets/logo-tasukaru-green.png" alt="タスカル tasukaru" class="footer-logo">
-          <div class="footer-address">
-            株式会社タスカル<br>〒362-0035<br>埼玉県上尾市仲町1-7-25
-          </div>
-          <div class="footer-tel-wrap">
-            <a href="tel:0487826606" class="footer-tel-num">048-782-6606</a>
-            <div class="footer-tel-note">受付 10:00 - 19:00 / 年中無休</div>
-          </div>
-        </div>
-        ${cols}
-      </div>
-      <div class="footer-bottom">
-        <div>© 株式会社タスカル All Rights Reserved.</div>
-        <div class="footer-bottom-links">
-          <a href="privacy.html">プライバシーポリシー</a>
-          <a href="contact.html">お問い合わせ</a>
-        </div>
-      </div>
-    </div>`;
-  }
-
-  function init() {
-    const current = document.body.dataset.page || '';
-    const header = document.getElementById('site-header');
-    const footer = document.getElementById('site-footer');
-    if (header) header.innerHTML = headerHTML(current);
-    if (footer) footer.innerHTML = footerHTML();
-
-    const btt = createBackToTop();
-
-    // Mobile hamburger menu
-    if (header) {
-      const toggle = header.querySelector('.nav-toggle');
-      const closeMenu = () => {
-        header.classList.remove('open');
-        if (toggle) {
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.setAttribute('aria-label', 'メニューを開く');
-        }
-        document.body.style.overflow = '';
-      };
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const isOpen = header.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(isOpen));
-          toggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
-          document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-      }
-      // Close + unlock when leaving mobile width
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 820 && header.classList.contains('open')) closeMenu();
-      }, { passive: true });
+  toggle?.addEventListener('click', () => setMenu(menu.hidden));
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => {
+    if (!menu || menu.hidden) return;
+    if (e.key === 'Escape') setMenu(false, true);
+    if (e.key === 'Tab') {
+      const links = [toggle, ...menu.querySelectorAll('a')];
+      const first = links[0], last = links.at(-1);
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
+  });
+  mobile.addEventListener('change', () => { if (!mobile.matches) setMenu(false); });
+  const back = document.createElement('button');
+  back.className = 'back-to-top'; back.type = 'button';
+  back.setAttribute('aria-label', 'ページ上部へ戻る'); back.textContent = '↑';
+  back.addEventListener('click', () => window.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'}));
+  document.body.append(back);
+  const onScroll = () => { header?.classList.toggle('scrolled', scrollY > 20); back.classList.toggle('visible', scrollY > 500); };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-    const onScroll = () => {
-      if (header) header.classList.toggle('scrolled', window.scrollY > 24);
-      btt.classList.toggle('visible', window.scrollY > 400);
-      // Brighten the button when it overlaps the dark footer
-      if (footer) {
-        const btnCenterY = window.innerHeight - 28 - 26;
-        btt.classList.toggle('on-dark', footer.getBoundingClientRect().top < btnCenterY);
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  function createBackToTop() {
-    const btn = document.createElement('button');
-    btn.className = 'back-to-top';
-    btn.type = 'button';
-    btn.setAttribute('aria-label', 'ページ上部へ戻る');
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
-    btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    document.body.appendChild(btn);
-    return btn;
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  // Link the existing contact controls to their visible labels.
+  document.querySelectorAll('#contact-form .field-label').forEach((label, index) => {
+    const field = label.parentElement.querySelector('input:not([type="checkbox"]), select, textarea');
+    if (field) {
+      field.id ||= `contact-field-${index}`;
+      label.htmlFor = field.id;
+    }
+  });
 })();
