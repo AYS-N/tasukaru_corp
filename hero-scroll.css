@@ -63,6 +63,7 @@ body:has(.hero-story.is-pinned) .back-to-top,body:has(.hero-story.is-pinned) .pr
 @media(prefers-reduced-motion:reduce){.hero-story .hero-track{transform:none!important}.hero-story{height:auto!important}.hero-stage{position:relative!important}.story-slide.main-hero{min-height:540px}.story-controls{display:none}}
 @media print{.hero-story{height:auto!important}.hero-stage{position:relative!important;height:auto!important;overflow:visible!important}.hero-track{display:block!important;transform:none!important}.story-slide.main-hero{height:700px!important;break-inside:avoid}.story-controls{display:none!important}}
 
+.hero-mobile-break{display:none}
 /* A continuous photo rail, followed by a separate final-copy reveal. */
 .is-scroll-story .hero-track{position:relative}
 .is-scroll-story .story-slide.story-gallery{flex-basis:150%}
@@ -117,3 +118,24 @@ body:has(.hero-story.is-pinned) .back-to-top,body:has(.hero-story.is-pinned) .pr
 @media(max-height:660px) and (min-width:601px){.gallery-copy{top:44%}.gallery-copy h2{font-size:30px;line-height:1.4}.gallery-copy .eyeline{margin-bottom:12px}.gallery-copy .hero-description{font-size:11px;line-height:1.7;margin-bottom:10px}.gallery-photo-three{height:27%;top:9%}}
 @media(prefers-reduced-motion:reduce){.final-copy [data-reveal]{opacity:1!important;transform:none!important}.gallery-photo{transform:none!important}.story-reuse .main-hero-photo{transform:none!important}}
 @media print{.final-copy [data-reveal]{opacity:1!important;transform:none!important}.hero-story .story-gallery{height:auto!important;padding:40px 0}.gallery-surface{display:grid!important;grid-template-columns:repeat(3,1fr);gap:20px;height:auto}.gallery-photo{position:relative;inset:auto;width:100%;height:220px;transform:none!important}.gallery-copy{position:relative;inset:auto;grid-column:1/-1;width:100%}.gallery-caption{display:none}}
+
+/* Give the two photographic scenes their own measured mobile typesetting. */
+@media(max-width:600px){
+  :is(#story-care,#story-reuse) .hero-content{width:calc(100% - clamp(56px,18vw,96px));padding-block:clamp(44px,9svh,80px) 80px;align-items:flex-start}
+  :is(#story-care,#story-reuse) .eyeline{font-size:8px;line-height:1.5;letter-spacing:.14em;margin-bottom:28px;gap:8px}
+  :is(#story-care,#story-reuse) .small-dot{width:3px;height:3px}
+  :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(29px,9.4vw,46px);font-weight:400;line-height:1.6;letter-spacing:.065em;margin:0 0 28px;flex-shrink:0}
+  #story-care .hero-title-line{display:block}
+  #story-care .hero-desktop-break{display:none}
+  #story-care .hero-title-line:last-child,#story-reuse .reveal-mask + .reveal-mask{margin-left:.55em}
+  :is(#story-care,#story-reuse) .hero-description{font-size:12px;line-height:2.15;letter-spacing:.025em;margin:0 0 24px;color:#e5e5e5}
+  :is(#story-care,#story-reuse) .hero-mobile-break{display:block}
+  :is(#story-care,#story-reuse) .round-link{font-size:11px;font-weight:400;letter-spacing:.055em;gap:18px;min-height:44px;flex-shrink:0}
+  :is(#story-care,#story-reuse) .circle-arrow{width:36px;height:36px;font-size:23px;background:transparent;border-color:#ffffff80}
+}
+@media(max-width:600px) and (max-height:580px){
+  :is(#story-care,#story-reuse) .hero-content{padding-top:28px}
+  :is(#story-care,#story-reuse) .eyeline{margin-bottom:18px}
+  :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(28px,8.8vw,38px);line-height:1.45;margin-bottom:18px}
+  :is(#story-care,#story-reuse) .hero-description{line-height:1.85;margin-bottom:16px}
+}
