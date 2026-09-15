@@ -140,16 +140,16 @@ body:has(.hero-story.is-pinned) .back-to-top,body:has(.hero-story.is-pinned) .pr
   :is(#story-care,#story-reuse) .hero-description{line-height:1.85;margin-bottom:16px}
 }
 
-/* A light, welcoming opening; motion and the five-photo rail stay intact. */
-#hero-story{background:#fff;--hero-ink:#29312b;--hero-muted:#626c61;--hero-accent:#687e3c}
-#hero-story .story-slide{background:#fff;color:var(--hero-ink);--accent:var(--hero-accent);--ink-1:var(--hero-ink);--ink-2:var(--hero-muted)}
+/* Black framing with bright daylight photos; keep the opening warm and legible. */
+#hero-story{background:#171817;--hero-ink:#f8f7ef;--hero-muted:#d0d2c9;--hero-accent:#d0e69e}
+#hero-story .story-slide{background:#171817;color:var(--hero-ink);--accent:var(--hero-accent);--ink-1:var(--hero-ink);--ink-2:var(--hero-muted)}
 #hero-story .hero-shade{display:none}
 #hero-story :is(.hero-content,.gallery-copy) :is(h1,h2){color:var(--hero-ink)}
 #hero-story :is(.eyeline,.gallery-caption,.hero-side-note){color:var(--hero-muted)}
 #hero-story :is(.hero-content,.gallery-copy) .hero-description{color:var(--hero-muted)}
 #hero-story :is(.hero-content,.gallery-copy) .round-link{color:var(--hero-ink)}
-#hero-story :is(.hero-content,.gallery-copy) .circle-arrow{color:var(--hero-accent);border-color:#d7dfc7;background:#edf2e5}
-#hero-story :is(.hero-content,.gallery-copy) .round-link:hover .circle-arrow{background:var(--hero-accent);border-color:var(--hero-accent);color:#fff}
+#hero-story :is(.hero-content,.gallery-copy) .circle-arrow{color:#25321a;border-color:#d0e69e;background:#d0e69e}
+#hero-story :is(.hero-content,.gallery-copy) .round-link:hover .circle-arrow{background:#f1f7e4;border-color:#f1f7e4;color:#25321a}
 #hero-story :is(#story-care,#story-reuse) .main-hero-photo{inset:7% 0 12% auto;width:52%;height:81%;filter:none;opacity:1;object-position:65% center;border-radius:64px 0 0 0}
 #hero-story :is(#story-care,#story-reuse) .hero-content{width:42%;max-width:none;margin-left:4.5%;margin-right:0;padding:24px 0 76px;align-items:flex-start;justify-content:center}
 #hero-story :is(#story-care,#story-reuse) :is(h1,h2){font-size:clamp(38px,4.55vw,78px);font-weight:500;line-height:1.5;letter-spacing:.055em;margin-bottom:26px}
@@ -158,12 +158,12 @@ body:has(.hero-story.is-pinned) .back-to-top,body:has(.hero-story.is-pinned) .pr
 #hero-story .hero-side-note{top:auto;bottom:8.5%;right:25px;writing-mode:horizontal-tb;font-size:8px}
 #story-organize .gallery-photo img{filter:none;opacity:1}
 #story-organize .gallery-photo-one img,#story-organize .gallery-photo-three img{object-position:50% center}
-#hero-story .story-controls{color:#626c61}
-#hero-story .story-pagination button{color:#697266}
-#hero-story .story-pagination button[aria-current]{color:#29312b}
-#hero-story .story-pagination button[aria-current]::after,#hero-story .story-progress>span{background:#687e3c}
-#hero-story .story-progress{background:#d4dccb}
-#hero-story .story-skip{color:#465240}
+#hero-story .story-controls{color:#c7cbbf}
+#hero-story .story-pagination button{color:#b8c0ad}
+#hero-story .story-pagination button[aria-current]{color:#f8f7ef}
+#hero-story .story-pagination button[aria-current]::after,#hero-story .story-progress>span{background:#d0e69e}
+#hero-story .story-progress{background:#59634e}
+#hero-story .story-skip{color:#d0d2c9}
 @media(max-width:900px) and (min-width:601px){
   #hero-story :is(#story-care,#story-reuse) :is(h1,h2){font-size:4.45vw}
   #hero-story :is(#story-care,#story-reuse) .hero-description{font-size:11px;letter-spacing:0}
