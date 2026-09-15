@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Preserve the existing wordmark while lifting its embedded translucent ink. -->
+  <filter id="ivory" color-interpolation-filters="sRGB">
+    <feComponentTransfer>
+      <feFuncR type="linear" slope="0" intercept="0.98"/>
+      <feFuncG type="linear" slope="0" intercept="0.973"/>
+      <feFuncB type="linear" slope="0" intercept="0.94"/>
+      <feFuncA type="linear" slope="1.7"/>
+    </feComponentTransfer>
+  </filter>
+</svg>

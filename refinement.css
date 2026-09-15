@@ -21,6 +21,6 @@ body:not([data-page="home"]) .page-hero,.sd-hero{background:#fff!important;borde
 .story-controls{color:#ddd}.story-pagination button{color:#b5b5b5}.story-pagination button[aria-current]{color:#fff}.story-pagination button[aria-current]::after,.story-progress>span{background:#fff}.story-progress{background:#ffffff55}.story-skip{color:#ddd}
 @media(max-width:600px){.story-slide .hero-content h1,.story-slide .hero-content h2{font-weight:500;letter-spacing:.025em;line-height:1.45}.hero-shade{background:linear-gradient(90deg,#0a0a0ac9,#0a0a0a3d),linear-gradient(0deg,#0a0a0aad,transparent 55%)}.story-photo-large,.story-photo-small{filter:grayscale(1)}.story-photo-composition::after{background:linear-gradient(180deg,#fff 0%,#fffffff0 33%,#ffffff11 75%)}.philosophy-grid h2{letter-spacing:.045em}.service-heading h3{font-weight:500}.hero-description{letter-spacing:.02em}}
 
-/* Keep the original wordmark; lift its green for the dark header and footer. */
-.header-logo img,.footer-logo,.portrait::after{filter:brightness(1.8) saturate(.8) hue-rotate(12deg)}
+/* Keep the original wordmark; use a bright ivory on the dark header and footer. */
+.header-logo img,.footer-logo,.portrait::after{filter:url("assets/logo-ivory-filter.svg#ivory")}
 .portrait::after{background-color:transparent!important;mix-blend-mode:screen}
