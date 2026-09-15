@@ -63,12 +63,13 @@
     revealItems.forEach(node => {
       const p = smooth(clamp((reveal - Number(node.dataset.reveal)) / .4));
       node.style.opacity = String(p);
-      node.style.transform = 'translate3d(0,' + ((1 - p) * 38) + 'px,0)';
+      node.style.transform = 'translate3d(0,' + ((1 - p) * 30) + 'px,0)';
       node.inert = p < .98;
     });
     finalCopy.inert = reveal === 0;
     finalCopy.setAttribute('aria-hidden', String(reveal === 0));
-    finalImage.style.transform = 'scale(' + (1.04 - smooth(reveal) * .04) + ')';
+    finalImage.style.transform = 'scale(' + (1.035 - smooth(reveal) * .035) + ')';
+    finalImage.style.opacity = String(.62 + smooth(reveal) * .33);
     const nextHint = pan < panDistance ? 'SCROLL TO EXPLORE' : reveal < 1 ? 'SCROLL TO REVEAL' : 'SCROLL TO CONTINUE';
     if (nextHint !== hintPhase) { hint.textContent = nextHint; hintPhase = nextHint; }
   }
