@@ -20,3 +20,5 @@ coverage/
 .env
 .env.local
 contact_config.php
+vendor/
+contact-rate-limit.json

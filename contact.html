@@ -145,40 +145,41 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
 
         <div>
           <label class="field-label">お名前 <span class="req">必須</span></label>
-          <input class="input" placeholder="山田 太郎" required>
+          <input class="input" name="name" placeholder="山田 太郎" maxlength="100" required>
         </div>
 
         <div id="company-block" class="hidden">
           <label class="field-label">貴社名</label>
-          <input class="input" placeholder="株式会社○○">
+          <input class="input" name="company" placeholder="株式会社○○" maxlength="120">
         </div>
 
         <div class="form-2col">
           <div>
             <label class="field-label">電話番号</label>
-            <input class="input" placeholder="000-0000-0000" type="tel">
+            <input class="input" name="tel" placeholder="000-0000-0000" type="tel" maxlength="40">
           </div>
           <div>
             <label class="field-label">メールアドレス <span class="req">必須</span></label>
-            <input class="input" type="email" placeholder="example@email.com" required>
+            <input class="input" name="email" type="email" placeholder="example@email.com" maxlength="254" required>
           </div>
         </div>
 
         <div>
           <label class="field-label">ご住所 <span class="opt">任意</span></label>
-          <input class="input" placeholder="埼玉県◯◯市...">
+          <input class="input" name="address" placeholder="埼玉県◯◯市..." maxlength="200">
         </div>
 
         <div>
           <label class="field-label">お問い合わせ内容</label>
-          <textarea class="input" rows="5" placeholder="ご相談したい内容をご記入ください" style="resize:vertical"></textarea>
+          <textarea class="input" name="message" rows="5" maxlength="5000" placeholder="ご相談したい内容をご記入ください" style="resize:vertical"></textarea>
         </div>
 
         <div class="privacy-row">
-          <input type="checkbox" id="privacy" required>
+          <input type="checkbox" id="privacy" name="privacy" value="1" required>
           <label for="privacy"><a href="privacy.html" style="color:var(--ink-1)">プライバシーポリシー</a>に同意する</label>
         </div>
 
+        <div class="hidden" aria-hidden="true"><label for="contact-website">ウェブサイト</label><input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
         <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:16px 40px">送信する <span style="font-size:18px">→</span></button>
       </form>
 
@@ -203,14 +204,6 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
   const form = document.getElementById('contact-form');
   const thanks = document.getElementById('thanks');
   const resetBtn = document.getElementById('reset-btn');
-  const namedFields = [
-    ['input.input', 'name'],
-    ['#company-block input.input', 'company'],
-    ['input[type="tel"]', 'tel'],
-    ['input[type="email"]', 'email'],
-    ['.form > div:nth-of-type(6) input.input', 'address'],
-    ['textarea.input', 'message'],
-  ];
 
   // Preselect type from ?type=
   const params = new URLSearchParams(window.location.search);
@@ -219,11 +212,6 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
     typeSelect.value = initial;
   }
 
-  namedFields.forEach(function ([selector, name]) {
-    const field = form.querySelector(selector);
-    if (field) field.setAttribute('name', name);
-  });
-
   if (params.get('sent') === '1') {
     form.classList.add('hidden');
     thanks.classList.remove('hidden');
@@ -231,6 +219,12 @@ select.input { border-top: none; border-left: none; border-right: none; backgrou
 
   if (params.get('error') === '1') {
     form.insertAdjacentHTML('afterbegin', '<p style="color:var(--error);margin:0">送信できませんでした。時間をおいて再度お試しください。</p>');
+  }
+  if (params.get('error') === 'input') {
+    form.insertAdjacentHTML('afterbegin', '<p style="color:var(--error);margin:0">入力内容を確認して再度お試しください。</p>');
+  }
+  if (params.get('error') === 'rate') {
+    form.insertAdjacentHTML('afterbegin', '<p style="color:var(--error);margin:0">続けて送信できません。しばらく時間をおいて再度お試しください。</p>');
   }
 
   function sync() {
