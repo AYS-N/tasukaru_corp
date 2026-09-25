@@ -29,3 +29,170 @@ body:not([data-page="home"]) .page-hero,.sd-hero{background:#fff!important;borde
   mix-blend-mode:normal;
 }
 .portrait::after{background-color:transparent!important}
+
+/* Readable typography across the homepage and all information pages.
+   rem sizes respect the reader's default font size; keep the existing palette. */
+:root{
+  --type-body:1.125rem;
+  --type-copy:1rem;
+  --type-small:.875rem;
+  --type-label:.8125rem;
+}
+body{font-size:var(--type-body)}
+.round-link,.text-link,.section-intro .text-link,.recruit-link,.btn{font-size:var(--type-copy)}
+.section-label{font-size:var(--type-small);gap:16px;flex-wrap:wrap}
+.brand-caption{font-size:.75rem}
+.nav-item-jp,.header-contact-btn{font-size:var(--type-copy);white-space:nowrap}
+.header-nav{gap:22px}
+.header-contact-btn{gap:16px}
+.mobile-nav-item .jp{font-size:1.25rem}
+.mobile-nav-item .en,.mobile-tel .label{font-size:var(--type-label)}
+.mobile-contact-btn{font-size:1.125rem}
+.mobile-tel .num{font-size:1.875rem}
+.mobile-nav-item{min-height:56px}
+
+/* Homepage copy, card descriptions, and company information. */
+.service-strip span,.service-strip p{font-size:var(--type-small)}
+.service-strip>.container{padding-block:20px;flex-wrap:wrap;gap:12px 28px}
+.service-strip p{line-height:1.9}
+.large-copy{font-size:1.375rem;line-height:2}
+.philosophy-grid p:not(.large-copy),.business-split p,.company-split>div>p{font-size:var(--type-body);line-height:2}
+.values-grid h3,.partner-list h3{font-size:1.25rem}
+.values-grid p,.partner-list p,.business-split .business-note{font-size:var(--type-copy);line-height:1.9}
+.value-no,.value-en,.partner-list .partner-no,.service-index,.service-english{font-size:var(--type-label)}
+.section-jp{font-size:var(--type-body)}
+.service-heading h3{font-size:1.5rem}
+.service-editorial>p{font-size:var(--type-copy);line-height:1.95;max-width:100%}
+.company-split h3{font-size:1.625rem}
+.company-table .row{font-size:var(--type-copy);grid-template-columns:100px minmax(0,1fr);gap:24px}
+.home-recruit h2{font-size:2.125rem}
+.home-recruit p,.contact-bottom p{font-size:var(--type-copy)}
+.contact-bottom span{font-size:var(--type-small)}
+.contact-bottom a{font-size:2.125rem}
+
+/* Subpage copy and controls share the same readable scale. */
+.eyebrow-jp,.related-en,.svc-group-en,.svc-card-en,.pkg-en,.pos-en,
+.strength-no,.feature-no,.info-label,.thanks-en,.nf-label,.nf-quick-label span,.nf-quick-en{font-size:var(--type-label)}
+.breadcrumb{font-size:var(--type-small)}
+.page-hero-lead,.r-lead-p,.b-lead-p,.greeting-p,.history-lead,.tl-body,.nf-p{font-size:var(--type-body)}
+.sd-hero-lead{font-size:var(--type-body)!important}
+.greeting-intro{font-size:1.25rem}
+.greeting-sign{font-size:var(--type-body)}
+.info-row dt,.info-row dd,.detail-row dt,.detail-row dd{font-size:var(--type-copy)}
+.quick-card p,.svc-card-short,.svc-banner p,.concern-text,.feature p,.strength p,
+.pkg-body,.pos p,.flow-item p,.b-cta p,.apply-p,.privacy-intro,.privacy-sec p,
+.info-callout p,.thanks p,.map-link,.info-mail,.nf-quick-jp{font-size:var(--type-copy)}
+.pkg-use,.pkg-tag,.pos-type,.tl-month,.privacy-foot,.info-note,.req,.opt,
+.preview-form-note{font-size:var(--type-small)}
+.quick-card h3,.svc-card-title,.svc-banner h3,.pkg h3{font-size:1.625rem}
+.feature h3,.related-card h3,.strength h3,.pos h3,.flow-item h3,.privacy-sec h2{font-size:1.375rem}
+.svc-group-h2{font-size:1.875rem}
+.info-callout-title{font-size:1.125rem}
+.form label.field-label,.chip,.form .privacy-row,.preview-form-result{font-size:var(--type-copy)}
+.input{font-size:var(--type-body)}
+.form .privacy-row{align-items:flex-start}
+.privacy-row input{flex-shrink:0;margin-top:.5em}
+.info-row dd,.detail-row dd{min-width:0;overflow-wrap:anywhere}
+
+/* Footer information remains readable at both desktop and phone widths. */
+.footer-address,.footer-col a{font-size:var(--type-copy)}
+.footer-tel-note{font-size:var(--type-small)}
+.footer-col-label,.footer-bottom{font-size:var(--type-label)}
+.footer-tel-num{font-size:1.625rem}
+.footer-col a{display:inline-block;padding-block:3px}
+.footer-bottom{flex-wrap:wrap;gap:16px}
+.footer-bottom-links{flex-wrap:wrap}
+.footer-bottom-links a{font-size:var(--type-small)}
+
+/* Photo story: enlarge copy independently of the decorative image rail. */
+#hero-story :is(.hero-content,.gallery-copy) :is(h1,h2){font-size:clamp(38px,4vw,70px)}
+#hero-story .gallery-copy h2{font-size:clamp(36px,3.8vw,64px)}
+#hero-story #story-reuse h2{font-size:clamp(42px,4.9vw,82px)}
+#hero-story :is(.hero-content,.gallery-copy) .eyeline{font-size:.75rem;letter-spacing:.12em}
+#hero-story :is(.hero-content,.gallery-copy) .hero-description{font-size:var(--type-copy);line-height:2;letter-spacing:.035em}
+#hero-story :is(.hero-content,.gallery-copy) .round-link{font-size:var(--type-copy);letter-spacing:.035em}
+#hero-story .hero-side-note,#hero-story .gallery-caption{font-size:.75rem}
+#hero-story .story-pagination button,#hero-story .story-skip,#hero-story .story-scroll-hint{font-size:var(--type-label)}
+#hero-story .gallery-copy .hero-description{padding-left:3em}
+#hero-story .gallery-copy .round-link{margin-left:3em}
+
+@media(max-width:1280px){
+  .brand-caption{display:none}
+  .header-inner{gap:20px;padding-inline:28px}
+  .header-nav{gap:18px}
+}
+@media(max-width:1050px) and (min-width:901px){
+  .header-inner{gap:16px;padding-inline:22px}
+  .header-logo img{width:156px}
+  .header-nav{gap:14px}
+  .header-contact-btn{padding-inline:12px;gap:10px}
+}
+@media(max-width:1150px){
+  #hero-story .hero-content>.hero-description{bottom:20%}
+  #hero-story .hero-content>.round-link{left:0;right:auto;bottom:10%}
+  .values-grid{grid-template-columns:1fr}
+  .values-grid article{grid-template-columns:28px minmax(0,1fr) auto;gap:16px}
+  .value-en{grid-column:3;margin-top:7px}
+}
+@media(max-width:900px){
+  #hero-story :is(.hero-content,.gallery-copy) :is(h1,h2){font-size:clamp(36px,4.5vw,48px)}
+  #hero-story .gallery-copy .hero-description{padding-left:0;margin-left:0}
+  #hero-story .gallery-copy .round-link{margin-left:0}
+  .home-recruit>a{flex-wrap:wrap}
+  .home-recruit h2{font-size:1.875rem}
+}
+@media(max-width:600px){
+  :root{--type-body:1rem}
+  .header-inner{padding-inline:22px}
+  .section-label{font-size:var(--type-small);letter-spacing:.04em;gap:8px}
+  .large-copy{font-size:1.1875rem}
+  .values-grid article{grid-template-columns:24px minmax(0,1fr);gap:8px 12px}
+  .value-en{grid-column:2;text-align:left;margin-top:4px}
+  .values-grid h3,.partner-list h3{font-size:1.1875rem}
+  .company-table .row{grid-template-columns:80px minmax(0,1fr);gap:16px}
+  .company-split h3{font-size:1.5rem}
+  .home-recruit h2{font-size:1.75rem}
+  .footer-grid{column-gap:20px}
+  .footer-col a{font-size:.9375rem}
+  .footer-col-label{letter-spacing:.08em}
+  .page-hero-lead{line-height:1.95}
+  .info-row,.detail-row{grid-template-columns:1fr!important;gap:8px!important}
+  .svc-group-h2{font-size:1.625rem}
+  .svc-banner h3{font-size:1.375rem}
+  .chip{padding:8px 12px}
+  #hero-story .hero-content,#hero-story #story-reuse .hero-content{
+    width:calc(100% - 44px);justify-content:center;padding:64px 0 100px;
+  }
+  #hero-story :is(.hero-content,.gallery-copy) :is(h1,h2),#hero-story #story-reuse h2{
+    font-size:clamp(30px,8.5vw,46px);line-height:1.75;letter-spacing:.08em;
+  }
+  #hero-story .hero-content>.hero-description{position:static;margin:28px 0 18px}
+  #hero-story .hero-content>.round-link{position:static}
+  #hero-story :is(.hero-content,.gallery-copy) .eyeline{font-size:.75rem;margin-bottom:20px;letter-spacing:.08em}
+  #hero-story .hero-side-note{left:22px;top:24px;font-size:.6875rem}
+  #hero-story .gallery-copy{top:24%;width:36%}
+  #hero-story .gallery-copy h2{font-size:8vw;letter-spacing:.05em}
+  #hero-story .gallery-copy .hero-description{font-size:var(--type-copy);margin:24px 0 16px;line-height:1.9}
+  #hero-story .gallery-copy .round-link{margin-left:0}
+  #hero-story .gallery-caption{font-size:.6875rem}
+  #hero-story .story-pagination button{width:32px;min-height:44px}
+  #hero-story .story-skip{min-height:44px;align-items:center}
+  #hero-story .story-controls{bottom:10px}
+}
+/* Short viewports and motion-free layouts must grow with the larger copy. */
+@media(max-height:700px) and (min-width:601px){
+  #hero-story .hero-content,#hero-story #story-reuse .hero-content{justify-content:center;padding:36px 0 80px}
+  #hero-story :is(.hero-content,.gallery-copy) :is(h1,h2),#hero-story #story-reuse h2{font-size:clamp(30px,5.5svh,40px);line-height:1.55}
+  #hero-story .hero-content>.hero-description{position:static;margin:18px 0 12px;line-height:1.8}
+  #hero-story .hero-content>.round-link{position:static}
+  #hero-story .gallery-copy{top:18%}
+}
+@media(max-width:600px) and (max-height:700px){
+  #hero-story .hero-content,#hero-story #story-reuse .hero-content{padding:50px 0 70px}
+  #hero-story .hero-content>.hero-description{margin-top:18px;line-height:1.8}
+  #hero-story .gallery-copy{top:20%}
+}
+#hero-story:not(.is-scroll-story) .story-slide:not(.story-gallery){height:auto;min-height:var(--story-height)}
+#hero-story:not(.is-scroll-story) .hero-content,#hero-story:not(.is-scroll-story) #story-reuse .hero-content{height:auto;padding:80px 0}
+#hero-story:not(.is-scroll-story) .hero-content>.hero-description{position:static;margin:28px 0 20px}
+#hero-story:not(.is-scroll-story) .hero-content>.round-link{position:static}
