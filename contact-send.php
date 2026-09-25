@@ -65,6 +65,7 @@ if (
     !isset($typeLabels[$fields['type']]) ||
     $fields['name'] === '' ||
     preg_match('/[\r\n]/', $fields['name']) ||
+    $fields['tel'] === '' ||
     $fields['email'] === '' ||
     preg_match('/[\r\n]/', $fields['email']) ||
     !filter_var($fields['email'], FILTER_VALIDATE_EMAIL) ||
